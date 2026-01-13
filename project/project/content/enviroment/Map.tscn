@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://t5t7vxfis17t"]
+
+[ext_resource type="PackedScene" uid="uid://mr2lb6iv8i15" path="res://models/map/Map.fbx" id="1_odvp2"]
+[ext_resource type="PackedScene" uid="uid://s8i1rlbqlqlq" path="res://content/enviroment/Table.tscn" id="2_6wvuo"]
+
+[node name="Map" type="Node3D"]
+
+[node name="Root Scene" parent="." instance=ExtResource("1_odvp2")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.7688, 9.05046, 9.54021)
+light_energy = 11.505
+omni_range = 39.6135
+
+[node name="Table" parent="." instance=ExtResource("2_6wvuo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1249, 0, 37.7935)
