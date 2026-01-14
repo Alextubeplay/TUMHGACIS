@@ -1,42 +1,28 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1768364976
-icon.svg::CompressedTexture2D::5583402611219763411::1763402482::1763402526::1::::<><>::
-::res://content/::1768300253
-::res://content/enemies/::1768284312
-::res://content/enviroment/::1768300253
-Map.tscn::PackedScene::1396731268771389099::1768285852::0::1::::<><>::uid://mr2lb6iv8i15::::res://models/map/Map.fbx<>uid://s8i1rlbqlqlq::::res://content/enviroment/Table.tscn
-Table.tscn::PackedScene::1332056727909283582::1768277536::0::1::::<><>::uid://curkc4uc6hr1h::::res://models/map/Table.fbx
-::res://content/interactable/::1768300253
-Ripper_ventilation.tscn::PackedScene::8873448062176648642::1768285852::0::1::::<><>::uid://d1qtcxkak6vr2::::res://models/interactable/Ripper_vent.fbx
-::res://content/player/::1768300253
-Player.tscn::PackedScene::4853474007961886433::1768286260::0::1::::<><>::res://scripts/PlayerController.gd
-::res://misc/::1768300230
-Map.blend::::-1::0::0::0::::<><>::
-Pixelizer_node.blend::::-1::0::0::0::::<><>::
-TUMH GACIS CHARACTERS.blend::::-1::0::0::0::::<><>::
-::res://misc/Идея/::1768364990
-План-схема 1 СЛОЙ .png::CompressedTexture2D::1086722735628701887::1757260826::1768364990::1::::<><>::
-План-схема 2 СЛОЙ .png::CompressedTexture2D::4609464063250587511::1757263160::1768364990::1::::<><>::
-План-схема.png::CompressedTexture2D::328637891412617995::1757260804::1768364989::1::::<><>::
-::res://misc/отчётность/::1768364984
-Снимок экрана 2026-01-13 113545.png::CompressedTexture2D::6254414665464158963::1768286172::1768364982::1::::<><>::
-Снимок экрана 2026-01-13 113635.png::CompressedTexture2D::1640633030261092662::1768286208::1768364984::1::::<><>::
-Снимок экрана 2026-01-13 113723.png::CompressedTexture2D::2043011536268809748::1768286246::1768364984::1::::<><>::
-::res://models/::1768300253
-::res://models/enemies/::1768300253
-Dummy.fbx::PackedScene::9065496142082361799::1764703666::1764703670::1::::<><>::
-::res://models/interactable/::1768300253
-Ripper_vent.fbx::PackedScene::9018360447683178313::1764703522::1764703586::1::::<><>::
-::res://models/map/::1768300253
-Crematory_door.fbx::PackedScene::1339150026567214288::1764703504::1764703588::1::::<><>::
-Door_half.fbx::PackedScene::1902698351892319514::1764703634::1764703670::1::::<><>::
-Map.fbx::PackedScene::879019648818193866::1764703270::1764703588::1::::<><>::
-Office_chair.fbx::PackedScene::1787043874984690975::1764703400::1764703588::1::::<><>::
-Regular_vent.fbx::PackedScene::8295843902955560794::1764703484::1764703590::1::::<><>::
-Table.fbx::PackedScene::6212324957687175847::1764703382::1764703590::1::::<><>::
-Window.fbx::PackedScene::1619728375488594108::1764702930::1764703198::1::::<><>::
-::res://models/textures/::1768276154
-::res://scenes/::1768365747
-Main_scene.tscn::PackedScene::8105378244294761242::1768365747::0::1::::<><>::uid://t5t7vxfis17t::::res://content/enviroment/Map.tscn<>uid://cbfcaja7njh6p::::res://content/player/Player.tscn<>uid://dyomnmqv63xla::::res://content/interactable/Ripper_ventilation.tscn
-::res://scripts/::1768300253
-PlayerController.gd::GDScript::-1::1768285852::0::1::::<>Node3D<>::
+::res://::1768377055
+icon.svg::CompressedTexture2D::5583402611219763411::1768376909::1768376909::1::::<><>::
+::res://content/::1768376909
+::res://content/enviroment/::1768376909
+Map.tscn::PackedScene::1396731268771389099::1768376909::0::1::::<><>::uid://mr2lb6iv8i15::::res://models/map/Map.fbx<>uid://s8i1rlbqlqlq::::res://content/enviroment/Table.tscn
+Table.tscn::PackedScene::1332056727909283582::1768376909::0::1::::<><>::uid://curkc4uc6hr1h::::res://models/map/Table.fbx
+::res://content/interactable/::1768376909
+Ripper_ventilation.tscn::PackedScene::8873448062176648642::1768376909::0::1::::<><>::uid://d1qtcxkak6vr2::::res://models/interactable/Ripper_vent.fbx
+::res://content/player/::1768376909
+Player.tscn::PackedScene::4853474007961886433::1768376909::0::1::::<><>::res://scripts/PlayerController.gd
+::res://models/::1768376909
+::res://models/enemies/::1768376909
+Dummy.fbx::PackedScene::9065496142082361799::1768376909::1768376909::1::::<><>::
+::res://models/interactable/::1768376909
+Ripper_vent.fbx::PackedScene::9018360447683178313::1768376909::1768376909::1::::<><>::
+::res://models/map/::1768376909
+Crematory_door.fbx::PackedScene::1339150026567214288::1768376909::1768376909::1::::<><>::
+Door_half.fbx::PackedScene::1902698351892319514::1768376909::1768376909::1::::<><>::
+Map.fbx::PackedScene::879019648818193866::1768376909::1768376909::1::::<><>::
+Office_chair.fbx::PackedScene::1787043874984690975::1768376909::1768376909::1::::<><>::
+Regular_vent.fbx::PackedScene::8295843902955560794::1768376909::1768376909::1::::<><>::
+Table.fbx::PackedScene::6212324957687175847::1768376909::1768376909::1::::<><>::
+Window.fbx::PackedScene::1619728375488594108::1768376909::1768376909::1::::<><>::
+::res://scenes/::1768376909
+Main_scene.tscn::PackedScene::8105378244294761242::1768376909::0::1::::<><>::uid://t5t7vxfis17t::::res://content/enviroment/Map.tscn<>uid://cbfcaja7njh6p::::res://content/player/Player.tscn<>uid://dyomnmqv63xla::::res://content/interactable/Ripper_ventilation.tscn
+::res://scripts/::1768376909
+PlayerController.gd::GDScript::-1::1768376909::0::1::::<>Node3D<>::

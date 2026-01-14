@@ -1,5 +1,5 @@
-res://scenes/Main_scene.tscn
 res://content/player/Player.tscn
 res://scripts/PlayerController.gd
+res://scenes/Main_scene.tscn
 res://content/enviroment/Map.tscn
 res://content/interactable/Ripper_ventilation.tscn
