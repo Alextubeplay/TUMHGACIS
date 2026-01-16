@@ -1,6 +1,7 @@
 extends Node3D
 
 #Variables
+
 var plooking = "forward" #forward, left, right, down, up, monitor
 
 func _ready():
@@ -83,3 +84,15 @@ func _process(delta):
 			plooking = "down"
 			rotate_y(-PI / 2)
 			rotate_x(-PI / 4)
+	#if Input.is_action_just_pressed("Left"):
+		#plooking = "left"
+		#rotate_y(PI/2)
+	#if Input.is_action_just_pressed("Right"):
+		#plooking = "right"
+		#rotate_y(-PI/2)
+	#if Input.is_action_just_pressed("Up"):
+		#plooking = "up"
+		#rotate_x(PI/4)
+	#if Input.is_action_just_pressed("Down"):
+		#plooking = "down"
+		#rotate_x(-PI/4)

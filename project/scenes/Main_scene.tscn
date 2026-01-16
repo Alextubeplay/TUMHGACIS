@@ -8,8 +8,8 @@
 
 [node name="Map" parent="." instance=ExtResource("1_ddn17")]
 
-[node name="Player" parent="." instance=ExtResource("2_l5tlr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4133, 6.78392, 42.6683)
-
 [node name="RipperVentilation" parent="." instance=ExtResource("3_r0vjo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.1559, 5.9731, 38.9302)
+
+[node name="Player" parent="." instance=ExtResource("2_l5tlr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8824, 6.40196, 41.6667)
