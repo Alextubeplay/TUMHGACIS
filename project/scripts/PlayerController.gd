@@ -5,37 +5,35 @@ extends Node3D
 var plooking = "forward"
 var rotation_direction = Vector3()
 
-#var rotation_speed = 5
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	rotation_direction.x = Input.get_axis("Down", "Up")
-	
-	match [plooking, rotation_direction.x]:
-		
-		["forward", 1]:
-			plooking = "up"
-			rotate_x(PI / 2)
-			print("YAY")
-			
-		["up", -1]:
-			plooking = "down"
-			rotate_x(PI / 2)
-			print("non")
-	
-	
-	#_get_input()
-	#transform.basis = Basis(Quaternion.from_euler(rotation_direction))
-	#global_rotate(rotation_direction, 0.1)
+	#match [plooking, Input.action_press("Left")]:
+		#["forward", true]:
+			#plooking = "left"
+			#rotate_y(PI/2)
+		#["up", true]:
+			#plooking = "left"
+			#rotate_x(-PI/4)
+			#rotate_y(PI/2)
+		#["down", true]:
+			#plooking = "left"
+			#rotate_x(PI/4)
+			#rotate_y(PI/2)
+		#_:
+			#pass
 
-# _get_input():
-	#rotation_direction.x = Input.get_axis("Down", "Up")
-
-	#rotation_direction.y = Input.get_axis("Right", "Left")
-	#print(rotation_direction)
+	#if Input.is_action_just_pressed("Left"):
+		#plooking = "left"
+		#rotate_y(PI/2)
+	#if Input.is_action_just_pressed("Right"):
+		#plooking = "right"
+		#rotate_y(-PI/2)
+	#if Input.is_action_just_pressed("Up"):
+		#plooking = "up"
+		#rotate_x(PI/4)
+	#if Input.is_action_just_pressed("Down"):
+		#plooking = "down"
+		#rotate_x(-PI/4)
