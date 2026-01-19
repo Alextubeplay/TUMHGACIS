@@ -83,3 +83,10 @@ func _process(delta):
 			plooking = "down"
 			rotation.y = (0)
 			rotation.x = (-PI / 4)
+	
+	match [plooking, Input.is_action_just_pressed("Interact")]:
+		["left", true]:
+			pass
+		["up", true]:
+			pass
+			#close_valve()

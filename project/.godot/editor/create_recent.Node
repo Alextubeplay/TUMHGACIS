@@ -1,6 +1,7 @@
-Camera3D
-OmniLight3D
+AnimationPlayer
 SpotLight3D
+OmniLight3D
+Camera3D
 MeshInstance3D
 Node3D
 Node

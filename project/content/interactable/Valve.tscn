@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0qmgidlnhyxv"]
+
+[ext_resource type="PackedScene" uid="uid://bx5mtyiwpx2hk" path="res://models/interactable/Valve.fbx" id="1_0unrg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wqhb"]
+albedo_color = Color(0.53617, 0.175872, 0.121765, 1)
+metallic = 0.92
+roughness = 0.25
+
+[sub_resource type="Animation" id="Animation_aggiq"]
+resource_name = "Rotate"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root Scene:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8ag2a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root Scene:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_csll6"]
+_data = {
+"RESET": SubResource("Animation_8ag2a"),
+"Rotate": SubResource("Animation_aggiq")
+}
+
+[node name="Valve" type="Node3D"]
+
+[node name="Root Scene" parent="." instance=ExtResource("1_0unrg")]
+metadata/Texture = SubResource("StandardMaterial3D_1wqhb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_csll6")
+}

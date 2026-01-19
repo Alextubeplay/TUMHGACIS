@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bx5mtyiwpx2hk"
-path="res://.godot/imported/Valve.fbx-2dbf3cd946f387118774bd0d9fcd6817.scn"
+path="res://.godot/imported/Valve.fbx-1ec7b39cea01d06effd4419858cba404.scn"
 
 [deps]
 
-source_file="res://models/map/Valve.fbx"
-dest_files=["res://.godot/imported/Valve.fbx-2dbf3cd946f387118774bd0d9fcd6817.scn"]
+source_file="res://models/interactable/Valve.fbx"
+dest_files=["res://.godot/imported/Valve.fbx-1ec7b39cea01d06effd4419858cba404.scn"]
 
 [params]
 
