@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://t5t7vxfis17t"]
+[gd_scene load_steps=6 format=3 uid="uid://t5t7vxfis17t"]
 
 [ext_resource type="PackedScene" uid="uid://mr2lb6iv8i15" path="res://models/map/Map.fbx" id="1_odvp2"]
 [ext_resource type="PackedScene" uid="uid://s8i1rlbqlqlq" path="res://content/enviroment/Table.tscn" id="2_6wvuo"]
 [ext_resource type="PackedScene" uid="uid://iqsunh2ykhu0" path="res://models/map/big_tube.fbx" id="3_hmimu"]
 [ext_resource type="PackedScene" uid="uid://cwaa4swcsuq6b" path="res://models/map/big_T_tube.fbx" id="3_y0rq1"]
 [ext_resource type="PackedScene" uid="uid://bhdayg5wnqcl3" path="res://models/map/big_L_tube.fbx" id="5_0mi37"]
-[ext_resource type="PackedScene" uid="uid://fae1cw6wkimi" path="res://models/map/Valve_base.fbx" id="6_darih"]
 
 [node name="Map" type="Node3D"]
 
@@ -90,6 +89,3 @@ transform = Transform3D(0.976579, 0.0718581, -0.202806, -0.0506342, 0.992864, 0.
 light_energy = 16.0
 spot_range = 76.0
 spot_angle = 17.6673
-
-[node name="Valve_base" parent="." instance=ExtResource("6_darih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2682, 11.4305, 40.7042)

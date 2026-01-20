@@ -2,7 +2,8 @@ extends Node3D
 
 #Variables
 var plooking = "forward" #forward, left, right, down, up, monitor
-
+@export var valve: Valve
+@export var vent: Vent
 func _ready():
 	pass # Replace with function body.
 
@@ -86,7 +87,6 @@ func _process(delta):
 	
 	match [plooking, Input.is_action_just_pressed("Interact")]:
 		["left", true]:
-			pass
+			vent.close_vent()
 		["up", true]:
-			pass
-			#close_valve()
+			valve.close_valve()
