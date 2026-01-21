@@ -19,3 +19,29 @@ vent = NodePath("../RipperVentilation")
 
 [node name="Valve" parent="." instance=ExtResource("4_14kla")]
 transform = Transform3D(-1, -5.32375e-05, 0, 5.32375e-05, -1, 0, 0, 0, 1, -17.2582, 11.3969, 40.6952)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HUD/MarginContainer"]
+layout_mode = 2
+text = "ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ "
+horizontal_alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD/MarginContainer"]
+layout_mode = 2
