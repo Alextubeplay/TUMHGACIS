@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://t5t7vxfis17t"]
+
+[ext_resource type="PackedScene" uid="uid://mr2lb6iv8i15" path="res://models/map/Map.fbx" id="1_odvp2"]
+[ext_resource type="PackedScene" uid="uid://s8i1rlbqlqlq" path="res://content/enviroment/Table.tscn" id="2_6wvuo"]
+[ext_resource type="PackedScene" uid="uid://iqsunh2ykhu0" path="res://models/map/big_tube.fbx" id="3_hmimu"]
+[ext_resource type="PackedScene" uid="uid://cwaa4swcsuq6b" path="res://models/map/big_T_tube.fbx" id="3_y0rq1"]
+[ext_resource type="PackedScene" uid="uid://bhdayg5wnqcl3" path="res://models/map/big_L_tube.fbx" id="5_0mi37"]
+
+[node name="Map" type="Node3D"]
+
+[node name="Whole_map" parent="." instance=ExtResource("1_odvp2")]
+
+[node name="Table" parent="." instance=ExtResource("2_6wvuo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1249, 0, 37.7935)
+
+[node name="T_cross" parent="." instance=ExtResource("3_y0rq1")]
+transform = Transform3D(1.3, 0, 0, 0, 1, 0, 0, 0, 1, -17.2585, 12.4284, 41.2055)
+
+[node name="Right_tube_wing" parent="." instance=ExtResource("3_hmimu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4733, 12.4333, 40.5835)
+
+[node name="Root Scene4" parent="Right_tube_wing" instance=ExtResource("3_hmimu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.03575, 0, 0)
+
+[node name="Root Scene5" parent="Right_tube_wing" instance=ExtResource("3_hmimu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.15267, 0, 0)
+
+[node name="Root Scene6" parent="Right_tube_wing" instance=ExtResource("3_hmimu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2595, 0, 0)
+
+[node name="Root Scene7" parent="Right_tube_wing" instance=ExtResource("3_hmimu")]
+transform = Transform3D(0.992353, 0, 0.123428, 0, 1, 0, -0.123428, 0, 0.992353, 16.3798, 0, -0.261623)
+
+[node name="Root Scene8" parent="Right_tube_wing" instance=ExtResource("3_hmimu")]
+transform = Transform3D(0.992353, 0, 0.123428, 0, 1, 0, -0.123428, 0, 0.992353, 20.47, 0, -0.790855)
+
+[node name="Root Scene9" parent="Right_tube_wing" instance=ExtResource("3_hmimu")]
+transform = Transform3D(0.992353, 0, 0.123428, 0, 1, 0, -0.123428, 0, 0.992353, 24.5827, 0, -1.29846)
+
+[node name="Root Scene10" parent="Right_tube_wing" instance=ExtResource("3_hmimu")]
+transform = Transform3D(0.992353, 0, 0.123428, 0, 1, 0, -0.123428, 0, 0.992353, 28.6635, 0, -1.8048)
+
+[node name="Root Scene11" parent="Right_tube_wing" instance=ExtResource("3_hmimu")]
+transform = Transform3D(0.992353, 0, 0.123428, 0, 1, 0, -0.123428, 0, 0.992353, 32.749, 0, -2.31845)
+
+[node name="Root Scene12" parent="Right_tube_wing" instance=ExtResource("3_hmimu")]
+transform = Transform3D(0.992353, 0, 0.123428, 0, 1, 0, -0.123428, 0, 0.992353, 36.8244, 0, -2.82416)
+
+[node name="Root Scene13" parent="Right_tube_wing" instance=ExtResource("3_hmimu")]
+transform = Transform3D(0.992353, 0, 0.123428, 0, 1, 0, -0.123428, 0, 0.992353, 40.9165, 0, -3.3372)
+
+[node name="Left_tube_wing" parent="." instance=ExtResource("3_hmimu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9599, 12.4333, 40.5835)
+
+[node name="Root Scene3" parent="Left_tube_wing" instance=ExtResource("3_hmimu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1193, 0, 0)
+
+[node name="Root Scene5" parent="Left_tube_wing" instance=ExtResource("5_0mi37")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.23527, 1.18086, -0.0089798)
+
+[node name="Back_tube_wing" parent="." instance=ExtResource("3_hmimu")]
+transform = Transform3D(-4.37114e-08, 0, 1.28029, 0, 1, 0, -1, 0, -5.59632e-08, -17.3018, 12.4697, 44.8397)
+
+[node name="Back_tube_wing" parent="Back_tube_wing" instance=ExtResource("3_hmimu")]
+transform = Transform3D(-1, 0, -8.70715e-08, 0, 1, 0, 8.74228e-08, 0, -0.995981, -4.09757, -0.00487709, -0.00603008)
+
+[node name="Back_tube_wing2" parent="Back_tube_wing" instance=ExtResource("3_hmimu")]
+transform = Transform3D(-1, 0, -8.70715e-08, 0, 1, 0, 8.74228e-08, 0, -0.995981, -8.21938, -0.00487709, -0.00602913)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.5209, 5.61582, 36.9486)
+
+[node name="Красный" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.9282, 7.23598, 40.159)
+light_color = Color(0.988235, 0.0627451, 0, 1)
+
+[node name="Красный" type="OmniLight3D" parent="Красный"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7069, 3.75987, 0.340981)
+light_color = Color(0.988235, 0.0627451, 0, 1)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.905384, 0, 0.424595, -0.0506342, 0.992864, 0.10797, -0.421565, -0.119253, 0.898923, -5.6945, 10.3033, 37.8505)
+light_energy = 16.0
+spot_range = 99.0
+spot_angle = 15.3598
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(0.976579, 0.0718581, -0.202806, -0.0506342, 0.992864, 0.10797, 0.209118, -0.0951721, 0.973248, -27.0569, 10.4828, 37.3717)
+light_energy = 16.0
+spot_range = 76.0
+spot_angle = 17.6673

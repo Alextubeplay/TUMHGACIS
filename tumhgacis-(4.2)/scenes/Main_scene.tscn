@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnqknpfw0j6yw"]
+
+[ext_resource type="PackedScene" uid="uid://t5t7vxfis17t" path="res://content/enviroment/Map.tscn" id="1_ddn17"]
+[ext_resource type="PackedScene" uid="uid://cbfcaja7njh6p" path="res://content/player/Player.tscn" id="2_l5tlr"]
+[ext_resource type="PackedScene" uid="uid://dyomnmqv63xla" path="res://content/interactable/Ripper_ventilation.tscn" id="3_r0vjo"]
+[ext_resource type="PackedScene" uid="uid://c0qmgidlnhyxv" path="res://content/interactable/Valve.tscn" id="4_14kla"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Map" parent="." instance=ExtResource("1_ddn17")]
+
+[node name="RipperVentilation" parent="." instance=ExtResource("3_r0vjo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.1559, 5.9731, 38.9302)
+
+[node name="Player" parent="." node_paths=PackedStringArray("valve", "vent") instance=ExtResource("2_l5tlr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8824, 6.40196, 41.6667)
+valve = NodePath("../Valve")
+vent = NodePath("../RipperVentilation")
+
+[node name="Valve" parent="." instance=ExtResource("4_14kla")]
+transform = Transform3D(-1, -5.32375e-05, 0, 5.32375e-05, -1, 0, 0, 0, 1, -17.2582, 11.3969, 40.6952)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="HUD/MarginContainer"]
+layout_mode = 2
+text = "ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ 
+ЖЕКА ЛОХ "
+horizontal_alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD/MarginContainer"]
+layout_mode = 2

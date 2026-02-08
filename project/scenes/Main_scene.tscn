@@ -1,9 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnqknpfw0j6yw"]
+[gd_scene load_steps=9 format=3 uid="uid://dnqknpfw0j6yw"]
 
 [ext_resource type="PackedScene" uid="uid://t5t7vxfis17t" path="res://content/enviroment/Map.tscn" id="1_ddn17"]
 [ext_resource type="PackedScene" uid="uid://cbfcaja7njh6p" path="res://content/player/Player.tscn" id="2_l5tlr"]
 [ext_resource type="PackedScene" uid="uid://dyomnmqv63xla" path="res://content/interactable/Ripper_ventilation.tscn" id="3_r0vjo"]
 [ext_resource type="PackedScene" uid="uid://c0qmgidlnhyxv" path="res://content/interactable/Valve.tscn" id="4_14kla"]
+
+[sub_resource type="Gradient" id="Gradient_fkd63"]
+colors = PackedColorArray(0, 0, 0, 0.73333335, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4a8l0"]
+gradient = SubResource("Gradient_fkd63")
+width = 300
+height = 20
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uxkiq"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a6g5n"]
+width = 300
+height = 20
+noise = SubResource("FastNoiseLite_uxkiq")
+as_normal_map = true
 
 [node name="Node3D" type="Node3D"]
 
@@ -22,26 +38,31 @@ transform = Transform3D(-1, -5.32375e-05, 0, 5.32375e-05, -1, 0, 0, 0, 1, -17.25
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="O2_bar" type="TextureProgressBar" parent="HUD"]
+offset_left = 9.0
+offset_top = 622.0
+offset_right = 1161.0
+offset_bottom = 1270.0
+value = 100.0
+texture_under = SubResource("GradientTexture2D_4a8l0")
+texture_progress = SubResource("NoiseTexture2D_a6g5n")
 
-[node name="Label" type="Label" parent="HUD/MarginContainer"]
-layout_mode = 2
-text = "ЖЕКА ЛОХ 
-ЖЕКА ЛОХ 
-ЖЕКА ЛОХ 
-ЖЕКА ЛОХ 
-ЖЕКА ЛОХ 
-ЖЕКА ЛОХ 
-ЖЕКА ЛОХ 
-ЖЕКА ЛОХ 
-ЖЕКА ЛОХ 
-ЖЕКА ЛОХ "
+[node name="O2_bar_percent" type="Label" parent="HUD"]
+offset_left = 137.0
+offset_top = 620.0
+offset_right = 179.0
+offset_bottom = 643.0
+theme_override_colors/font_color = Color(1, 0.6, 0.07450981, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "100%"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD/MarginContainer"]
-layout_mode = 2
+[node name="Death_screen" type="CanvasLayer" parent="."]
+
+[node name="Placeholder_death" type="Label" parent="Death_screen"]
+offset_left = 534.0
+offset_top = 297.0
+offset_right = 574.0
+offset_bottom = 320.0

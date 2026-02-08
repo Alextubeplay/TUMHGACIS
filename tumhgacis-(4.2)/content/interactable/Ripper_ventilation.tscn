@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyomnmqv63xla"]
+
+[ext_resource type="Script" path="res://scripts/Ripper_ventilation.gd" id="1_jibed"]
+[ext_resource type="PackedScene" uid="uid://d1qtcxkak6vr2" path="res://models/interactable/Ripper_vent.fbx" id="1_q6e0i"]
+
+[node name="RipperVentilation" type="Node3D"]
+script = ExtResource("1_jibed")
+
+[node name="Root Scene" parent="." instance=ExtResource("1_q6e0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.6073, -9.90107, -54.0395)

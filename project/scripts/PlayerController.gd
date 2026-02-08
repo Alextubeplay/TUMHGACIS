@@ -4,11 +4,15 @@ extends Node3D
 var plooking = "forward" #forward, left, right, down, up, monitor
 @export var valve: Valve
 @export var vent: Vent
+
+@onready var o2_bar = $"../HUD/O2_bar"
+@onready var o2_percent = $"../HUD/O2_bar_percent"
+
 func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-	
+	_breath(vent.is_opened)
 	match [plooking, Input.is_action_just_pressed("Left")]:
 		["forward", true]:
 			plooking = "left"
@@ -90,3 +94,15 @@ func _process(delta):
 			vent.close_vent()
 		["up", true]:
 			valve.close_valve()
+
+func _breath(vent_opened):
+	if vent_opened:
+		await get_tree().create_timer(1).timeout
+		o2_bar.value = o2_bar.value - 1
+	else:
+		await get_tree().create_timer(1).timeout
+		o2_bar.value = o2_bar.value + 5
+	o2_percent.text = str(o2_bar.value) + "%"
+
+func _die(reason):
+	pass

@@ -1,7 +1,8 @@
-TextureProgressBar
 Label
-MarginContainer
+Timer
 CanvasLayer
+TextureProgressBar
+MarginContainer
 AnimationPlayer
 SpotLight3D
 OmniLight3D
