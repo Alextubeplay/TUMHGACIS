@@ -2,16 +2,20 @@ extends Node3D
 
 #Variables
 var plooking = "forward" #forward, left, right, down, up, monitor
+var cooldown = 0.2
+
 @export var valve: Valve
 @export var vent: Vent
 
 @onready var o2_bar = $"../HUD/O2_bar"
 @onready var o2_percent = $"../HUD/O2_bar_percent"
+@onready var placeholder_death = $"../Death_screen/Placeholder_death"
 
 func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
+	cooldown -= delta
 	_breath(vent.is_opened)
 	match [plooking, Input.is_action_just_pressed("Left")]:
 		["forward", true]:
@@ -96,13 +100,14 @@ func _process(delta):
 			valve.close_valve()
 
 func _breath(vent_opened):
-	if vent_opened:
-		await get_tree().create_timer(1).timeout
-		o2_bar.value = o2_bar.value - 1
-	else:
-		await get_tree().create_timer(1).timeout
-		o2_bar.value = o2_bar.value + 5
+	if cooldown <=0:
+		if vent_opened:
+			o2_bar.value = o2_bar.value - 0.33
+			cooldown = 0.2
+		else:
+			o2_bar.value = o2_bar.value + 2.5
+			cooldown = 0.2
 	o2_percent.text = str(o2_bar.value) + "%"
 
 func _die(reason):
-	pass
+	placeholder_death.text = "you died of: " + reason
