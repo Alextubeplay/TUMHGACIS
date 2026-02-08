@@ -7,5 +7,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.423985, 0)
 script = ExtResource("1_mkh8t")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-
-[node name="Breath_timer" type="Timer" parent="."]

@@ -16,7 +16,12 @@ func _ready():
 
 func _process(delta):
 	cooldown -= delta
+	
+	_moving()
+	
 	_breath(vent.is_opened)
+
+func _moving():
 	match [plooking, Input.is_action_just_pressed("Left")]:
 		["forward", true]:
 			plooking = "left"
@@ -102,10 +107,10 @@ func _process(delta):
 func _breath(vent_opened):
 	if cooldown <=0:
 		if vent_opened:
-			o2_bar.value = o2_bar.value - 0.33
+			o2_bar.value = o2_bar.value + 2.5
 			cooldown = 0.2
 		else:
-			o2_bar.value = o2_bar.value + 2.5
+			o2_bar.value = o2_bar.value - 0.33
 			cooldown = 0.2
 	o2_percent.text = str(o2_bar.value) + "%"
 
