@@ -1,4 +1,7 @@
-res://scenes/Main_scene.tscn
-res://scripts/PlayerController.gd
 res://content/player/Player.tscn
 res://scripts/Ripper_ventilation.gd
+res://scenes/Main_scene.tscn
+res://scripts/PlayerController.gd
+res://content/enviroment/Map.tscn
+res://content/interactable/Valve.tscn
+res://scripts/Valve.gd
