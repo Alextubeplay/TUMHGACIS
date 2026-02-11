@@ -1,5 +1,6 @@
 extends Node3D
 class_name Valve
+
 var is_opened = true
 
 func close_valve():

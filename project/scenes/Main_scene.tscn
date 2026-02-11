@@ -63,7 +63,8 @@ vertical_alignment = 1
 [node name="Death_screen" type="CanvasLayer" parent="."]
 
 [node name="Placeholder_death" type="Label" parent="Death_screen"]
-offset_left = 534.0
-offset_top = 297.0
-offset_right = 574.0
-offset_bottom = 320.0
+offset_left = 360.0
+offset_top = 120.0
+offset_right = 414.0
+offset_bottom = 215.0
+theme_override_font_sizes/font_size = 60
