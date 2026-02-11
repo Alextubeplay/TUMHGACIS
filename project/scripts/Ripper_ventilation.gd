@@ -4,7 +4,7 @@ class_name Vent
 var is_opened = true
 var chance = 0.3 #30%
 var ripper_position = "far" #far, middle, near, nearest
-var timer = 3
+var timer = 30
 
 @onready var player = $"../Player"
 
@@ -32,12 +32,17 @@ func _moving():
 		"far":
 			if randf() < chance and timer <=0:
 				ripper_position = "middle"
+				print(ripper_position)
+				timer = 30
 		"middle":
 			if randf() < (chance * 2) and timer <=0:
 				ripper_position = "near"
+				timer = 30
 		"near":
 			if randf() < (chance * 2.5) and timer <=0:
 				ripper_position = "nearest"
+				timer = 30
 		"nearest":
 			if timer <= 20:
 				player._die("Ripper")
+				timer = 30
