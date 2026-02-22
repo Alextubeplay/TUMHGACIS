@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c0qmgidlnhyxv"]
 
 [ext_resource type="PackedScene" uid="uid://bx5mtyiwpx2hk" path="res://models/interactable/Valve.fbx" id="1_0unrg"]
-[ext_resource type="Script" path="res://scripts/Valve.gd" id="1_axrkn"]
+[ext_resource type="Script" uid="uid://bt7h84e7sxt8k" path="res://scripts/Valve.gd" id="1_axrkn"]
 [ext_resource type="PackedScene" uid="uid://fae1cw6wkimi" path="res://models/map/Valve_base.fbx" id="2_wyghb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wqhb"]
@@ -67,8 +67,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_csll6"]
 _data = {
-"RESET": SubResource("Animation_8ag2a"),
-"Rotate": SubResource("Animation_aggiq")
+&"RESET": SubResource("Animation_8ag2a"),
+&"Rotate": SubResource("Animation_aggiq")
 }
 
 [node name="Valve" type="Node3D"]
@@ -79,7 +79,7 @@ metadata/Texture = SubResource("StandardMaterial3D_1wqhb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_csll6")
+&"": SubResource("AnimationLibrary_csll6")
 }
 
 [node name="Base" parent="." instance=ExtResource("2_wyghb")]

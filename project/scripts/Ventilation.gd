@@ -1,6 +1,10 @@
 extends Node3D
 class_name Vent
+
 var is_opened = true
+
+func _process(delta):
+	pass
 
 func close_vent():
 	if is_opened:
@@ -12,9 +16,3 @@ func close_vent():
 
 func _ready():
 	pass 
-
-func _process(delta):
-	pass
-
-func _moving():
-	pass

@@ -1,6 +1,6 @@
 extends Node3D
+class_name Player
 
-#Variables
 var plooking = "forward" #forward, left, right, down, up, monitor
 var cooldown = 0.2
 
@@ -108,11 +108,12 @@ func _breath(vent_opened):
 	if cooldown <=0:
 		if vent_opened:
 			o2_bar.value = o2_bar.value + 2.5
-			cooldown = 0.2
 		else:
 			o2_bar.value = o2_bar.value - 0.33
-			cooldown = 0.2
+		cooldown = 0.2
 	o2_percent.text = str(o2_bar.value) + "%"
+	if o2_bar.value <=0:
+		_die("Asphyxation")
 
 func _die(reason):
 	placeholder_death.text = "you died of: " + reason
