@@ -14,7 +14,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 		
 	if vent.is_opened:
-		timer -= delta
+		if timer >0 :
+			timer -= delta
 		_moving()
 	else:
 		ripper_position = "far"

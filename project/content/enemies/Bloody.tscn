@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxnm7iv0poubx"]
+
+[ext_resource type="Script" uid="uid://drwarn8wc8ppp" path="res://scripts/Bloody.gd" id="1_otbtn"]
+
+[node name="Bloody" type="Node3D"]
+script = ExtResource("1_otbtn")

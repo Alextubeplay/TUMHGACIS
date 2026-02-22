@@ -15,7 +15,8 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-	cooldown -= delta
+	if cooldown > 0:
+		cooldown -= delta
 	
 	_moving()
 	
