@@ -1,31 +1,23 @@
-extends Node3D
-class_name Vent
+extends Node
 
-var is_opened = true
 var chance = 0.3 #30%
 var ripper_position = "far" #far, middle, near, nearest
 var timer = 30
 
+@onready var vent = $"../Ventilation"
+
 @onready var player = $"../Player"
 
-func _process(delta):
-	
-	if is_opened:
+func _ready() -> void:
+	pass # Replace with function body.
+
+func _process(delta: float) -> void:
+		
+	if vent.is_opened:
 		timer -= delta
 		_moving()
 	else:
 		ripper_position = "far"
-
-func close_vent():
-	if is_opened:
-		rotation.y = (0)
-		is_opened = false
-	else:
-		rotation.y = (90)
-		is_opened = true
-
-func _ready():
-	pass 
 
 func _moving():
 	match ripper_position:

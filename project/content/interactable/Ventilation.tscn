@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dyomnmqv63xla"]
 
-[ext_resource type="Script" path="res://scripts/Ripper_ventilation.gd" id="1_jibed"]
+[ext_resource type="Script" uid="uid://dbdj1o6v54xy2" path="res://scripts/Ventilation.gd" id="1_jibed"]
 [ext_resource type="PackedScene" uid="uid://d1qtcxkak6vr2" path="res://models/interactable/Ripper_vent.fbx" id="1_q6e0i"]
 
 [node name="RipperVentilation" type="Node3D"]
