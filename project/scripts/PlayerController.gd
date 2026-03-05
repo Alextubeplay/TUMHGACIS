@@ -3,6 +3,7 @@ class_name Player
 
 var plooking = "forward" #forward, left, right, down, up, monitor
 var cooldown = 0.2
+var alive = true
 
 @export var valve: Valve
 @export var vent: Vent
@@ -106,7 +107,7 @@ func _moving():
 			valve.close_valve()
 
 func _breath(vent_opened):
-	if cooldown <=0:
+	if cooldown <=0 and alive:
 		if vent_opened:
 			o2_bar.value = o2_bar.value + 2.5
 		else:
@@ -118,3 +119,4 @@ func _breath(vent_opened):
 
 func _die(reason):
 	placeholder_death.text = "you died of: " + reason
+	alive = false

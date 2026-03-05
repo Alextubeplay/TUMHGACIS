@@ -16,6 +16,8 @@ func _process(delta: float) -> void:
 	if vent.is_opened:
 		if timer >0 :
 			timer -= delta
+		else:
+			timer = 30
 		_moving()
 	else:
 		ripper_position = "far"
@@ -36,6 +38,6 @@ func _moving():
 				ripper_position = "nearest"
 				timer = 30
 		"nearest":
-			if timer <= 20:
+			if timer <= 20 and player.alive:
 				player._die("Ripper")
 				timer = 30

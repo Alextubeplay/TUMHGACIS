@@ -1,6 +1,6 @@
-res://content/enemies/Bloody.tscn
-res://scripts/Valve.gd
 res://scenes/Main_scene.tscn
+res://scripts/Valve.gd
+res://content/enemies/Ripper.tscn
+res://scripts/Bloody.gd
 res://scripts/PlayerController.gd
 res://scripts/Ripper.gd
-res://content/interactable/Valve.tscn

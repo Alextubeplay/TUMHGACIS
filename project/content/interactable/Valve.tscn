@@ -9,6 +9,22 @@ albedo_color = Color(0.53617, 0.175872, 0.121765, 1)
 metallic = 0.92
 roughness = 0.25
 
+[sub_resource type="Animation" id="Animation_b44r0"]
+resource_name = "Push"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.33333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.0291062, 0.030762553, 0.041233957), Vector3(0.019514173, 0.034818232, -0.050513566), Vector3(-0.024256349, 0.021942914, 0.020840645), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_8ag2a"]
 length = 0.001
 loop_mode = 2
@@ -63,22 +79,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -6.28319, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_b44r0"]
-resource_name = "Push"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Top:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.0291062, 0.030762553, 0.041233957), Vector3(0.019514173, 0.034818232, -0.050513566), Vector3(-0.024256349, 0.021942914, 0.020840645), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_csll6"]
