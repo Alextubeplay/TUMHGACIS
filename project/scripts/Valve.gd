@@ -1,13 +1,13 @@
 extends Node3D
 class_name Valve
 
+@onready var shift_settings = $"../Shift settings"
+
 var is_opened = false
 var timer = 1
-var chance = 1.0047 #0.47%
+var chance = 0.0047 #0.47%
 var pushes = 1;
 var activations = 2;
-
-@onready var death = $"../Death_screen/Placeholder_death"
 
 func _ready():
 	pass 
@@ -20,7 +20,7 @@ func _process(delta):
 		else:
 			timer = 1;
 	
-	if randf() < chance and timer <=0 and !is_opened and activations > 0:
+	if randf() < chance and timer <=0 and !is_opened and activations > 0 and shift_settings.is_valve_active:
 		is_opened = true;
 		pushes = randi_range(2, 6)
 		activations -= 1

@@ -1,3 +1,4 @@
+Node
 Label
 Timer
 CanvasLayer
@@ -9,4 +10,3 @@ OmniLight3D
 Camera3D
 MeshInstance3D
 Node3D
-Node

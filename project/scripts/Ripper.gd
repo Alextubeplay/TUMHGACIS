@@ -4,8 +4,9 @@ var chance = 0.3 #30%
 var ripper_position = "far" #far, middle, near, nearest
 var timer = 30
 
-@onready var vent = $"../Ventilation"
+@onready var shift_settings = $"../Shift settings"
 
+@onready var vent = $"../Ventilation"
 @onready var player = $"../Player"
 
 func _ready() -> void:
@@ -13,7 +14,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 		
-	if vent.is_opened:
+	if vent.is_opened and shift_settings.is_ripper_active:
 		if timer >0 :
 			timer -= delta
 		else:

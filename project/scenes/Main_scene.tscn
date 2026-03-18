@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnqknpfw0j6yw"]
+[gd_scene load_steps=12 format=3 uid="uid://dnqknpfw0j6yw"]
 
 [ext_resource type="PackedScene" uid="uid://t5t7vxfis17t" path="res://content/enviroment/Map.tscn" id="1_ddn17"]
 [ext_resource type="PackedScene" uid="uid://cbfcaja7njh6p" path="res://content/player/Player.tscn" id="2_l5tlr"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c0qmgidlnhyxv" path="res://content/interactable/Valve.tscn" id="4_14kla"]
 [ext_resource type="PackedScene" uid="uid://ds7fnlmigjo35" path="res://content/enemies/Ripper.tscn" id="5_4a8l0"]
 [ext_resource type="PackedScene" uid="uid://dxnm7iv0poubx" path="res://content/enemies/Bloody.tscn" id="6_uxkiq"]
+[ext_resource type="Script" uid="uid://b1pye3rkwrykn" path="res://Shift_settings.gd" id="7_a6g5n"]
 
 [sub_resource type="Gradient" id="Gradient_fkd63"]
 colors = PackedColorArray(0, 0, 0, 0.73333335, 1, 1, 1, 1)
@@ -74,3 +75,6 @@ offset_top = 120.0
 offset_right = 414.0
 offset_bottom = 215.0
 theme_override_font_sizes/font_size = 60
+
+[node name="Shift settings" type="Node" parent="."]
+script = ExtResource("7_a6g5n")

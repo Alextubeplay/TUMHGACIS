@@ -5,6 +5,8 @@ var plooking = "forward" #forward, left, right, down, up, monitor
 var cooldown = 0.2
 var alive = true
 
+@onready var shift_settings = $"../Shift settings"
+
 @export var valve: Valve
 @export var vent: Vent
 
@@ -107,7 +109,7 @@ func _moving():
 			valve.close_valve()
 
 func _breath(vent_opened):
-	if cooldown <=0 and alive:
+	if cooldown <=0 and alive and shift_settings.is_breathing_active:
 		if vent_opened:
 			o2_bar.value = o2_bar.value + 2.5
 		else:

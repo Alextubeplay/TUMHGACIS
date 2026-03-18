@@ -1,6 +1,5 @@
-res://scenes/Main_scene.tscn
-res://scripts/Valve.gd
-res://content/enemies/Ripper.tscn
-res://scripts/Bloody.gd
-res://scripts/PlayerController.gd
 res://scripts/Ripper.gd
+res://scenes/Main_scene.tscn
+res://scripts/PlayerController.gd
+res://scripts/Valve.gd
+res://Shift_settings.gd
