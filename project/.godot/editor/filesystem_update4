@@ -1,5 +1,2 @@
-res://scripts/Ripper.gd
-res://scenes/Main_scene.tscn
-res://scripts/PlayerController.gd
-res://scripts/Valve.gd
-res://Shift_settings.gd
+res://themes/Monitor_hub.tres
+res://scenes/Monitor_hud.tscn

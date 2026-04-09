@@ -1,12 +1,14 @@
+MarginContainer
+CenterContainer
+Container
+TabContainer
 Node
 Label
 Timer
 CanvasLayer
 TextureProgressBar
-MarginContainer
 AnimationPlayer
 SpotLight3D
 OmniLight3D
 Camera3D
 MeshInstance3D
-Node3D
