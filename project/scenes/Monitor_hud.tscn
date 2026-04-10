@@ -23,25 +23,37 @@ layout_mode = 2
 theme = ExtResource("1_whxpw")
 current_tab = 0
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/TabContainer"]
+[node name="CAMERAS" type="CenterContainer" parent="MarginContainer/TabContainer"]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/CenterContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/TabContainer/CAMERAS"]
+custom_minimum_size = Vector2(800, 400)
 layout_mode = 2
 
-[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/TabContainer"]
+[node name="Control" type="Control" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer"]
+layout_mode = 2
+
+[node name="TASKS" type="CenterContainer" parent="MarginContainer/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/CenterContainer2"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/TabContainer/TASKS"]
+custom_minimum_size = Vector2(800, 400)
 layout_mode = 2
 
-[node name="CenterContainer3" type="CenterContainer" parent="MarginContainer/TabContainer"]
+[node name="Control" type="Control" parent="MarginContainer/TabContainer/TASKS/PanelContainer"]
+layout_mode = 2
+
+[node name="INFORMATION" type="CenterContainer" parent="MarginContainer/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/CenterContainer3"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/TabContainer/INFORMATION"]
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer"]
 layout_mode = 2

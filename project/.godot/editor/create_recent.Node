@@ -1,3 +1,9 @@
+Control
+PanelContainer
+ColorRect
+Window
+VBoxContainer
+TextureRect
 MarginContainer
 CenterContainer
 Container
@@ -7,8 +13,3 @@ Label
 Timer
 CanvasLayer
 TextureProgressBar
-AnimationPlayer
-SpotLight3D
-OmniLight3D
-Camera3D
-MeshInstance3D
