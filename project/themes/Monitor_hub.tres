@@ -1,7 +1,16 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dexvgj0yl2v6c"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dexvgj0yl2v6c"]
 
 [ext_resource type="FontFile" uid="uid://blvj4iryd8drl" path="res://fonts/VT323-Regular.ttf" id="1_qbt2d"]
 [ext_resource type="Texture2D" uid="uid://cs57u2jdn1rp3" path="res://textures/menus/monitor/tabs_bg.png" id="2_5lou8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5lou8"]
+resource_local_to_scene = true
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8477m"]
 texture = ExtResource("2_5lou8")
@@ -28,12 +37,14 @@ CheckButton/font_sizes/font_size = 24
 Label/constants/outline_size = 4
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_qbt2d")
+Label/styles/normal = null
 LineEdit/constants/outline_size = 4
 LineEdit/font_sizes/font_size = 24
 LineEdit/fonts/font = ExtResource("1_qbt2d")
 MenuButton/constants/outline_size = 4
 MenuButton/font_sizes/font_size = 24
 OptionButton/font_sizes/font_size = 24
+Panel/styles/panel = SubResource("StyleBoxFlat_5lou8")
 ProgressBar/constants/outline_size = 4
 ProgressBar/font_sizes/font_size = 24
 ProgressBar/fonts/font = ExtResource("1_qbt2d")

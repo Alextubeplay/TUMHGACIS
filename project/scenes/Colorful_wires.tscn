@@ -1,0 +1,138 @@
+[gd_scene load_steps=5 format=3 uid="uid://bevq6qmv8brd2"]
+
+[ext_resource type="Script" uid="uid://couitfann1s3h" path="res://scripts/Colorful_wires.gd" id="1_g8q6b"]
+[ext_resource type="Theme" uid="uid://dexvgj0yl2v6c" path="res://themes/Monitor_hub.tres" id="1_r12le"]
+[ext_resource type="Theme" uid="uid://mbqgf0bksrty" path="res://themes/Colorful_wires_buttons.tres" id="2_og710"]
+[ext_resource type="Theme" uid="uid://d3u86s0i7dbdv" path="res://themes/Right_wire_sockets.tres" id="3_og710"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(750, 400)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_right = 751.0
+offset_bottom = 400.0
+script = ExtResource("1_g8q6b")
+
+[node name="Start_wire" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = 55.0
+grow_vertical = 2
+theme_override_constants/separation = 7
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="wire_start1" type="Panel" parent="Start_wire"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("1_r12le")
+
+[node name="wire_start1_button" type="Button" parent="Start_wire/wire_start1"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("2_og710")
+
+[node name="wire_start2" type="Panel" parent="Start_wire"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("1_r12le")
+
+[node name="wire_start2_button" type="Button" parent="Start_wire/wire_start2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("2_og710")
+
+[node name="wire_start3" type="Panel" parent="Start_wire"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("1_r12le")
+
+[node name="wire_start3_button" type="Button" parent="Start_wire/wire_start3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("2_og710")
+
+[node name="wire_start4" type="Panel" parent="Start_wire"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("1_r12le")
+
+[node name="wire_start4_button" type="Button" parent="Start_wire/wire_start4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("2_og710")
+
+[node name="End_wire" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 7
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="wire_end1" type="Panel" parent="End_wire"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("3_og710")
+
+[node name="wire_end1_button" type="Button" parent="End_wire/wire_end1"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("2_og710")
+
+[node name="wire_end2" type="Panel" parent="End_wire"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("3_og710")
+
+[node name="wire_end2_button" type="Button" parent="End_wire/wire_end2"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("2_og710")
+
+[node name="wire_end3" type="Panel" parent="End_wire"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("3_og710")
+
+[node name="wire_end3_button" type="Button" parent="End_wire/wire_end3"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("2_og710")
+
+[node name="wire_end4" type="Panel" parent="End_wire"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("3_og710")
+
+[node name="wire_end4_button" type="Button" parent="End_wire/wire_end4"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("2_og710")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

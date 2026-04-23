@@ -1,2 +1,4 @@
-res://scenes/Monitor_hud.tscn
+res://scenes/Colorful_wires.tscn
 res://themes/Monitor_hub.tres
+res://themes/Right_wire_sockets.tres
+res://scripts/Colorful_wires.gd

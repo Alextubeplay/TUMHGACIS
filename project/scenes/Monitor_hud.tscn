@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgyx51chki2xk"]
+[gd_scene load_steps=3 format=3 uid="uid://bgyx51chki2xk"]
 
 [ext_resource type="Theme" uid="uid://dexvgj0yl2v6c" path="res://themes/Monitor_hub.tres" id="1_whxpw"]
+[ext_resource type="Texture2D" uid="uid://tkhf0mxo0uhw" path="res://textures/menus/monitor/Sprite-0001.png" id="2_wnoan"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -21,9 +22,10 @@ grow_vertical = 2
 [node name="TabContainer" type="TabContainer" parent="MarginContainer"]
 layout_mode = 2
 theme = ExtResource("1_whxpw")
-current_tab = 0
+current_tab = 1
 
 [node name="CAMERAS" type="CenterContainer" parent="MarginContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -35,15 +37,29 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TASKS" type="CenterContainer" parent="MarginContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/TabContainer/TASKS"]
+[node name="Window" type="PanelContainer" parent="MarginContainer/TabContainer/TASKS"]
 custom_minimum_size = Vector2(800, 400)
 layout_mode = 2
 
-[node name="Control" type="Control" parent="MarginContainer/TabContainer/TASKS/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/TASKS/Window"]
+layout_mode = 2
+
+[node name="Tasks" type="Control" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(750, 400)
+layout_mode = 2
+
+[node name="Hud" type="VBoxContainer" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer"]
+layout_mode = 2
+
+[node name="Exit_button" type="Button" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud"]
+layout_mode = 2
+icon = ExtResource("2_wnoan")
+
+[node name="Button2" type="Button" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud"]
 layout_mode = 2
 
 [node name="INFORMATION" type="CenterContainer" parent="MarginContainer/TabContainer"]
