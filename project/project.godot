@@ -15,6 +15,10 @@ run/main_scene="res://scenes/Main_scene.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ShiftSettings="*res://scripts/Shift_settings.gd"
+
 [dotnet]
 
 project/assembly_name="TUMHGACIS"

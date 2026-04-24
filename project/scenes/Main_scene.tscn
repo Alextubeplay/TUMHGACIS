@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c0qmgidlnhyxv" path="res://content/interactable/Valve.tscn" id="4_14kla"]
 [ext_resource type="PackedScene" uid="uid://ds7fnlmigjo35" path="res://content/enemies/Ripper.tscn" id="5_4a8l0"]
 [ext_resource type="PackedScene" uid="uid://dxnm7iv0poubx" path="res://content/enemies/Bloody.tscn" id="6_uxkiq"]
-[ext_resource type="Script" uid="uid://b1pye3rkwrykn" path="res://Shift_settings.gd" id="7_a6g5n"]
+[ext_resource type="Script" uid="uid://b1pye3rkwrykn" path="res://scripts/Shift_settings.gd" id="7_a6g5n"]
 
 [sub_resource type="Gradient" id="Gradient_fkd63"]
 colors = PackedColorArray(0, 0, 0, 0.73333335, 1, 1, 1, 1)

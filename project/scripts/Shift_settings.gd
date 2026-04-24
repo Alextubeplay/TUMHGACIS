@@ -4,7 +4,8 @@ class_name Shift_settings
 #Gameplay modifiers
 
 var shift_timer = 0
-var amount_of_tasks = 0
+var amount_of_tasks = 4
+var completed_tasks = 0
 var difficulty = 1
 
 #Gameplay Features
