@@ -1,7 +1,7 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://dexvgj0yl2v6c"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bryxm52qje7fv"]
 
-[ext_resource type="FontFile" uid="uid://blvj4iryd8drl" path="res://fonts/VT323-Regular.ttf" id="1_qbt2d"]
-[ext_resource type="Texture2D" uid="uid://cs57u2jdn1rp3" path="res://textures/menus/monitor/tabs_bg.png" id="2_5lou8"]
+[ext_resource type="FontFile" uid="uid://blvj4iryd8drl" path="res://fonts/VT323-Regular.ttf" id="1_rsedc"]
+[ext_resource type="Texture2D" uid="uid://cs57u2jdn1rp3" path="res://textures/menus/monitor/tabs_bg.png" id="2_yasha"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ao5q"]
 bg_color = Color(0.09411765, 0.3529412, 0.827451, 1)
@@ -46,7 +46,7 @@ border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8477m"]
-texture = ExtResource("2_5lou8")
+texture = ExtResource("2_yasha")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aa8f5"]
 bg_color = Color(0, 0, 0, 1)
@@ -62,7 +62,7 @@ bg_color = Color(0.09803922, 0.3529412, 0.827451, 1)
 [resource]
 Button/constants/outline_size = 4
 Button/font_sizes/font_size = 24
-Button/fonts/font = ExtResource("1_qbt2d")
+Button/fonts/font = ExtResource("1_rsedc")
 Button/styles/hover = SubResource("StyleBoxFlat_3ao5q")
 Button/styles/normal = SubResource("StyleBoxFlat_8477m")
 Button/styles/pressed = SubResource("StyleBoxFlat_45aoc")
@@ -72,26 +72,26 @@ CheckButton/constants/outline_size = 4
 CheckButton/font_sizes/font_size = 24
 Label/constants/outline_size = 4
 Label/font_sizes/font_size = 24
-Label/fonts/font = ExtResource("1_qbt2d")
+Label/fonts/font = ExtResource("1_rsedc")
 Label/styles/normal = null
 LineEdit/constants/outline_size = 4
 LineEdit/font_sizes/font_size = 24
-LineEdit/fonts/font = ExtResource("1_qbt2d")
+LineEdit/fonts/font = ExtResource("1_rsedc")
 MenuButton/constants/outline_size = 4
 MenuButton/font_sizes/font_size = 24
 OptionButton/font_sizes/font_size = 24
 Panel/styles/panel = SubResource("StyleBoxFlat_5lou8")
 ProgressBar/constants/outline_size = 4
 ProgressBar/font_sizes/font_size = 24
-ProgressBar/fonts/font = ExtResource("1_qbt2d")
+ProgressBar/fonts/font = ExtResource("1_rsedc")
 TabBar/constants/tab_separation = 3
 TabBar/font_sizes/font_size = 18
-TabBar/fonts/font = ExtResource("1_qbt2d")
+TabBar/fonts/font = ExtResource("1_rsedc")
 TabContainer/constants/outline_size = 4
 TabContainer/constants/side_margin = 12
 TabContainer/constants/tab_separation = 12
 TabContainer/font_sizes/font_size = 24
-TabContainer/fonts/font = ExtResource("1_qbt2d")
+TabContainer/fonts/font = ExtResource("1_rsedc")
 TabContainer/styles/panel = SubResource("StyleBoxTexture_8477m")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_aa8f5")
 TabContainer/styles/tab_focus = SubResource("StyleBoxTexture_5oqps")
@@ -100,9 +100,9 @@ TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_lrsg4")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_73lp5")
 TextEdit/constants/outline_size = 4
 TextEdit/font_sizes/font_size = 24
-TextEdit/fonts/font = ExtResource("1_qbt2d")
+TextEdit/fonts/font = ExtResource("1_rsedc")
 Tree/constants/outline_size = 4
 Tree/font_sizes/font_size = 24
 Tree/font_sizes/title_button_font_size = 24
-Tree/fonts/font = ExtResource("1_qbt2d")
-Tree/fonts/title_button_font = ExtResource("1_qbt2d")
+Tree/fonts/font = ExtResource("1_rsedc")
+Tree/fonts/title_button_font = ExtResource("1_rsedc")
