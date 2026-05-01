@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgyx51chki2xk"]
+[gd_scene load_steps=6 format=3 uid="uid://bgyx51chki2xk"]
 
 [ext_resource type="Theme" uid="uid://dexvgj0yl2v6c" path="res://themes/Monitor_hub.tres" id="1_whxpw"]
-[ext_resource type="Texture2D" uid="uid://tkhf0mxo0uhw" path="res://textures/menus/monitor/Sprite-0001.png" id="2_wnoan"]
+[ext_resource type="Theme" uid="uid://gdbaqoskxmiy" path="res://themes/Monitor_sidebar_buttons.tres" id="2_aa8f5"]
+[ext_resource type="Texture2D" uid="uid://tkhf0mxo0uhw" path="res://textures/menus/monitor/Exit.png" id="2_wnoan"]
+[ext_resource type="Texture2D" uid="uid://io451gx5cade" path="res://textures/menus/monitor/Start.png" id="3_5oqps"]
+[ext_resource type="Texture2D" uid="uid://dfli4ryxbl8wf" path="res://textures/menus/monitor/Reload.png" id="4_73lp5"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -54,13 +57,25 @@ layout_mode = 2
 
 [node name="Hud" type="VBoxContainer" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 8
 
-[node name="Exit_button" type="Button" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud"]
+[node name="Start_button" type="Button" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud"]
 layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_aa8f5")
+icon = ExtResource("3_5oqps")
+
+[node name="Reload_button2" type="Button" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_aa8f5")
+icon = ExtResource("4_73lp5")
+
+[node name="Exit_button3" type="Button" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("2_aa8f5")
 icon = ExtResource("2_wnoan")
-
-[node name="Button2" type="Button" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud"]
-layout_mode = 2
 
 [node name="INFORMATION" type="CenterContainer" parent="MarginContainer/TabContainer"]
 visible = false

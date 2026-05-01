@@ -1,7 +1,3 @@
-res://scenes/Clicker.tscn
+res://scenes/Monitor_hud.tscn
 res://themes/Monitor_hub.tres
-res://themes/Right_wire_sockets.tres
-res://themes/Button.tres
-res://scenes/Colorful_wires.tscn
-res://themes/Colorful_wires_buttons.tres
-res://scripts/Clicker.gd
+res://themes/Monitor_sidebar_buttons.tres

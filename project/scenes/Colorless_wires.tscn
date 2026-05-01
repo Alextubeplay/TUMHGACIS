@@ -8,10 +8,19 @@
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(750, 400)
 layout_mode = 3
-anchors_preset = 0
-offset_left = 1.0
-offset_right = 751.0
-offset_bottom = 400.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -200.0
+offset_right = 375.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(375, 200)
+mouse_filter = 2
 script = ExtResource("1_vc4st")
 
 [node name="Start_wire" type="VBoxContainer" parent="."]
@@ -200,8 +209,8 @@ theme = ExtResource("3_1vbr1")
 [connection signal="pressed" from="Start_wire/wire_start2/wire_start2_button" to="." method="_on_wire_start_2_button_pressed"]
 [connection signal="pressed" from="Start_wire/wire_start3/wire_start3_button" to="." method="_on_wire_start_3_button_pressed"]
 [connection signal="pressed" from="Start_wire/wire_start4/wire_start4_button" to="." method="_on_wire_start_4_button_pressed"]
-[connection signal="pressed" from="Start_wire/wire_start5/wire_start5_button" to="." method="_on_wire_start_4_button_pressed"]
 [connection signal="pressed" from="Start_wire/wire_start5/wire_start5_button" to="." method="_on_wire_start_5_button_pressed"]
+[connection signal="pressed" from="Start_wire/wire_start5/wire_start5_button" to="." method="_on_wire_start_4_button_pressed"]
 [connection signal="pressed" from="Start_wire/wire_start6/wire_start6_button" to="." method="_on_wire_start_6_button_pressed"]
 [connection signal="pressed" from="Start_wire/wire_start6/wire_start6_button" to="." method="_on_wire_start_4_button_pressed"]
 [connection signal="pressed" from="End_wire/wire_end1/wire_end1_button" to="." method="_on_wire_end_1_button_pressed"]
