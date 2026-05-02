@@ -4,3 +4,4 @@ res://themes/Monitor_sidebar_buttons.tres
 res://scenes/Monitor_hud.tscn
 res://scenes/Tasks_manager.gd
 res://scenes/Maze.tscn
+res://content/player/Player.tscn

@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://dexvgj0yl2v6c" path="res://themes/Monitor_hub.tres" id="1_whxpw"]
 [ext_resource type="Texture2D" uid="uid://bfmvhskr8a43p" path="res://textures/menus/security/Scheme.png" id="2_73lp5"]
 [ext_resource type="Theme" uid="uid://gdbaqoskxmiy" path="res://themes/Monitor_sidebar_buttons.tres" id="2_aa8f5"]
-[ext_resource type="Script" uid="uid://bi84joraxpmjl" path="res://scenes/Tasks_manager.gd" id="2_lrsg4"]
+[ext_resource type="Script" uid="uid://bi84joraxpmjl" path="res://scripts/Tasks_manager.gd" id="2_lrsg4"]
 [ext_resource type="Texture2D" uid="uid://io451gx5cade" path="res://textures/menus/monitor/Start.png" id="3_5oqps"]
 
 [node name="Control" type="Control"]

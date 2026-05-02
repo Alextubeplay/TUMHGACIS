@@ -26,12 +26,12 @@ as_normal_map = true
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Map" parent="." instance=ExtResource("1_ddn17")]
-
 [node name="Player" parent="." node_paths=PackedStringArray("valve", "vent") instance=ExtResource("2_l5tlr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8824, 6.40196, 41.6667)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 6, 41.399998)
 valve = NodePath("../Valve")
 vent = NodePath("../Ventilation")
+
+[node name="Map" parent="." instance=ExtResource("1_ddn17")]
 
 [node name="Ventilation" parent="." instance=ExtResource("3_r0vjo")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.1559, 5.9731, 38.9302)

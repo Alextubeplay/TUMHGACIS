@@ -1,3 +1,7 @@
+CSGBox3D
+RemoteTransform3D
+SubViewportContainer
+SubViewport
 Sprite2D
 TextureRect
 VBoxContainer
@@ -9,6 +13,3 @@ CollisionShape2D
 Area2D
 CenterContainer
 Button
-MarginContainer
-ColorRect
-PanelContainer
