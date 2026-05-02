@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bnkr7xxwlfu8l"]
 
-[ext_resource type="Script" uid="uid://b3vcermkmmoqr" path="res://scripts/ball.gd" id="1_my7j6"]
-[ext_resource type="Script" uid="uid://darph7xd28soh" path="res://scripts/maze.gd" id="1_tqvdc"]
+[ext_resource type="Script" uid="uid://b3vcermkmmoqr" path="res://scripts/Ball.gd" id="1_my7j6"]
+[ext_resource type="Script" uid="uid://darph7xd28soh" path="res://scripts/Maze.gd" id="1_tqvdc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w1bfv"]
 bg_color = Color(1, 1, 1, 1)

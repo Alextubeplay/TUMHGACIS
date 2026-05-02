@@ -1,3 +1,6 @@
-res://scenes/Monitor_hud.tscn
+res://scenes/Main_scene.tscn
 res://themes/Monitor_hub.tres
 res://themes/Monitor_sidebar_buttons.tres
+res://scenes/Monitor_hud.tscn
+res://scenes/Tasks_manager.gd
+res://scenes/Maze.tscn

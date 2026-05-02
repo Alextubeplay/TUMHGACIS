@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bgyx51chki2xk"]
 
 [ext_resource type="Theme" uid="uid://dexvgj0yl2v6c" path="res://themes/Monitor_hub.tres" id="1_whxpw"]
+[ext_resource type="Texture2D" uid="uid://bfmvhskr8a43p" path="res://textures/menus/security/Scheme.png" id="2_73lp5"]
 [ext_resource type="Theme" uid="uid://gdbaqoskxmiy" path="res://themes/Monitor_sidebar_buttons.tres" id="2_aa8f5"]
-[ext_resource type="Texture2D" uid="uid://tkhf0mxo0uhw" path="res://textures/menus/monitor/Exit.png" id="2_wnoan"]
+[ext_resource type="Script" uid="uid://bi84joraxpmjl" path="res://scenes/Tasks_manager.gd" id="2_lrsg4"]
 [ext_resource type="Texture2D" uid="uid://io451gx5cade" path="res://textures/menus/monitor/Start.png" id="3_5oqps"]
-[ext_resource type="Texture2D" uid="uid://dfli4ryxbl8wf" path="res://textures/menus/monitor/Reload.png" id="4_73lp5"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -25,10 +25,9 @@ grow_vertical = 2
 [node name="TabContainer" type="TabContainer" parent="MarginContainer"]
 layout_mode = 2
 theme = ExtResource("1_whxpw")
-current_tab = 1
+current_tab = 0
 
 [node name="CAMERAS" type="CenterContainer" parent="MarginContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -39,7 +38,38 @@ layout_mode = 2
 [node name="Control" type="Control" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer"]
 layout_mode = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Map" type="VBoxContainer" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Scheme" type="Sprite2D" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map"]
+position = Vector2(159, 200)
+scale = Vector2(0.07021017, 0.07035191)
+texture = ExtResource("2_73lp5")
+
+[node name="Camera_parameters" type="VBoxContainer" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Label2" type="Label" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Camera_parameters"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Camera:"
+
 [node name="TASKS" type="CenterContainer" parent="MarginContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -58,6 +88,7 @@ layout_mode = 2
 [node name="Hud" type="VBoxContainer" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
+script = ExtResource("2_lrsg4")
 
 [node name="Start_button" type="Button" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud"]
 layout_mode = 2
@@ -65,17 +96,15 @@ focus_mode = 0
 theme = ExtResource("2_aa8f5")
 icon = ExtResource("3_5oqps")
 
-[node name="Reload_button2" type="Button" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud"]
+[node name="Tasks_counter" type="Label" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud"]
 layout_mode = 2
-focus_mode = 0
-theme = ExtResource("2_aa8f5")
-icon = ExtResource("4_73lp5")
+text = "Tasks:
+0/4"
 
-[node name="Exit_button3" type="Button" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud"]
+[node name="Time_left" type="Label" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud"]
 layout_mode = 2
-focus_mode = 0
-theme = ExtResource("2_aa8f5")
-icon = ExtResource("2_wnoan")
+text = "Time Left:
+180"
 
 [node name="INFORMATION" type="CenterContainer" parent="MarginContainer/TabContainer"]
 visible = false
@@ -86,5 +115,33 @@ metadata/_tab_index = 2
 custom_minimum_size = Vector2(800, 400)
 layout_mode = 2
 
-[node name="Control" type="Control" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer"]
 layout_mode = 2
+
+[node name="Dangers" type="VBoxContainer" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer/Dangers"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Dangers:"
+
+[node name="Label2" type="Label" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer/Dangers"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "11111"
+
+[node name="Requirements" type="VBoxContainer" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer/Requirements"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Requirements:"
+
+[node name="Label2" type="Label" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer/Requirements"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "11111"
