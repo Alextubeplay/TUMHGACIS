@@ -1,12 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://dnqknpfw0j6yw"]
+[gd_scene load_steps=16 format=3 uid="uid://dnqknpfw0j6yw"]
 
-[ext_resource type="PackedScene" uid="uid://t5t7vxfis17t" path="res://content/enviroment/Map.tscn" id="1_ddn17"]
+[ext_resource type="PackedScene" uid="uid://brmr0q5ideb56" path="res://content/interactable/Ventilation.tscn" id="1_uxkiq"]
 [ext_resource type="PackedScene" uid="uid://cbfcaja7njh6p" path="res://content/player/Player.tscn" id="2_l5tlr"]
-[ext_resource type="PackedScene" uid="uid://dyomnmqv63xla" path="res://content/interactable/Ventilation.tscn" id="3_r0vjo"]
-[ext_resource type="PackedScene" uid="uid://c0qmgidlnhyxv" path="res://content/interactable/Valve.tscn" id="4_14kla"]
+[ext_resource type="PackedScene" uid="uid://we0kl7hb3je" path="res://content/interactable/Valve.tscn" id="3_a6g5n"]
 [ext_resource type="PackedScene" uid="uid://ds7fnlmigjo35" path="res://content/enemies/Ripper.tscn" id="5_4a8l0"]
+[ext_resource type="PackedScene" uid="uid://bwkndikixqdx8" path="res://scenes/Map.tscn" id="6_a6g5n"]
 [ext_resource type="PackedScene" uid="uid://dxnm7iv0poubx" path="res://content/enemies/Bloody.tscn" id="6_uxkiq"]
 [ext_resource type="Script" uid="uid://b1pye3rkwrykn" path="res://scripts/Shift_settings.gd" id="7_a6g5n"]
+[ext_resource type="PackedScene" uid="uid://bjoiofq5r46ii" path="res://scenes/Lamp.tscn" id="8_08h5s"]
+[ext_resource type="PackedScene" uid="uid://gcvgsdmlrg62" path="res://scenes/Projector.tscn" id="9_gncci"]
+[ext_resource type="PackedScene" uid="uid://4eg14gcxlaq5" path="res://scenes/Lamp_latent.tscn" id="10_h41n4"]
 
 [sub_resource type="Gradient" id="Gradient_fkd63"]
 colors = PackedColorArray(0, 0, 0, 0.73333335, 1, 1, 1, 1)
@@ -24,22 +27,29 @@ height = 20
 noise = SubResource("FastNoiseLite_uxkiq")
 as_normal_map = true
 
+[sub_resource type="Environment" id="Environment_a6g5n"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.01
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0237
+
 [node name="Node3D" type="Node3D"]
 
-[node name="Player" parent="." node_paths=PackedStringArray("valve", "vent") instance=ExtResource("2_l5tlr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 6, 41.399998)
-valve = NodePath("../Valve")
-vent = NodePath("../Ventilation")
+[node name="Map_joined" parent="." instance=ExtResource("6_a6g5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028738022, -1.9073486e-06, 0.051932335)
 
-[node name="Map" parent="." instance=ExtResource("1_ddn17")]
+[node name="Ventilation" parent="." instance=ExtResource("1_uxkiq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.339947, 7.021374, 38.92411)
 
-[node name="Ventilation" parent="." instance=ExtResource("3_r0vjo")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.1559, 5.9731, 38.9302)
+[node name="Valve" parent="." instance=ExtResource("3_a6g5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.866718, 11.432019, 38.192062)
+
+[node name="Player" parent="." instance=ExtResource("2_l5tlr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.381832, 7.1920834, 40.754436)
 
 [node name="Ripper" parent="." instance=ExtResource("5_4a8l0")]
-
-[node name="Valve" parent="." instance=ExtResource("4_14kla")]
-transform = Transform3D(-1, -5.32375e-05, 0, 5.32375e-05, -1, 0, 0, 0, 1, -17.2582, 11.3969, 40.6952)
 
 [node name="Bloody" parent="." instance=ExtResource("6_uxkiq")]
 
@@ -78,3 +88,39 @@ theme_override_font_sizes/font_size = 60
 
 [node name="Shift settings" type="Node" parent="."]
 script = ExtResource("7_a6g5n")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a6g5n")
+
+[node name="Lamp" parent="." instance=ExtResource("8_08h5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.970606, 9.450499, 41.759323)
+
+[node name="Projector" parent="." instance=ExtResource("9_gncci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4220123, 20.35712, 17.26447)
+
+[node name="Projector2" parent="." instance=ExtResource("9_gncci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.641853, 20.35712, 21.757107)
+
+[node name="Projector3" parent="." instance=ExtResource("9_gncci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.821798, 20.357119, 21.772556)
+
+[node name="Projector4" parent="." instance=ExtResource("9_gncci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.113014, 20.15511, 4.175995)
+
+[node name="Projector5" parent="." instance=ExtResource("9_gncci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.95085, 20.15511, 4.175995)
+
+[node name="Projector6" parent="." instance=ExtResource("9_gncci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.130796, 20.155106, 4.1914444)
+
+[node name="Lamp3" parent="." instance=ExtResource("8_08h5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.95114, 12.658534, 20.30595)
+
+[node name="Lamp4" parent="." instance=ExtResource("8_08h5s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.95114, 12.658534, -1.0061159)
+
+[node name="Projector7" parent="." instance=ExtResource("9_gncci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.69381, 18.782423, -37.9071)
+
+[node name="Lamp2" parent="." instance=ExtResource("10_h41n4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5677147, 9.517076, 43.215916)

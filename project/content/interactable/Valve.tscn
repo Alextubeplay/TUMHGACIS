@@ -1,49 +1,141 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0qmgidlnhyxv"]
+[gd_scene load_steps=13 format=4 uid="uid://we0kl7hb3je"]
 
-[ext_resource type="PackedScene" uid="uid://bx5mtyiwpx2hk" path="res://models/interactable/Valve.fbx" id="1_0unrg"]
-[ext_resource type="Script" uid="uid://bt7h84e7sxt8k" path="res://scripts/Valve.gd" id="1_axrkn"]
-[ext_resource type="PackedScene" uid="uid://fae1cw6wkimi" path="res://models/map/Valve_base.fbx" id="2_wyghb"]
+[ext_resource type="Script" uid="uid://bt7h84e7sxt8k" path="res://scripts/Valve.gd" id="1_6vqvj"]
+[ext_resource type="Texture2D" uid="uid://bm3u86wy7u1qh" path="res://models/map/textures/Без имени.png" id="2_sec1q"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wqhb"]
-albedo_color = Color(0.53617, 0.175872, 0.121765, 1)
-metallic = 0.92
-roughness = 0.25
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5s5v"]
+resource_name = "Black_metal"
+cull_mode = 2
+albedo_color = Color(0.33768183, 0.33768183, 0.33768183, 1)
+metallic = 1.0
+roughness = 0.281818
 
-[sub_resource type="Animation" id="Animation_b44r0"]
-resource_name = "Push"
-length = 0.5
+[sub_resource type="ArrayMesh" id="ArrayMesh_ag5dl"]
+_surfaces = [{
+"aabb": AABB(-0.20782948, -0.062188767, -0.2399795, 0.41565704, 0.124377534, 0.479959),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIABQADAAAABQACAAYAAwAHAAQACAAFAAYAAwAFAAkACQAFAAgAAwAJAAcABwAKAAQABwAJAAoAAgAEAAsAAgALAAYACwAEAAoACAAGAAsACQALAAoACQAIAAsA"),
+"name": "Black_metal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/38AAAAAAAD//////z8AAP9///8AAAAA//8AAP8/AAD//////78AAAAAAAD/PwAAAAD///8/AAD//wAA/78AAAAAAAD/vwAA/38AAP//AAD/f/////8AAAAA////vwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c76i8"]
+resource_name = "Map_joined_Цилиндр_054"
+_surfaces = [{
+"aabb": AABB(-0.20782948, -0.062188767, -0.2399795, 0.41565704, 0.124377534, 0.479959),
+"attribute_data": PackedByteArray("//+kwKnq/3////9/qeqkwKnqpMBU1f9/qer/f1TVpMBU1aTA/7//f1TV/3//v6TA/7+kwKmq/3//v/9/qaqkwKmqpMBUlf9/qar/f1SVpMBUlaTA/3//f1SV/3//f6TAZMVz0Zn6c9H/3+/B/9///2TFe/CZ+nvwVNX/f/9//3+p6v9/qar/f/+//39Ulf9/"),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGQAYABsAGwAYABwAGQAbAB0AHgAfACAAHwAeACEAIQAeACIAHwAhACMA"),
+"material": SubResource("StandardMaterial3D_x5s5v"),
+"name": "Black_metal",
+"primitive": 3,
+"uv_scale": Vector4(2, 1.98, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("/38AAAAAqer//////z+p6v9///8AAKnq//8AAP8/qer//wAA/z//v///////v/+///////8//7///wAA/7//v///AAD/v1SV/3//////VJX//////79Ulf9/AAD//1SV/38AAP//VJUAAP///79Ulf9//////1SVAAAAAP+/VJUAAAAA/7//vwAA////P/+/AAD///+//78AAAAA/z//vwAAAAD/P6nq/3///wAAqeoAAP///z+p6v9/AAAAAKnqAAAAAP8//z///wAA/z//P/9/AAAAAP8//38AAP///z8AAAAA/7//P///AAD/v/8///////+//7//f///AAD/v///////P/+/AAD///+//7//f///////vwAA////P/+//38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/3////9/////f////3////9/////f////3////9/////f////3////9/////f///AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ag5dl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jvl3l"]
+resource_name = "Valve"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("2_sec1q")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xiof5"]
+_surfaces = [{
+"aabb": AABB(-0.073935986, 0, -0.08537364, 0.14787102, 0.47402504, 0.17074728),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAgADAAUABgAEAAAABQADAAcABgAIAAQABQAHAAkACgAIAAYACQAHAAsACgALAAgACQALAAoA"),
+"name": "Black_metal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("/38AAP//AAD//////78AAP//AAD/vwAA//////8/AAD/f/////8AAP//AAD/PwAAAAAAAP+/AAD/f///AAAAAAAA////vwAA/38AAAAAAAAAAAAA/z8AAAAA////PwAA")
+}, {
+"aabb": AABB(-0.47061184, 0.47943553, -0.5434138, 0.9412201, 1e-05, 1.0868276),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMAAwAAAAQAAQADAAUA"),
+"name": "Valve",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("//8AAP+/AAD/fwAAAAAAAP//AAD/PwAAAAAAAP+/AAD/fwAA//8AAAAAAAD/PwAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dbbqc"]
+resource_name = "Map_joined_Цилиндр_057"
+_surfaces = [{
+"aabb": AABB(-0.073935986, 0, -0.08537364, 0.14787102, 0.47402504, 0.17074728),
+"attribute_data": PackedByteArray("9//05LnRAcr3/0+utdChyvLQDpPD0FjIx6EorsDR2cjHoSiuz8/2yJyhi+TD0FjIl9D3/7XQocr3//Tk0M8Vyvf/T67A0dnI8tAOk7nRAcqcoYvk0M8VypfQ9//Pz/bI"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_x5s5v"),
+"name": "Black_metal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/38AAP//YMH//////7+6l///AAD/vzTG/3//////+5X//wAA/z9m8/9///8AADv//38AAAAAW/L//////z9y//9/AAAAAETxAAD///8/Sv0AAAAA/z9S8P9///8AAJ7+AAAAAP+/frf/f/////+Clf9/AAD//ya8AAD///+/c5X//wAA/79j4P//////P5L2//8AAP8/xd3//////790+QAAAAD/P9bLAAD///+/DcEAAAAA/7/WzQAA////P3/AMJYBaUqKtDCslkxrbYZuHiovvz+MAyZiCjOxPOjian2syK3GJ/RjpKrE1sm3+f+f92p4nDx8Mu5jaruZDI/Q/JywOWEbuzh2Ta+bXoq8FXmLxzjcdJ9E8PfKgtpUl1T0")
+}, {
+"aabb": AABB(-0.47061184, 0.47943553, -0.5434138, 0.9412201, 1e-05, 1.0868276),
+"attribute_data": PackedByteArray("Q6wxj4BbTgNDrO8xvAoxj4Bb0r28Cu8x"),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMAAwAAAAQAAQADAAUA"),
+"material": SubResource("StandardMaterial3D_jvl3l"),
+"name": "Valve",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("//8AAP+//7//fwAAAAD/v///AAD/P/+/AAAAAP+//7//fwAA////vwAAAAD/P/+//v//f/7//3/+//9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xiof5")
+
+[sub_resource type="Animation" id="Animation_sec1q"]
+resource_name = "Rotate"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Top:position")
+tracks/0/path = NodePath("valve_001:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.33333334, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.0291062, 0.030762553, 0.041233957), Vector3(0.019514173, 0.034818232, -0.050513566), Vector3(-0.024256349, 0.021942914, 0.020840645), Vector3(0, 0, 0)]
+"values": [Vector3(-3.1415923, 0, 0), Vector3(-3.1415927, 3.1415927, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_8ag2a"]
+[sub_resource type="Animation" id="Animation_c76i8"]
 length = 0.001
-loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Top:position")
+tracks/0/path = NodePath("valve_001:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(-3.1415923, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Top:rotation")
+tracks/1/path = NodePath("valve_001:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -52,51 +144,50 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Top:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
 
-[sub_resource type="Animation" id="Animation_aggiq"]
-resource_name = "Rotate"
-length = 2.0
+[sub_resource type="Animation" id="Animation_dbbqc"]
+resource_name = "Push"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Top:rotation")
+tracks/0/path = NodePath("valve_001:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -6.28319, 0)]
+"values": [Vector3(0, 0, 0), Vector3(-0.04669738, 0.06718981, 0), Vector3(0.016536474, 0, 0.070085526), Vector3(0, 0, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_csll6"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c76i8"]
 _data = {
-&"Push": SubResource("Animation_b44r0"),
-&"RESET": SubResource("Animation_8ag2a"),
-&"Rotate": SubResource("Animation_aggiq")
+&"Push": SubResource("Animation_dbbqc"),
+&"RESET": SubResource("Animation_c76i8"),
+&"Rotate": SubResource("Animation_sec1q")
 }
 
 [node name="Valve" type="Node3D"]
-script = ExtResource("1_axrkn")
+script = ExtResource("1_6vqvj")
 
-[node name="Top" parent="." instance=ExtResource("1_0unrg")]
-metadata/Texture = SubResource("StandardMaterial3D_1wqhb")
+[node name="valve_base_001" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 3.2584137e-07, 0, -3.2584137e-07, -1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_c76i8")
+skeleton = NodePath("")
+metadata/extras = {
+"asset_bridge": {}
+}
+
+[node name="valve_001" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 3.8941437e-07, 0, -3.8941437e-07, -1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_dbbqc")
+skeleton = NodePath("")
+metadata/extras = {
+"asset_bridge": {}
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_csll6")
+&"": SubResource("AnimationLibrary_c76i8")
 }
-
-[node name="Base" parent="." instance=ExtResource("2_wyghb")]

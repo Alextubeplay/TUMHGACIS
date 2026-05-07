@@ -1,7 +1,8 @@
-res://scenes/Main_scene.tscn
+res://scenes/Monitor_hud.tscn
 res://themes/Monitor_hub.tres
 res://themes/Monitor_sidebar_buttons.tres
-res://scenes/Monitor_hud.tscn
-res://scenes/Tasks_manager.gd
-res://scenes/Maze.tscn
-res://content/player/Player.tscn
+res://scripts/Tasks_manager.gd
+res://scripts/PlayerController.gd
+res://scenes/Map.tscn
+res://scenes/Lamp_latent.tscn
+res://scenes/Monitor.tscn

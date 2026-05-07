@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=4 uid="uid://gcvgsdmlrg62"]
+
+[ext_resource type="Texture2D" uid="uid://dlqg17a54dl83" path="res://models/map/textures/Lamp.png" id="1_dw6v7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rcfvl"]
+resource_name = "Lamp"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_dw6v7")
+metallic = 0.6727273
+roughness = 0.81363636
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_is4sq"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 0.3524358, 2),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAgADAAQAAgAEAAAAAQAFAAMAAAAEAAYABwAFAAEAAAAHAAEABwAGAAUAAAAGAAcA"),
+"name": "Lamp",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAD//wAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAP////8AAP////8AAAAA////////AAD//wAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_he8ca"]
+resource_name = "Lamp_Плоскость"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 0.3524358, 2),
+"attribute_data": PackedByteArray("XJKibccAN//HAKJtXJI3/+uTom2SrTf/65M3/5Ktom0ir6Jtycg3/yKvN//JyKJtWcqibQDkN/9Zyjf/AOSibY/lom03/zf/j+U3/zf/om0="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_rcfvl"),
+"name": "Lamp",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAP//VNX//wAAAABU1QAAAAAAAFTV//8AAP//VNUAAAAA////v/////////+///8AAP///78AAP//////v///AAD//1TV/////wAAVNX//wAAAABU1f///////1TVAAAAAAAAVNUAAP////9U1QAAAAD//1TVAAD//wAAVNX//wAAAAD//wAA//8AAP//AAAAAAAA////////AAD//6oqVNWqKlTVqipU1aoqVNX/////////////////////qiqqKqoqqiqqKqoqqiqqKlTVVNVU1VTVVNVU1VTVVNX/v/+//7//v/+//7//v/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_is4sq")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Плоскость" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_he8ca")
+skeleton = NodePath("")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+light_energy = 5.0
+light_size = 0.194
+spot_range = 43.583717
+spot_attenuation = 0.5
+spot_angle = 35.0

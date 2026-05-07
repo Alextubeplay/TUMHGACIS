@@ -1,6 +1,5 @@
 extends Control
 
-# Список сцен мини-игр
 var minigames = [
 	"res://scenes/Clicker.tscn",
 	"res://scenes/Colorful_wires.tscn",
@@ -15,18 +14,17 @@ var minigames = [
 
 var current_game_instance = null
 var current_game_path = ""
+var last_completed_count = 0
 
 func _ready():
 	start_button.pressed.connect(_on_start_pressed)
+	last_completed_count = ShiftSettings.completed_tasks
 
 func _process(_delta):
 	update_hud_display()
 
-# Обновление визуальной части HUD
 func update_hud_display():
 	var highlight_color = Color("185ad3")
-	
-	# --- СЧЕТЧИК ЗАДАЧ ---
 	tasks_counter_label.visible = ShiftSettings.is_tasks_active
 	tasks_counter_label.text = "Tasks:\n" + str(ShiftSettings.completed_tasks) + "/" + str(ShiftSettings.amount_of_tasks)
 	
@@ -35,7 +33,6 @@ func update_hud_display():
 	else:
 		tasks_counter_label.modulate = Color.WHITE
 
-	# --- ТАЙМЕР ---
 	time_left_label.visible = ShiftSettings.is_shift_timer_active
 	time_left_label.text = "Time Left:\n" + str(int(ShiftSettings.shift_timer))
 	
@@ -44,16 +41,16 @@ func update_hud_display():
 	else:
 		time_left_label.modulate = Color.WHITE
 
-# Очистка контейнера
 func clear_tasks():
-	if current_game_instance:
+	if is_instance_valid(current_game_instance):
 		current_game_instance.queue_free()
-		current_game_instance = null
+	current_game_instance = null
 
-# Загрузка мини-игры
 func load_minigame(path: String):
 	clear_tasks()
 	current_game_path = path
+	last_completed_count = ShiftSettings.completed_tasks
+	
 	var scene = load(path)
 	if scene:
 		current_game_instance = scene.instantiate()
@@ -61,32 +58,25 @@ func load_minigame(path: String):
 		if current_game_instance is Control:
 			current_game_instance.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
-# Кнопка Старт (Треугольник)
 func _on_start_pressed():
-	# 1. Запрет, если норма заданий уже выполнена
 	if ShiftSettings.completed_tasks >= ShiftSettings.amount_of_tasks:
 		return
 	
-	# 2. НОВОЕ: Запрет реролла, если текущая игра уже запущена (не пройдена)
 	if current_game_instance != null:
-		print("Сначала завершите текущее задание!")
-		return
-		
-	var next_game = minigames.pick_random()
+		if ShiftSettings.completed_tasks == last_completed_count:
+			return
 	
-	# Чтобы не запускать ту же самую игру, если это технически возможно
+	var next_game = minigames.pick_random()
 	if next_game == current_game_path and minigames.size() > 1:
-		_on_start_pressed()
-		return
+		next_game = minigames[(minigames.find(next_game) + 1) % minigames.size()]
 		
 	load_minigame(next_game)
 
-# Перезапуск (Кружок)
 func _on_reload_pressed():
 	if current_game_path != "":
 		load_minigame(current_game_path)
 
-# Закрыть (Крестик)
 func _on_exit_pressed():
 	clear_tasks()
 	current_game_path = ""
+	last_completed_count = ShiftSettings.completed_tasks

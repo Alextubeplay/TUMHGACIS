@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://s8i1rlbqlqlq"]
-
-[ext_resource type="PackedScene" uid="uid://curkc4uc6hr1h" path="res://models/map/Table.fbx" id="1_a4up4"]
-
-[node name="Table" type="Node3D"]
-
-[node name="Model" parent="." instance=ExtResource("1_a4up4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8334, 0, -36.7796)
