@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bco6og8a0cg12"]
+
+[ext_resource type="Script" uid="uid://qc6tgf36xfy5" path="res://scripts/Bleach.gd" id="1_yem76"]
+
+[node name="Bleach" type="Node3D"]
+script = ExtResource("1_yem76")

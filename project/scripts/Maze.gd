@@ -1,12 +1,11 @@
 extends Control
 
-# Константы твоей рабочей области
 const MAX_WIDTH = 750
 const MAX_HEIGHT = 400
 
 var width = 10
 var height = 8
-var cell_size = 60 # Будет пересчитано в _ready
+var cell_size = 60
 var maze_color = Color("185ad3")
 
 var grid = []
@@ -15,18 +14,14 @@ var stack = []
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
-	# --- ПРАВКА ДЛЯ МАСШТАБА ---
-	# Вычисляем максимально возможный размер ячейки для сетки 10x8
 	var scale_x = MAX_WIDTH / width
 	var scale_y = MAX_HEIGHT / height
 	cell_size = min(scale_x, scale_y)
 	
-	# Задаем размер узла и центрируем его в области 750x400
 	custom_minimum_size = Vector2(width * cell_size, height * cell_size)
 	size = custom_minimum_size
 	position = Vector2((MAX_WIDTH - size.x) / 2, (MAX_HEIGHT - size.y) / 2)
-	# ---------------------------
-
+	
 	generate_maze()
 	queue_redraw()
 
@@ -83,7 +78,6 @@ func _draw() -> void:
 		for x in range(width):
 			var pos = Vector2(x, y) * cell_size
 			var walls = grid[y][x].walls
-			# Толщину линий тоже чуть уменьшим для красоты, если клетки стали маленькими
 			var line_w = 4 if cell_size > 40 else 2
 			
 			if walls[0]: draw_line(pos, pos + Vector2(cell_size, 0), Color.BLACK, line_w)
@@ -98,7 +92,6 @@ func is_point_safe(global_pos: Vector2) -> bool:
 	
 	if x < 0 or x >= width or y < 0 or y >= height: return false
 	
-	# Марджин подстраиваем под размер клетки (30% от размера), чтобы не застревать
 	var margin = cell_size * 0.3
 	var cell_rel_pos = Vector2(fmod(local_pos.x, cell_size), fmod(local_pos.y, cell_size))
 	var walls = grid[y][x].walls

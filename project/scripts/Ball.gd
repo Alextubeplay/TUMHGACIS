@@ -13,12 +13,10 @@ func _ready() -> void:
 	input_pickable = true
 
 func setup_game_positions():
-	# Выбираем случайную клетку для старта
 	var start_cell = maze.get_random_cell_pos()
 	start_pos = maze.global_position + (start_cell * maze.cell_size) + Vector2(maze.cell_size/2, maze.cell_size/2)
 	global_position = start_pos
 	
-	# Выбираем случайную клетку для финиша, пока она слишком близко к старту
 	var finish_cell = maze.get_random_cell_pos()
 	while finish_cell.distance_to(start_cell) < (maze.width / 2):
 		finish_cell = maze.get_random_cell_pos()

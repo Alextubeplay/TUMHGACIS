@@ -1,15 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://dnqknpfw0j6yw"]
+[gd_scene load_steps=21 format=3 uid="uid://dnqknpfw0j6yw"]
 
 [ext_resource type="PackedScene" uid="uid://brmr0q5ideb56" path="res://content/interactable/Ventilation.tscn" id="1_uxkiq"]
 [ext_resource type="PackedScene" uid="uid://cbfcaja7njh6p" path="res://content/player/Player.tscn" id="2_l5tlr"]
 [ext_resource type="PackedScene" uid="uid://we0kl7hb3je" path="res://content/interactable/Valve.tscn" id="3_a6g5n"]
 [ext_resource type="PackedScene" uid="uid://ds7fnlmigjo35" path="res://content/enemies/Ripper.tscn" id="5_4a8l0"]
+[ext_resource type="PackedScene" uid="uid://bco6og8a0cg12" path="res://content/enemies/Bleach.tscn" id="6_7qsmt"]
 [ext_resource type="PackedScene" uid="uid://bwkndikixqdx8" path="res://scenes/Map.tscn" id="6_a6g5n"]
 [ext_resource type="PackedScene" uid="uid://dxnm7iv0poubx" path="res://content/enemies/Bloody.tscn" id="6_uxkiq"]
+[ext_resource type="PackedScene" uid="uid://bgyx51chki2xk" path="res://scenes/Monitor_hud.tscn" id="7_6vdxs"]
 [ext_resource type="Script" uid="uid://b1pye3rkwrykn" path="res://scripts/Shift_settings.gd" id="7_a6g5n"]
+[ext_resource type="PackedScene" uid="uid://btsve70fqgifm" path="res://content/enemies/Hypno.tscn" id="7_o0okc"]
 [ext_resource type="PackedScene" uid="uid://bjoiofq5r46ii" path="res://scenes/Lamp.tscn" id="8_08h5s"]
 [ext_resource type="PackedScene" uid="uid://gcvgsdmlrg62" path="res://scenes/Projector.tscn" id="9_gncci"]
 [ext_resource type="PackedScene" uid="uid://4eg14gcxlaq5" path="res://scenes/Lamp_latent.tscn" id="10_h41n4"]
+[ext_resource type="PackedScene" uid="uid://prxmynv63aym" path="res://content/interactable/Crematory.tscn" id="12_fjiqv"]
+[ext_resource type="Script" uid="uid://dkrrrwgisdh45" path="res://scripts/Сrematory.gd" id="13_wi0oi"]
 
 [sub_resource type="Gradient" id="Gradient_fkd63"]
 colors = PackedColorArray(0, 0, 0, 0.73333335, 1, 1, 1, 1)
@@ -38,7 +43,7 @@ volumetric_fog_density = 0.0237
 [node name="Node3D" type="Node3D"]
 
 [node name="Map_joined" parent="." instance=ExtResource("6_a6g5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028738022, -1.9073486e-06, 0.051932335)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.068855286, -0.046237946, 0.0046606064)
 
 [node name="Ventilation" parent="." instance=ExtResource("1_uxkiq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.339947, 7.021374, 38.92411)
@@ -51,7 +56,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.381832, 7.1920834, 40.754
 
 [node name="Ripper" parent="." instance=ExtResource("5_4a8l0")]
 
+[node name="Bleach" parent="." instance=ExtResource("6_7qsmt")]
+
+[node name="Hypno" parent="." instance=ExtResource("7_o0okc")]
+
 [node name="Bloody" parent="." instance=ExtResource("6_uxkiq")]
+
+[node name="Monitor" parent="." instance=ExtResource("7_6vdxs")]
+visible = false
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -77,14 +89,54 @@ text = "100%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Death_screen" type="CanvasLayer" parent="."]
+[node name="RipperNear" type="ColorRect" parent="HUD"]
+visible = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+color = Color(1, 1, 0, 1)
 
-[node name="Placeholder_death" type="Label" parent="Death_screen"]
-offset_left = 360.0
-offset_top = 120.0
-offset_right = 414.0
-offset_bottom = 215.0
-theme_override_font_sizes/font_size = 60
+[node name="BleachNear" type="ColorRect" parent="HUD"]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(1, 1, 0, 1)
+
+[node name="HypnoNear" type="ColorRect" parent="HUD"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.0
+offset_top = 1.0
+offset_right = -21.0
+offset_bottom = 41.0
+grow_horizontal = 2
+color = Color(1, 1, 0, 1)
+
+[node name="ValveOpen" type="ColorRect" parent="HUD"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 25.0
+offset_top = 1.0
+offset_right = 65.0
+offset_bottom = 41.0
+grow_horizontal = 2
+color = Color(1, 0, 0, 1)
 
 [node name="Shift settings" type="Node" parent="."]
 script = ExtResource("7_a6g5n")
@@ -124,3 +176,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.69381, 18.782423, -37.9071
 
 [node name="Lamp2" parent="." instance=ExtResource("10_h41n4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5677147, 9.517076, 43.215916)
+
+[node name="Monitor_light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.283096, 5.2861915, 37.27904)
+light_color = Color(0.09803922, 0.3529412, 0.827451, 1)
+light_energy = 0.0
+omni_range = 1.772
+
+[node name="Crematory" parent="." instance=ExtResource("12_fjiqv")]
+transform = Transform3D(0.14447722, 0, -0.98950803, 0, 1, 0, 0.98950803, 0, 0.14447722, 4.3393536, 6.013233, 53.470688)
+script = ExtResource("13_wi0oi")

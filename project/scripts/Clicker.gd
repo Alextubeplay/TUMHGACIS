@@ -6,11 +6,11 @@ var current_clicks: int = 0
 var is_waiting: bool = false 
 var task_done: bool = false
 
-# Координаты
-var start_y_position: float = 0.0
-var click_offset: float = 15.0 # Уменьшил, 33 было слишком много
 
-# Цвета
+var start_y_position: float = 0.0
+var click_offset: float = 15.0 
+
+
 var color_default = Color(1, 1, 1)
 var color_success = Color("195ad3")
 var color_fail = Color(0, 0, 0)
@@ -22,7 +22,6 @@ var color_fail = Color(0, 0, 0)
 func _ready() -> void:
 	randomize()
 	reset_level()
-	# Важно: даем контейнеру расставить элементы, прежде чем брать позицию
 	await get_tree().process_frame
 	start_y_position = main_button.position.y
 
@@ -31,7 +30,6 @@ func reset_level():
 	current_clicks = 0
 	is_waiting = false
 	
-	# Сбрасываем позицию в начало
 	if main_button:
 		main_button.position.y = start_y_position
 	
@@ -39,12 +37,9 @@ func reset_level():
 	current_label.text = str(current_clicks)
 	current_label.add_theme_color_override("font_color", color_default)
 
-# ЭФФЕКТ НАЖАТИЯ
 func _on_button_button_down() -> void:
-	# Если мы внутри CenterContainer, лучше использовать смещение через position
 	main_button.position.y = start_y_position + click_offset
 
-# ЭФФЕКТ ОТПУСКАНИЯ
 func _on_button_button_up() -> void:
 	main_button.position.y = start_y_position
 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://btsve70fqgifm"]
+
+[ext_resource type="Script" uid="uid://cwpmpmjyjsamu" path="res://scripts/Hypno.gd" id="1_oecf1"]
+
+[node name="Hypno" type="Node3D"]
+script = ExtResource("1_oecf1")
