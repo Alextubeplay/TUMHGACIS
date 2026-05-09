@@ -10,7 +10,7 @@
 [ext_resource type="Theme" uid="uid://mbqgf0bksrty" path="res://themes/Colorful_wires_buttons.tres" id="3_o6tup"]
 [ext_resource type="Script" uid="uid://nxrt66n17uvy" path="res://scripts/Information_manager.gd" id="6_lrsg4"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="Monitor_hud" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -35,7 +35,7 @@ theme_override_constants/margin_bottom = 30
 [node name="TabContainer" type="TabContainer" parent="Control/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("1_whxpw")
-current_tab = 2
+current_tab = 1
 script = ExtResource("2_vlx1f")
 
 [node name="CAMERAS" type="CenterContainer" parent="Control/MarginContainer/TabContainer"]
@@ -183,7 +183,6 @@ text = "Exit"
 horizontal_alignment = 1
 
 [node name="TASKS" type="CenterContainer" parent="Control/MarginContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -221,6 +220,7 @@ text = "Time Left:
 180"
 
 [node name="INFORMATION" type="CenterContainer" parent="Control/MarginContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

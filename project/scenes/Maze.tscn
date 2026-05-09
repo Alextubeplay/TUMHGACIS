@@ -34,7 +34,7 @@ anti_aliasing = false
 Panel/styles/panel = SubResource("StyleBoxFlat_my7j6")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_my7j6"]
-radius = 15.0
+radius = 11.045361
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(750, 400)

@@ -1,133 +1,94 @@
 extends Node3D
-class_name Player
 
 var plooking = "forward"
 var cooldown = 0.2
 var alive = true
 var start_position: Vector3
-var monitor_offset = Vector3(0.3, -1.5, -3.7)
 
-@onready var shift_settings = $"../Shift settings"
+@onready var shift_settings = get_node("/root/ShiftSettings")
 @onready var valve = $"../Valve"
 @onready var vent = $"../Ventilation"
 @onready var crematory = $"../Crematory"
 @onready var o2_bar = $"../HUD/O2_bar"
 @onready var o2_percent = $"../HUD/O2_bar_percent"
-
-@onready var monitor_light = $"../Monitor_light"
-@onready var monitor_hud = $"../Monitor"
+@onready var monitor = $"../Monitor"
 
 func _ready():
 	start_position = position
-	if monitor_light:
-		monitor_light.light_energy = 0
-	if monitor_hud:
-		monitor_hud.hide()
 
 func _process(delta):
 	if cooldown > 0:
 		cooldown -= delta
-	
 	_moving()
 	_breath(vent.is_opened)
+	if (shift_settings.completed_tasks >= shift_settings.amount_of_tasks) and (shift_settings.shift_timer <= 0) and (alive == true):
+		_win()
 
-func _rotate_camera(target_rotation_y: float, target_rotation_x: float, offset_pos: Vector3 = Vector3.ZERO):
+func _rotate_camera(target_rotation_y: float, target_rotation_x: float, target_pos: Vector3):
 	var tween = create_tween().set_parallel(true)
 	tween.tween_property(self, "rotation:y", target_rotation_y, 0.25).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "rotation:x", target_rotation_x, 0.25).set_trans(Tween.TRANS_SINE)
-	
-	var final_pos = start_position + offset_pos
-	tween.tween_property(self, "position", final_pos, 0.25).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "position", target_pos, 0.25).set_trans(Tween.TRANS_SINE)
 	return tween
-
-func _toggle_monitor_light(is_on: bool):
-	if monitor_light:
-		var target_energy = 16.0 if is_on else 0.0
-		var tween = create_tween()
-		tween.tween_property(monitor_light, "light_energy", target_energy, 0.25)
-
-func _toggle_monitor_hud(is_on: bool):
-	if monitor_hud:
-		if is_on:
-			monitor_hud.show()
-		else:
-			monitor_hud.hide()
 
 func _unhandled_input(event):
 	if plooking == "monitor" and event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			plooking = "forward"
-			_toggle_monitor_light(false)
-			_toggle_monitor_hud(false)
-			_rotate_camera(0, 0, Vector3.ZERO)
+			_exit_monitor()
+
+func _exit_monitor():
+	plooking = "forward"
+	monitor.set_active(false)
+	_rotate_camera(0, 0, start_position)
 
 func _moving():
 	if Input.is_action_just_pressed("Left"):
+		if plooking == "monitor":
+			_exit_monitor()
+			return
 		match plooking:
 			"forward", "up", "down":
 				plooking = "left"
-				_rotate_camera(PI / 2, 0)
+				_rotate_camera(PI / 2, 0, start_position)
 			"right":
 				plooking = "forward"
-				_rotate_camera(0, 0)
-			"monitor":
-				plooking = "left"
-				_toggle_monitor_light(false)
-				_toggle_monitor_hud(false)
-				_rotate_camera(PI / 2, 0, Vector3.ZERO)
-
+				_rotate_camera(0, 0, start_position)
 	if Input.is_action_just_pressed("Right"):
+		if plooking == "monitor":
+			_exit_monitor()
+			return
 		match plooking:
 			"forward", "up", "down":
 				plooking = "right"
-				_rotate_camera(-PI / 2, 0)
+				_rotate_camera(-PI / 2, 0, start_position)
 			"left":
 				plooking = "forward"
-				_rotate_camera(0, 0)
-			"monitor":
-				plooking = "right"
-				_toggle_monitor_light(false)
-				_toggle_monitor_hud(false)
-				_rotate_camera(-PI / 2, 0, Vector3.ZERO)
-
+				_rotate_camera(0, 0, start_position)
 	if Input.is_action_just_pressed("Up"):
+		if plooking == "monitor":
+			_exit_monitor()
+			return
 		match plooking:
-			"forward":
+			"forward", "left", "right":
 				plooking = "up"
-				_rotate_camera(0, PI / 4)
-			"left", "right":
-				plooking = "up"
-				_rotate_camera(0, PI / 4)
+				_rotate_camera(rotation.y, PI / 4, start_position)
 			"down":
 				plooking = "forward"
-				_rotate_camera(0, 0)
-			"monitor":
-				plooking = "forward"
-				_toggle_monitor_light(false)
-				_toggle_monitor_hud(false)
-				_rotate_camera(0, 0, Vector3.ZERO)
-
+				_rotate_camera(rotation.y, 0, start_position)
 	if Input.is_action_just_pressed("Down"):
+		if plooking == "monitor":
+			_exit_monitor()
+			return
 		match plooking:
-			"forward":
+			"forward", "left", "right":
 				plooking = "down"
-				_rotate_camera(0, -PI / 4)
-			"left", "right":
-				plooking = "down"
-				_rotate_camera(0, -PI / 4)
+				_rotate_camera(rotation.y, -PI / 4, start_position)
 			"up":
 				plooking = "forward"
-				_rotate_camera(0, 0)
-			"monitor":
-				plooking = "forward"
-				_toggle_monitor_light(false)
-				_toggle_monitor_hud(false)
-				_rotate_camera(0, 0, Vector3.ZERO)
-
+				_rotate_camera(rotation.y, 0, start_position)
 	if Input.is_action_just_pressed("Interact"):
 		if plooking == "monitor":
 			return
-			
 		match plooking:
 			"left":
 				vent.close_vent()
@@ -136,10 +97,14 @@ func _moving():
 			"up":
 				valve.close_valve()
 			"forward":
-				plooking = "monitor"
-				_toggle_monitor_light(true)
-				var tw = _rotate_camera(0, -0.3, monitor_offset)
-				tw.finished.connect(func(): if plooking == "monitor": _toggle_monitor_hud(true))
+				_enter_monitor()
+
+func _enter_monitor():
+	plooking = "monitor"
+	monitor.set_active(true)
+	var cam_transform = monitor.get_camera_transform()
+	var target_rot = cam_transform.basis.get_euler()
+	_rotate_camera(target_rot.y, target_rot.x, cam_transform.origin)
 
 func _breath(vent_opened):
 	if cooldown <= 0 and alive and shift_settings.is_breathing_active:
@@ -148,19 +113,15 @@ func _breath(vent_opened):
 		else:
 			o2_bar.value -= 0.70
 		cooldown = 0.2
-	
 	o2_percent.text = str(snapped(o2_bar.value, 0.1)) + "%"
-	
 	if o2_bar.value <= 0:
 		_die("ASPHYXATION")
 
 func _die(reason):
 	alive = false
-	var death_scene = preload("res://scenes/Death_screen.tscn").instantiate()
-	get_tree().root.add_child(death_scene)
-	
-	var label = death_scene.get_node("CanvasLayer/Placeholder_death")
-	if label:
-		label.text = "YOU DIED OF: " + reason.to_upper()
-	
-	queue_free()
+	shift_settings.last_death_reason = reason.to_upper()
+	get_tree().change_scene_to_file("res://scenes/Death_screen.tscn")
+
+func _win():
+	alive = false
+	get_tree().change_scene_to_file("res://scenes/Win_screen.tscn")

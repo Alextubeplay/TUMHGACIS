@@ -3,7 +3,7 @@ extends Control
 const MAX_WIDTH = 750
 const MAX_HEIGHT = 400
 
-var width = 10
+var width = 12
 var height = 8
 var cell_size = 60
 var maze_color = Color("185ad3")
@@ -13,7 +13,6 @@ var stack = []
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
-	
 	var scale_x = MAX_WIDTH / width
 	var scale_y = MAX_HEIGHT / height
 	cell_size = min(scale_x, scale_y)
@@ -85,21 +84,20 @@ func _draw() -> void:
 			if walls[2]: draw_line(pos + Vector2(0, cell_size), pos + Vector2(cell_size, cell_size), Color.BLACK, line_w)
 			if walls[3]: draw_line(pos, pos + Vector2(0, cell_size), Color.BLACK, line_w)
 
-func is_point_safe(global_pos: Vector2) -> bool:
+func is_point_safe(global_pos: Vector2, player_radius: float) -> bool:
 	var local_pos = global_pos - global_position
 	var x = int(local_pos.x / cell_size)
 	var y = int(local_pos.y / cell_size)
 	
 	if x < 0 or x >= width or y < 0 or y >= height: return false
 	
-	var margin = cell_size * 0.3
 	var cell_rel_pos = Vector2(fmod(local_pos.x, cell_size), fmod(local_pos.y, cell_size))
 	var walls = grid[y][x].walls
 	
-	if walls[0] and cell_rel_pos.y < margin: return false
-	if walls[1] and cell_rel_pos.x > cell_size - margin: return false
-	if walls[2] and cell_rel_pos.y > cell_size - margin: return false
-	if walls[3] and cell_rel_pos.x < margin: return false
+	if walls[0] and cell_rel_pos.y < player_radius: return false
+	if walls[1] and cell_rel_pos.x > (cell_size - player_radius): return false
+	if walls[2] and cell_rel_pos.y > (cell_size - player_radius): return false
+	if walls[3] and cell_rel_pos.x < player_radius: return false
 	
 	return true
 

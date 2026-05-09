@@ -41,7 +41,7 @@ func _check_door_consequence():
 		timer = 20.0
 	elif bleach_position == "far" or bleach_position == "middle":
 		if player.alive:
-			player._die("Bleach")
+			player._die("Bleach (closed door too early)")
 	
 	bleach_indicator.hide()
 

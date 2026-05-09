@@ -1,5 +1,4 @@
 extends Node
-class_name Shift_settings
 
 # Gameplay modifiers
 var difficulty = 1
@@ -27,6 +26,8 @@ func _process(delta):
 		shift_timer -= delta
 		if shift_timer <= 0:
 			shift_timer = 0
+
+var last_death_reason: String = ""
 
 # Difficulty
 func set_difficulty(level: int) -> void:

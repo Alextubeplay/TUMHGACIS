@@ -1,82 +1,44 @@
-extends Control
+extends Node
 
-var minigames = [
-	"res://scenes/Clicker.tscn",
-	"res://scenes/Colorful_wires.tscn",
-	"res://scenes/Colorless_wires.tscn",
-	"res://scenes/Maze.tscn"
-]
+# Gameplay modifiers
+var difficulty = 1
+var shift_timer = 120.0 # Seconds
+var amount_of_tasks = 3
+var completed_tasks = 0:
+	set(value):
+		if value <= amount_of_tasks:
+			completed_tasks = value
+		else:
+			completed_tasks = amount_of_tasks
 
-@onready var tasks_container = $"../Tasks"
-@onready var start_button = $Start_button
-@onready var tasks_counter_label = $Tasks_counter
-@onready var time_left_label = $Time_left
+# Gameplay Features
+var is_shift_timer_active = true
+var is_tasks_active = true
+var is_breathing_active = true
+var is_ripper_active = true
+var is_valve_active = true
+var is_hypno_active = true
+var is_bleach_active = true
 
-var current_game_instance = null
-var current_game_path = ""
-var last_completed_count = 0
+# Technical
+func _process(delta):
+	if is_shift_timer_active and shift_timer > 0:
+		shift_timer -= delta
+		if shift_timer <= 0:
+			shift_timer = 0
 
-func _ready():
-	start_button.pressed.connect(_on_start_pressed)
-	last_completed_count = ShiftSettings.completed_tasks
+var last_death_reason: String = ""
 
-func _process(_delta):
-	update_hud_display()
-
-func update_hud_display():
-	var highlight_color = Color("185ad3")
-	tasks_counter_label.visible = ShiftSettings.is_tasks_active
-	tasks_counter_label.text = "Tasks:\n" + str(ShiftSettings.completed_tasks) + "/" + str(ShiftSettings.amount_of_tasks)
-	
-	if ShiftSettings.completed_tasks >= ShiftSettings.amount_of_tasks:
-		tasks_counter_label.modulate = highlight_color
-	else:
-		tasks_counter_label.modulate = Color.WHITE
-
-	time_left_label.visible = ShiftSettings.is_shift_timer_active
-	time_left_label.text = "Time Left:\n" + str(int(ShiftSettings.shift_timer))
-	
-	if ShiftSettings.shift_timer <= 0:
-		time_left_label.modulate = highlight_color
-	else:
-		time_left_label.modulate = Color.WHITE
-
-func clear_tasks():
-	if is_instance_valid(current_game_instance):
-		current_game_instance.queue_free()
-	current_game_instance = null
-
-func load_minigame(path: String):
-	clear_tasks()
-	current_game_path = path
-	last_completed_count = ShiftSettings.completed_tasks
-	
-	var scene = load(path)
-	if scene:
-		current_game_instance = scene.instantiate()
-		tasks_container.add_child(current_game_instance)
-		if current_game_instance is Control:
-			current_game_instance.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-
-func _on_start_pressed():
-	if ShiftSettings.completed_tasks >= ShiftSettings.amount_of_tasks:
-		return
-	
-	if current_game_instance != null:
-		if ShiftSettings.completed_tasks == last_completed_count:
-			return
-	
-	var next_game = minigames.pick_random()
-	if next_game == current_game_path and minigames.size() > 1:
-		next_game = minigames[(minigames.find(next_game) + 1) % minigames.size()]
-		
-	load_minigame(next_game)
-
-func _on_reload_pressed():
-	if current_game_path != "":
-		load_minigame(current_game_path)
-
-func _on_exit_pressed():
-	clear_tasks()
-	current_game_path = ""
-	last_completed_count = ShiftSettings.completed_tasks
+# Difficulty
+func set_difficulty(level: int) -> void:
+	difficulty = level
+	match level:
+		1:
+			amount_of_tasks = 3
+			shift_timer = 120.0
+		2:
+			amount_of_tasks = 4
+			shift_timer = 180.0
+		3:
+			amount_of_tasks = 6
+			shift_timer = 240.0

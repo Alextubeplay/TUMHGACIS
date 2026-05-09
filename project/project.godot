@@ -31,7 +31,8 @@ folder_colors={
 "res://models/": "yellow",
 "res://scenes/": "green",
 "res://scripts/": "teal",
-"res://textures/": "blue",
+"res://shaders/": "blue",
+"res://textures/": "pink",
 "res://themes/": "purple"
 }
 
