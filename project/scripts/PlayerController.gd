@@ -110,13 +110,11 @@ func _die(reason, killer = null):
 		var death_tween = create_tween().set_parallel(true)
 		death_tween.tween_property(self, "rotation:z", deg_to_rad(60), 2.0).set_trans(Tween.TRANS_SINE)
 		death_tween.tween_property(self, "position:y", position.y - 0.5, 2.0).set_trans(Tween.TRANS_QUAD)
-		
 		if oxygen_manager and oxygen_manager.death_fog:
 			death_tween.tween_property(oxygen_manager.death_fog, "color:a", 1.0, 2.0)
-		
 		await death_tween.finished
 		
-	elif reason == "RIPPER" and killer != null:
+	elif (reason == "RIPPER" or reason == "BLOODY") and killer != null:
 		var look_target = killer.global_position
 		look_target.y = global_position.y
 		
@@ -130,7 +128,11 @@ func _die(reason, killer = null):
 				var blood_tween = create_tween()
 				killer.play_kill_animation()
 				blood_tween.tween_property(death_blood, "color:a", 0.5, 1.0)
-				await killer.anim_player.animation_finished
+				
+				if killer.anim_player:
+					await killer.anim_player.animation_finished
+				else:
+					await get_tree().create_timer(1.5).timeout
 		else:
 			await get_tree().create_timer(2.0).timeout
 	

@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxnm7iv0poubx"]
+[gd_scene load_steps=3 format=3 uid="uid://dxnm7iv0poubx"]
 
 [ext_resource type="Script" uid="uid://drwarn8wc8ppp" path="res://scripts/Bloody.gd" id="1_otbtn"]
+[ext_resource type="PackedScene" uid="uid://b8aw1lsc4fnt1" path="res://models/enemies/Bloody.blend" id="2_tbd88"]
 
 [node name="Bloody" type="Node3D"]
 script = ExtResource("1_otbtn")
+
+[node name="Bloody2" parent="." instance=ExtResource("2_tbd88")]
+
+[editable path="Bloody2"]
