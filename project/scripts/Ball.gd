@@ -58,3 +58,4 @@ func _on_area_entered(area: Area2D) -> void:
 func handle_victory():
 	is_grabbed = false
 	task_done = true
+	ShiftSettings.completed_tasks += 1

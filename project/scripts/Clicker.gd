@@ -26,7 +26,7 @@ func _ready() -> void:
 	start_y_position = main_button.position.y
 
 func reset_level():
-	goal_clicks = randi_range(59, 200)
+	goal_clicks = randi_range(49, 120)
 	current_clicks = 0
 	is_waiting = false
 	

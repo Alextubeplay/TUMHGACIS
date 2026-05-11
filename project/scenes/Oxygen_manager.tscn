@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8qr6xuuo18b3"]
+
+[ext_resource type="Script" uid="uid://bvqgimdvuqa42" path="res://scripts/Oxygen_manager.gd" id="1_c14xu"]
+
+[node name="Oxygen_manager" type="Node"]
+script = ExtResource("1_c14xu")

@@ -1,8 +1,7 @@
 extends Node
 
-# Gameplay modifiers
 var difficulty = 1
-var shift_timer = 120.0 # Seconds
+var shift_timer = 120.0
 var amount_of_tasks = 3
 var completed_tasks = 0:
 	set(value):
@@ -11,16 +10,14 @@ var completed_tasks = 0:
 		else:
 			completed_tasks = amount_of_tasks
 
-# Gameplay Features
 var is_shift_timer_active = true
 var is_tasks_active = true
 var is_breathing_active = true
 var is_ripper_active = true
-var is_valve_active = true
-var is_hypno_active = true
-var is_bleach_active = true
+var is_valve_active = false
+var is_hypno_active = false
+var is_bleach_active = false
 
-# Technical
 func _process(delta):
 	if is_shift_timer_active and shift_timer > 0:
 		shift_timer -= delta
@@ -29,9 +26,9 @@ func _process(delta):
 
 var last_death_reason: String = ""
 
-# Difficulty
 func set_difficulty(level: int) -> void:
 	difficulty = level
+	completed_tasks = 0
 	match level:
 		1:
 			amount_of_tasks = 3

@@ -1,6 +1,8 @@
+AnimationPlayer
+ColorRect
+Node
 Marker3D
 Button
-ColorRect
 Panel
 Label
 HBoxContainer
@@ -11,5 +13,3 @@ Camera3D
 SubViewportContainer
 SubViewport
 TextureRect
-RichTextLabel
-OmniLight3D

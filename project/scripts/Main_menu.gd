@@ -17,6 +17,10 @@ func _ready() -> void:
 	difficulty_menu_container.get_node("Back").pressed.connect(_on_back_pressed)
 
 func _on_play_pressed() -> void:
+	# Сбрасываем прогресс и время перед стартом, используя текущую сложность
+	if ShiftSettings:
+		ShiftSettings.set_difficulty(ShiftSettings.difficulty)
+	
 	var target_scene = "res://scenes/Main_scene.tscn"
 	get_tree().change_scene_to_file(target_scene)
 
@@ -28,9 +32,8 @@ func _on_exit_pressed() -> void:
 	get_tree().quit()
 
 func _on_difficulty_selected(level: int) -> void:
-	var settings = get_node_or_null("/root/ShiftSettings")
-	if settings:
-		settings.set_difficulty(level)
+	if ShiftSettings:
+		ShiftSettings.set_difficulty(level)
 	_on_back_pressed()
 
 func _on_back_pressed() -> void:

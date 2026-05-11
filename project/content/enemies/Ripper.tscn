@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://ds7fnlmigjo35"]
+[gd_scene load_steps=3 format=3 uid="uid://ds7fnlmigjo35"]
 
 [ext_resource type="Script" uid="uid://krd3bd17wnhp" path="res://scripts/Ripper.gd" id="1_1lxs6"]
+[ext_resource type="PackedScene" uid="uid://br5c7db3syruy" path="res://models/enemies/Ripper.blend" id="2_eg78c"]
 
 [node name="Ripper" type="Node3D"]
 script = ExtResource("1_1lxs6")
+
+[node name="Ripper2" parent="." instance=ExtResource("2_eg78c")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Ripper_skeleton" parent="Ripper2" index="0"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="AnimationPlayer" parent="Ripper2" index="1"]
+root_motion_track = NodePath("Ripper_skeleton/Skeleton3D:Root")
+
+[editable path="Ripper2"]

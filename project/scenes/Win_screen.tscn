@@ -164,7 +164,6 @@ current = true
 remote_path = NodePath("../SubViewportContainer/SubViewport/Camera3D")
 
 [node name="Win" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Win_label" type="Label" parent="Win"]
 anchors_preset = 14

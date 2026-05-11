@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dnqknpfw0j6yw"]
+[gd_scene load_steps=23 format=3 uid="uid://dnqknpfw0j6yw"]
 
 [ext_resource type="PackedScene" uid="uid://brmr0q5ideb56" path="res://content/interactable/Ventilation.tscn" id="1_uxkiq"]
 [ext_resource type="PackedScene" uid="uid://cbfcaja7njh6p" path="res://content/player/Player.tscn" id="2_l5tlr"]
@@ -15,7 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://prxmynv63aym" path="res://content/interactable/Crematory.tscn" id="12_fjiqv"]
 [ext_resource type="Script" uid="uid://dkrrrwgisdh45" path="res://scripts/Сrematory.gd" id="13_wi0oi"]
 [ext_resource type="PackedScene" uid="uid://cunq26ceiekix" path="res://scenes/Monitor.tscn" id="16_h51b0"]
-[ext_resource type="Script" uid="uid://drdgfa4sa1fmj" path="res://scenes/Monitor.gd" id="17_u66lf"]
+[ext_resource type="PackedScene" uid="uid://8qr6xuuo18b3" path="res://scenes/Oxygen_manager.tscn" id="17_sqrha"]
+[ext_resource type="Script" uid="uid://drdgfa4sa1fmj" path="res://scripts/Monitor.gd" id="17_u66lf"]
 
 [sub_resource type="Gradient" id="Gradient_fkd63"]
 colors = PackedColorArray(0, 0, 0, 0.73333335, 1, 1, 1, 1)
@@ -46,7 +47,7 @@ volumetric_fog_density = 0.0237
 [node name="Map_joined" parent="." instance=ExtResource("6_a6g5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.068855286, -0.046237946, 0.0046606064)
 
-[node name="Ventilation" parent="." instance=ExtResource("1_uxkiq")]
+[node name="Ventilation" parent="." groups=["vents"] instance=ExtResource("1_uxkiq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.339947, 7.021374, 38.92411)
 
 [node name="Valve" parent="." instance=ExtResource("3_a6g5n")]
@@ -55,7 +56,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.866718, 11.432019, 38.192
 [node name="Player" parent="." instance=ExtResource("2_l5tlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.581833, 7.1920834, 40.754436)
 
+[node name="Oxygen_manager" parent="Player" node_paths=PackedStringArray("o2_bar", "o2_percent", "death_fog") instance=ExtResource("17_sqrha")]
+o2_bar = NodePath("../../HUD/O2_bar")
+o2_percent = NodePath("../../HUD/O2_bar_percent")
+death_fog = NodePath("../../HUD/Death_fog")
+
 [node name="Ripper" parent="." instance=ExtResource("5_4a8l0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.228966, 7.232874, 40.088882)
+visible = false
 
 [node name="Bleach" parent="." instance=ExtResource("6_7qsmt")]
 
@@ -135,6 +143,22 @@ offset_right = 65.0
 offset_bottom = 41.0
 grow_horizontal = 2
 color = Color(1, 0, 0, 1)
+
+[node name="Death_fog" type="ColorRect" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Death_blood" type="ColorRect" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.60784316, 0, 0.12941177, 0)
 
 [node name="Shift settings" type="Node" parent="."]
 script = ExtResource("7_a6g5n")

@@ -9016,18 +9016,17 @@ metadata/extras = {
 "asset_bridge": {}
 }
 
-[node name="Door7" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.96987194, 0, -0.24361509, 0, 1, 0, 0.24361509, 0, -0.96987194, 1.0294361, 6.1992683, 38.51583)
-mesh = SubResource("ArrayMesh_p24y4")
+[node name="Сфера2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.91426754, 0, 0, 0, 0.91426754, 0, 0, 0, 0.91426754, -7.112755, -0.6067537, 3.2270222)
+mesh = SubResource("ArrayMesh_q3map")
 skeleton = NodePath("")
-metadata/extras = {
-"asset_bridge": {}
-}
 
-[node name="Door_007" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.96987194, 0, -0.24361509, 0, 1, 0, 0.24361509, 0, -0.96987194, 0.9352436, 6.1992645, 38.47059)
-mesh = SubResource("ArrayMesh_8ysuo")
+[node name="Сфера3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.91426754, 0, 0, 0, 0.91426754, 0, 0, 0, 0.91426754, -8.82851, -0.38401473, 16.793003)
+mesh = SubResource("ArrayMesh_q3map")
 skeleton = NodePath("")
-metadata/extras = {
-"asset_bridge": {}
-}
+
+[node name="Сфера4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.91426754, 0, 0, 0, 0.91426754, 0, 0, 0, 0.91426754, -28.47304, -0.10126078, 20.74617)
+mesh = SubResource("ArrayMesh_q3map")
+skeleton = NodePath("")

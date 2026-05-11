@@ -1,7 +1,7 @@
 extends Control
 
-const MAX_WIDTH = 750
-const MAX_HEIGHT = 400
+const MAX_WIDTH = 750.0
+const MAX_HEIGHT = 400.0
 
 var width = 12
 var height = 8
@@ -13,13 +13,16 @@ var stack = []
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var scale_x = MAX_WIDTH / width
-	var scale_y = MAX_HEIGHT / height
+	
+	var scale_x = MAX_WIDTH / float(width)
+	var scale_y = MAX_HEIGHT / float(height)
 	cell_size = min(scale_x, scale_y)
 	
 	custom_minimum_size = Vector2(width * cell_size, height * cell_size)
-	size = custom_minimum_size
-	position = Vector2((MAX_WIDTH - size.x) / 2, (MAX_HEIGHT - size.y) / 2)
+	set_deferred("size", custom_minimum_size)
+	
+	var center_pos = Vector2((MAX_WIDTH - (width * cell_size)) / 2, (MAX_HEIGHT - (height * cell_size)) / 2)
+	set_deferred("position", center_pos)
 	
 	generate_maze()
 	queue_redraw()
