@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://btsve70fqgifm"]
+[gd_scene load_steps=3 format=3 uid="uid://btsve70fqgifm"]
 
 [ext_resource type="Script" uid="uid://cwpmpmjyjsamu" path="res://scripts/Hypno.gd" id="1_oecf1"]
+[ext_resource type="PackedScene" uid="uid://0d38lol0ew18" path="res://models/enemies/Hypno.blend" id="2_q34di"]
 
 [node name="Hypno" type="Node3D"]
 script = ExtResource("1_oecf1")
+
+[node name="Hypno2" parent="." instance=ExtResource("2_q34di")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Hypno2/Hypno_skeleton" index="0"]
+bones/1/rotation = Quaternion(-6.48452e-08, -1.5306065e-07, 0.032966096, 0.9994565)
+bones/2/rotation = Quaternion(-0.25301588, 0.009476236, 0.0032486706, 0.9674103)
+bones/3/rotation = Quaternion(0.9954247, 0.08865981, 0.016227672, -0.03171751)
+bones/3/scale = Vector3(0.9999925, 0.99999964, 0.9999995)
+bones/4/rotation = Quaternion(-0.020656656, -0.0012962848, 0.11733568, 0.9928766)
+bones/5/rotation = Quaternion(0.019300854, -0.00095888536, -0.6369414, 0.77066994)
+bones/6/rotation = Quaternion(0.9962556, 0.07767263, -0.017073656, 0.033915333)
+bones/7/rotation = Quaternion(0.036453903, 0.00019454953, 0.11877038, 0.9922524)
+bones/8/rotation = Quaternion(-0.020163082, 6.151705e-07, -0.6474722, 0.76182234)
+
+[editable path="Hypno2"]

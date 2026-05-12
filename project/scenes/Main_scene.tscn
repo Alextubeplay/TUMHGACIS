@@ -66,8 +66,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.228966, 7.232874, 40.0888
 visible = false
 
 [node name="Bleach" parent="." instance=ExtResource("6_7qsmt")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.69736, 4.069291, 51.345093)
+visible = false
+START_POS = Vector3(7.697, 4.069, 51.345)
 
 [node name="Hypno" parent="." instance=ExtResource("7_o0okc")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.37815, 0, -8.970968)
+visible = false
+START_POS = Vector3(-18.378, 0, -8.971)
+ATTACK_POS = Vector3(-16.997, 0, 26.952)
 
 [node name="Bloody" parent="." instance=ExtResource("6_uxkiq")]
 transform = Transform3D(-0.9992166, 0, -0.0395737, 0, 1, 0, 0.0395737, 0, -0.9992166, 26.253944, 0, 38.661057)
@@ -161,6 +168,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.60784316, 0, 0.12941177, 0)
+
+[node name="Death_hypno" type="ColorRect" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5137255, 0, 0.56078434, 0)
 
 [node name="Shift settings" type="Node" parent="."]
 script = ExtResource("7_a6g5n")

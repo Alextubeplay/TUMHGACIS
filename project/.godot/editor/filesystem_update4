@@ -8,3 +8,8 @@ res://scripts/PlayerController.gd
 res://scripts/Bloody.gd
 res://scripts/Shift_settings.gd
 res://scripts/Valve.gd
+res://content/enemies/Hypno.tscn
+res://scripts/Hypno.gd
+res://content/enemies/Bleach.tscn
+res://scripts/Bleach.gd
+res://scripts/Сrematory.gd
