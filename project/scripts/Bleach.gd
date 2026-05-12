@@ -75,3 +75,38 @@ func _logic():
 			if timer <= 10.0 and player.alive:
 				player._die("BLEACH", self)
 				timer = 30.0
+
+func start_kill_sequence_movement():
+	show()
+	
+	if anim_player.has_animation("Bleach_jump"):
+		anim_player.play("Bleach_jump")
+		await anim_player.animation_finished
+	
+	global_position.y = FLOOR_Y
+
+	if anim_player.has_animation("Bleach_moving"):
+		var anim = anim_player.get_animation("Bleach_moving")
+		anim.loop_mode = Animation.LOOP_LINEAR
+		anim_player.play("Bleach_moving")
+		
+		while true:
+			var target_pos = player.global_position
+			target_pos.y = FLOOR_Y
+			
+			var dist = global_position.distance_to(target_pos)
+			
+			if dist <= KILL_DISTANCE:
+				return
+				
+			var direction = (target_pos - global_position).normalized()
+			global_position += direction * MOVE_SPEED * get_process_delta_time()
+			
+			look_at(target_pos, Vector3.UP)
+			rotate_object_local(Vector3.UP, deg_to_rad(90))
+			
+			await get_tree().process_frame
+
+func play_kill_animation():
+	if anim_player.has_animation("Bleach_kill"):
+		anim_player.play("Bleach_kill")

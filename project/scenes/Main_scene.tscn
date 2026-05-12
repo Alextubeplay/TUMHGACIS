@@ -69,6 +69,7 @@ visible = false
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.69736, 4.069291, 51.345093)
 visible = false
 START_POS = Vector3(7.697, 4.069, 51.345)
+KILL_DISTANCE = 7.0
 
 [node name="Hypno" parent="." instance=ExtResource("7_o0okc")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.37815, 0, -8.970968)

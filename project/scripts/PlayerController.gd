@@ -116,12 +116,37 @@ func _die(reason, killer = null):
 		
 		await death_tween.finished
 		
+	elif reason == "BLEACH" and killer != null:
+		var look_target = killer.global_position
+		look_target.y = global_position.y
+		
+		var rot_tween = create_tween()
+		rot_tween.tween_method(func(pos): look_at(pos), global_position + -basis.z, look_target, 0.4)
+		await rot_tween.finished
+		
+		if killer.has_method("start_kill_sequence_movement"):
+			await killer.start_kill_sequence_movement()
+			
+			if death_blood:
+				var blood_tween = create_tween()
+				blood_tween.tween_property(death_blood, "color:a", 0.5, 0.2)
+			
+			if killer.has_method("play_kill_animation"):
+				killer.play_kill_animation()
+				if killer.anim_player:
+					await killer.anim_player.animation_finished
+				else:
+					await get_tree().create_timer(1.5).timeout
+		else:
+			await get_tree().create_timer(2.0).timeout
+
 	elif reason == "RIPPER" and killer != null:
 		var look_target = killer.global_position
 		look_target.y = global_position.y
 		
 		var rot_tween = create_tween()
 		rot_tween.tween_method(func(pos): look_at(pos), global_position + -basis.z, look_target, 0.4)
+		await rot_tween.finished
 		
 		if killer.has_method("start_kill_sequence_movement"):
 			await killer.start_kill_sequence_movement()

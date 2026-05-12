@@ -5,7 +5,6 @@
 
 [node name="Bleach" type="Node3D"]
 script = ExtResource("1_yem76")
-KILL_DISTANCE = 10.145
 
 [node name="Bleach2" parent="." instance=ExtResource("2_2xuoe")]
 
