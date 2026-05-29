@@ -5,7 +5,7 @@ extends Node3D
 
 var chance = 0.3
 var ripper_position = "far"
-var timer = 25.0
+var timer = 1.0
 
 @onready var shift_settings = get_node("/root/ShiftSettings")
 @onready var vent = get_node("../Ventilation")
@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 		if timer > 0:
 			timer -= delta
 		else:
-			timer = 25.0
+			timer = 1.0
 		_moving()
 	else:
 		ripper_position = "far"
@@ -41,11 +41,11 @@ func _moving():
 		"far":
 			if randf() < chance and timer <= 0:
 				ripper_position = "middle"
-				timer = 25.0
+				timer = 1.0
 		"middle":
 			if randf() < (chance * 2) and timer <= 0:
 				ripper_position = "near"
-				timer = 25.0
+				timer = 1.0
 		"near":
 			if randf() < (chance * 2.5) and timer <= 0:
 				ripper_position = "nearest"

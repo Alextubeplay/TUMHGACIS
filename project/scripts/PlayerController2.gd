@@ -116,7 +116,7 @@ func _die(reason, killer = null):
 		
 		await death_tween.finished
 		
-	elif (reason == "BLEACH" or reason == "BLOODY") and killer != null:
+	elif reason == "BLEACH" and killer != null:
 		var look_target = killer.global_position
 		look_target.y = global_position.y
 		
@@ -139,6 +139,7 @@ func _die(reason, killer = null):
 					await get_tree().create_timer(1.5).timeout
 		else:
 			await get_tree().create_timer(2.0).timeout
+
 	elif reason == "RIPPER" and killer != null:
 		var look_target = killer.global_position
 		look_target.y = global_position.y

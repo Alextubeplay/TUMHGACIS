@@ -1,11 +1,12 @@
 extends Node3D
+class_name Valve
 
 @onready var shift_settings = $"../Shift settings"
 @onready var valve_indicator = $"../HUD/ValveOpen"
 
 var is_opened = false
 var timer = 1.0
-var chance = 1#0.0047
+var chance = 0.0047
 var pushes = 1
 var activations = 2
 

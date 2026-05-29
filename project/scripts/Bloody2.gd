@@ -1,8 +1,7 @@
 extends Node3D
 
-@export var KILL_DISTANCE: float = 2.0
+@export var KILL_DISTANCE: float = 5
 @export var MOVE_SPEED: float = 12.5
-@export var FLOOR_Y: float = 0.0
 
 var timer = 10.0
 
@@ -26,7 +25,6 @@ func _process(delta: float) -> void:
 
 func _go_to_player():
 	if timer <= 0 and player.alive:
-		# Передаем "BLOODY", теперь PlayerController это понимает
 		player._die("BLOODY", self)
 		timer = 10.0
 
@@ -39,8 +37,7 @@ func start_kill_sequence_movement():
 		
 		while true:
 			var target_pos = player.global_position
-			target_pos.y = FLOOR_Y
-			
+			target_pos.y = global_position.y
 			var dist = global_position.distance_to(target_pos)
 			
 			if dist <= KILL_DISTANCE:
@@ -50,7 +47,6 @@ func start_kill_sequence_movement():
 			global_position += direction * MOVE_SPEED * get_process_delta_time()
 			
 			look_at(target_pos, Vector3.UP)
-			# Если модель развернута боком, оставляем ротацию:
 			rotate_object_local(Vector3.UP, deg_to_rad(90))
 			
 			await get_tree().process_frame

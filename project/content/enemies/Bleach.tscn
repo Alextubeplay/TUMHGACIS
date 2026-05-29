@@ -5,6 +5,8 @@
 
 [node name="Bleach" type="Node3D"]
 script = ExtResource("1_yem76")
+MOVE_SPEED = 17.5
+KILL_DISTANCE = 7.0
 
 [node name="Bleach2" parent="." instance=ExtResource("2_2xuoe")]
 
