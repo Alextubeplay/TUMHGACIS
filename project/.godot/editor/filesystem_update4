@@ -11,3 +11,5 @@ res://scripts/Ripper.gd
 res://scenes/Main_scene.tscn
 res://content/interactable/Valve.tscn
 res://content/enemies/Bleach.tscn
+res://content/interactable/Ventilation.tscn
+res://scripts/Ventilation.gd

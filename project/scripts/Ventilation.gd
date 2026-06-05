@@ -9,6 +9,10 @@ const CLOSED_ANGLE = deg_to_rad(-90)
 func _ready():
 	rotation.y = OPEN_ANGLE if is_opened else CLOSED_ANGLE
 
+# Метод, который вызывает игрок при нажатии кнопки взаимодействия
+func interact():
+	close_vent()
+
 func close_vent():
 	is_opened = !is_opened
 	

@@ -1,6 +1,6 @@
-ColorRect
 CollisionShape3D
 StaticBody3D
+ColorRect
 RayCast3D
 AnimationPlayer
 Node

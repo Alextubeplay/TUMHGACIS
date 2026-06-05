@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://brmr0q5ideb56"]
+[gd_scene load_steps=6 format=4 uid="uid://brmr0q5ideb56"]
 
 [ext_resource type="Script" uid="uid://dbdj1o6v54xy2" path="res://scripts/Ventilation.gd" id="1_jr14a"]
 
@@ -41,6 +41,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jm46i")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7sbvy"]
+size = Vector3(2.3486328, 2.0175781, 0.26367188)
+
 [node name="Ventilation" type="Node3D"]
 script = ExtResource("1_jr14a")
 
@@ -51,3 +54,10 @@ skeleton = NodePath("")
 metadata/extras = {
 "asset_bridge": {}
 }
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1699376, 0, -0.12109375)
+shape = SubResource("BoxShape3D_7sbvy")
