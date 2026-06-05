@@ -7,7 +7,7 @@ extends Node3D
 
 var chance = 0.8
 var bleach_position = "far"
-var timer = 1.0
+var timer = 30.0
 var is_processing_closure = false
 
 @onready var shift_settings = get_node("/root/ShiftSettings")
@@ -61,11 +61,11 @@ func _logic():
 		"far":
 			if randf() < chance and timer <= 0:
 				bleach_position = "middle"
-				timer = 1.0
+				timer = 30.0
 		"middle":
 			if randf() < (chance * 0.5) and timer <= 0:
 				bleach_position = "near"
-				timer = 1.0
+				timer = 30.0
 		"near":
 			if randf() < (chance * 0.25) and timer <= 0:
 				bleach_position = "nearest"
