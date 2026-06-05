@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://we0kl7hb3je"]
+[gd_scene load_steps=15 format=4 uid="uid://we0kl7hb3je"]
 
 [ext_resource type="Script" uid="uid://bt7h84e7sxt8k" path="res://scripts/Valve.gd" id="1_6vqvj"]
 [ext_resource type="Texture2D" uid="uid://bm3u86wy7u1qh" path="res://models/map/textures/Без имени.png" id="2_sec1q"]
@@ -170,6 +170,10 @@ _data = {
 &"Rotate": SubResource("Animation_sec1q")
 }
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0tsox"]
+height = 0.57681274
+radius = 0.54785156
+
 [node name="Valve" type="Node3D"]
 script = ExtResource("1_6vqvj")
 
@@ -194,3 +198,10 @@ metadata/extras = {
 libraries = {
 &"": SubResource("AnimationLibrary_c76i8")
 }
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22175598, 0)
+shape = SubResource("CylinderShape3D_0tsox")

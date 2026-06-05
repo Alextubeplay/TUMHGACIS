@@ -13,9 +13,9 @@ var completed_tasks = 0:
 var is_shift_timer_active = true
 var is_tasks_active = true
 var is_breathing_active = true
-var is_ripper_active = false
-var is_valve_active = false
-var is_hypno_active = false
+var is_ripper_active = true
+var is_valve_active = true
+var is_hypno_active = true
 var is_bleach_active = true
 
 func _process(delta):

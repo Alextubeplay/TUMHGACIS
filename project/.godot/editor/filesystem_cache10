@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1780688391
+::res://::1780690827
 export_presets.cfg::TextFile::-1::1778575264::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::5583402611219763411::1769685229::1769685229::1::::<><><>0<>0<>ee212b39c0daa45866087fd33b7755e4<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://content/::1771795172
@@ -13,8 +13,8 @@ Ripper.tscn::PackedScene::8489048721644771766::1778530708::0::1::::<><><>0<>0<><
 Crematory.tscn::PackedScene::1089346278389521900::1778191247::0::1::::<><><>0<>0<><>::uid://dbdj1o6v54xy2::::res://scripts/Ventilation.gd
 Valve.tscn::PackedScene::45704367097713246::1778566322::0::1::::<><><>0<>0<><>::uid://bt7h84e7sxt8k::::res://scripts/Valve.gd<>uid://bm3u86wy7u1qh::::res://models/map/textures/Без имени.png
 Ventilation.tscn::PackedScene::3605481279398407791::1778369128::0::1::::<><><>0<>0<><>::uid://dbdj1o6v54xy2::::res://scripts/Ventilation.gd
-::res://content/player/::1778580460
-Player.tscn::PackedScene::4853474007961886433::1778580460::0::1::::<><><>0<>0<><>::uid://cex8p2idvaxxh::::res://scripts/PlayerController.gd
+::res://content/player/::1780688763
+Player.tscn::PackedScene::4853474007961886433::1780688763::0::1::::<><><>0<>0<><>::uid://cex8p2idvaxxh::::res://scripts/PlayerController.gd
 ::res://fonts/::1775762506
 VT323-Regular.ttf::FontFile::3202448585049089233::1775758802::1775762506::1::::<><><>0<>0<>07030dd1837e4881af4c2b0debd6d8ff<>res://.godot/imported/VT323-Regular.ttf-bff42fb840215fe474048a1b5fed41ab.fontdata::
 ::res://models/::1778477730
@@ -68,9 +68,9 @@ Monitor_hud.tscn::PackedScene::2858550245297975876::1778366017::0::1::::<><><>0<
 Oxygen_manager.tscn::PackedScene::2350350672469725682::1778447740::0::1::::<><><>0<>0<><>::uid://bvqgimdvuqa42::::res://scripts/Oxygen_manager.gd
 Projector.tscn::PackedScene::426548539563155785::1778100646::0::1::::<><><>0<>0<><>::uid://dlqg17a54dl83::::res://models/map/textures/Lamp.png
 Win_screen.tscn::PackedScene::1890289006865510389::1778447145::0::1::::<><><>0<>0<><>::uid://d051skki6jfvp::::res://scripts/Win_screen.gd<>uid://bjoiofq5r46ii::::res://scenes/Lamp.tscn<>uid://qocy0x5steki::::res://models/map/textures/Rust_bake.001.png<>uid://dhnos86ak3yt3::::res://models/map/textures/Кости_1.png<>uid://do2s3pyrvjcew::::res://models/map/textures/Blood_1.png
-::res://scripts/::1778580497
+::res://scripts/::1780688763
 Ball.gd::GDScript::4395189727459899721::1778445052::0::1::::<>Area2D<><>0<>0<><>::
-Bleach.gd::GDScript::1129066734755242954::1778580280::0::1::::<>Node3D<><>0<>0<><>::
+Bleach.gd::GDScript::1129066734755242954::1780688763::0::1::::<>Node3D<><>0<>0<><>::
 Bloody2.gd::GDScript::1013852497578302775::1778573886::0::1::::<>Node3D<><>0<>0<><>::
 Bloody.gd::GDScript::8397919796797216497::1778574292::0::1::::<>Node3D<><>0<>0<><>::
 Cameras_manager.gd::GDScript::1067182688491190500::1778183932::0::1::::<>Control<><>0<>0<><>::
@@ -95,8 +95,8 @@ Valve.gd::GDScript::3786554281929142544::1778580280::0::1::::<>Node3D<><>0<>0<><
 Ventilation.gd::GDScript::7236237695767180495::1778448299::0::1::::Vent<>Node3D<><>0<>0<><>::
 Win_screen.gd::GDScript::8977525801840937893::1778446359::0::1::::<>Node3D<><>0<>0<><>::
 Сrematory.gd::GDScript::7897308621822250444::1778543998::0::1::::Crematory<>Node3D<><>0<>0<><>::
-::res://shaders/::1778580460
-light_outline.gdshader::Shader::4359670114209114691::1778580460::0::1::::<><><>0<>0<><>::
+::res://shaders/::1780688526
+light_outline.gdshader::Shader::4359670114209114691::1780688526::0::1::::<><><>0<>0<><>::
 ::res://textures/::1778061129
 Basin_pxl_txtr.png::CompressedTexture2D::7002322848405461910::1778061072::1778061129::1::::<><><>0<>0<>2ab1fd5c7e9b7162f7a9771aaf07ce69<>res://.godot/imported/Basin_pxl_txtr.png-042e8115c2304e67bcd1317172cb694a.s3tc.ctex::
 Blood_1.png::CompressedTexture2D::8971160664660160471::1778061072::1778061129::1::::<><><>0<>0<>424d52f02e215de985a7f011e11c9b22<>res://.godot/imported/Blood_1.png-db32ce2296d47bcae58bf25c29d8226a.s3tc.ctex::
@@ -121,9 +121,9 @@ Start.png::CompressedTexture2D::592227780229584058::1777583221::1777756257::1:::
 tabs_bg.png::CompressedTexture2D::6100151977327617438::1775767976::1775767976::1::::<><><>0<>0<>0170156857a48acd4ac35e2db264cc66<>res://.godot/imported/tabs_bg.png-4bd50cc9e86618ab4c4ec6f606be9265.ctex::
 ::res://textures/menus/security/::1777743880
 Scheme.png::CompressedTexture2D::2763425954022292843::1777742442::1777743880::1::::<><><>0<>0<>d7e63dcecacb73ea116685d692dd1224<>res://.godot/imported/Scheme.png-1b8fa537bf2fbaa4c5be2fb282b63ac4.ctex::
-::res://themes/::1778580460
+::res://themes/::1780688526
 Button.tres::Theme::3630595630146985391::1777731667::0::1::::<><><>0<>0<><>::uid://blvj4iryd8drl::::res://fonts/VT323-Regular.ttf<>uid://cs57u2jdn1rp3::::res://textures/menus/monitor/tabs_bg.png
 Colorful_wires_buttons.tres::Theme::845312989354528882::1777355537::0::1::::<><><>0<>0<><>::
-Monitor_hub.tres::Theme::7488784398022830780::1778580460::0::1::::<><><>0<>0<><>::uid://blvj4iryd8drl::::res://fonts/VT323-Regular.ttf<>uid://cs57u2jdn1rp3::::res://textures/menus/monitor/tabs_bg.png
-Monitor_sidebar_buttons.tres::Theme::427387774916123376::1778580460::0::1::::<><><>0<>0<><>::
+Monitor_hub.tres::Theme::7488784398022830780::1780688526::0::1::::<><><>0<>0<><>::uid://blvj4iryd8drl::::res://fonts/VT323-Regular.ttf<>uid://cs57u2jdn1rp3::::res://textures/menus/monitor/tabs_bg.png
+Monitor_sidebar_buttons.tres::Theme::427387774916123376::1780688526::0::1::::<><><>0<>0<><>::
 Right_wire_sockets.tres::Theme::9167897232844528855::1777579343::0::1::::<><><>0<>0<><>::

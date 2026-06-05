@@ -7,7 +7,7 @@ extends Node3D
 
 var chance = 0.3
 var hypno_position = "far"
-var timer = 1.0
+var timer = 25.0
 var kill_timer = 0.0
 var is_at_target = false
 
@@ -39,7 +39,7 @@ func _logic_cycle(delta: float):
 			_process_movement(START_POS, delta, "Hypno_moving")
 			if randf() < chance and timer <= 0:
 				hypno_position = "middle"
-				timer = 1.0
+				timer = 25.0
 		"middle":
 			_process_movement(START_POS, delta, "Hypno_moving")
 			if randf() < chance and timer <= 0:

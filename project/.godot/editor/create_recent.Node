@@ -1,5 +1,8 @@
-AnimationPlayer
 ColorRect
+CollisionShape3D
+StaticBody3D
+RayCast3D
+AnimationPlayer
 Node
 Marker3D
 Button
@@ -9,7 +12,3 @@ HBoxContainer
 VBoxContainer
 CanvasLayer
 Node3D
-Camera3D
-SubViewportContainer
-SubViewport
-TextureRect

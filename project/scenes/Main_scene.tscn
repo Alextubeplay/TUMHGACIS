@@ -69,7 +69,6 @@ visible = false
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.69736, 4.069291, 51.345093)
 visible = false
 START_POS = Vector3(7.697, 4.069, 51.345)
-KILL_DISTANCE = 7.0
 
 [node name="Hypno" parent="." instance=ExtResource("7_o0okc")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.37815, 0, -8.970968)
@@ -114,6 +113,7 @@ offset_top = -20.0
 offset_right = 40.0
 offset_bottom = 20.0
 grow_vertical = 2
+mouse_filter = 2
 color = Color(1, 1, 0, 1)
 
 [node name="BleachNear" type="ColorRect" parent="HUD"]
@@ -128,6 +128,7 @@ offset_top = -20.0
 offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 2
 color = Color(1, 1, 0, 1)
 
 [node name="HypnoNear" type="ColorRect" parent="HUD"]
@@ -140,6 +141,7 @@ offset_top = 1.0
 offset_right = -21.0
 offset_bottom = 41.0
 grow_horizontal = 2
+mouse_filter = 2
 color = Color(1, 1, 0, 1)
 
 [node name="ValveOpen" type="ColorRect" parent="HUD"]
@@ -152,6 +154,7 @@ offset_top = 1.0
 offset_right = 65.0
 offset_bottom = 41.0
 grow_horizontal = 2
+mouse_filter = 2
 color = Color(1, 0, 0, 1)
 
 [node name="Death_fog" type="ColorRect" parent="HUD"]
@@ -160,6 +163,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="Death_blood" type="ColorRect" parent="HUD"]
@@ -168,6 +172,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.60784316, 0, 0.12941177, 0)
 
 [node name="Death_hypno" type="ColorRect" parent="HUD"]
@@ -176,6 +181,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.5137255, 0, 0.56078434, 0)
 
 [node name="Shift settings" type="Node" parent="."]

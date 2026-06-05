@@ -2,4 +2,12 @@ res://content/player/Player.tscn
 res://shaders/light_outline.gdshader
 res://themes/Monitor_hub.tres
 res://themes/Monitor_sidebar_buttons.tres
-res://scripts/Bleach.gd
+res://scripts/Shift_settings.gd
+res://scripts/PlayerController.gd
+res://scripts/Bloody.gd
+res://scripts/Hypno.gd
+res://scripts/Valve.gd
+res://scripts/Ripper.gd
+res://scenes/Main_scene.tscn
+res://content/interactable/Valve.tscn
+res://content/enemies/Bleach.tscn

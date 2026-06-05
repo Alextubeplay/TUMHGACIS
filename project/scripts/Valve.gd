@@ -5,7 +5,7 @@ extends Node3D
 
 var is_opened = false
 var timer = 1.0
-var chance = 1#0.0047
+var chance = 0.0047
 var pushes = 1
 var activations = 2
 
@@ -25,6 +25,11 @@ func _process(delta):
 		valve_indicator.show()
 	else:
 		valve_indicator.hide()
+
+# Метод, который вызывает игрок при нажатии кнопки взаимодействия
+func interact():
+	if is_opened:
+		close_valve()
 
 func close_valve():
 	if is_opened and $AnimationPlayer.current_animation == "":
