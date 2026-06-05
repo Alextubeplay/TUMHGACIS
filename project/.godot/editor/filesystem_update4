@@ -13,3 +13,5 @@ res://content/interactable/Valve.tscn
 res://content/enemies/Bleach.tscn
 res://content/interactable/Ventilation.tscn
 res://scripts/Ventilation.gd
+res://content/interactable/Crematory.tscn
+res://scripts/Сrematory.gd

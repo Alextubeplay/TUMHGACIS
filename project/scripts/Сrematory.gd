@@ -16,6 +16,12 @@ func _process(delta):
 	if is_kicked:
 		global_position += kick_direction * kick_speed * delta
 
+# Этот метод автоматически вызывается из скрипта игрока при клике
+func interact():
+	# Если дверь выбита скриптом монстра, взаимодействовать с ней нельзя
+	if not is_kicked:
+		toggle_crematory()
+
 func toggle_crematory():
 	if is_kicked: return
 	is_opened = !is_opened

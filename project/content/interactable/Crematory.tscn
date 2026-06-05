@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://prxmynv63aym"]
+[gd_scene load_steps=6 format=4 uid="uid://prxmynv63aym"]
 
 [ext_resource type="Script" uid="uid://dbdj1o6v54xy2" path="res://scripts/Ventilation.gd" id="1_uw6to"]
 
@@ -41,6 +41,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8s5aw")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_uw6to"]
+size = Vector3(0.5214844, 3.883789, 4.5565186)
+
 [node name="Crematory" type="Node3D"]
 script = ExtResource("1_uw6to")
 
@@ -51,3 +54,10 @@ skeleton = NodePath("")
 metadata/extras = {
 "asset_bridge": {}
 }
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.040039063, 0.0043945313, 2.1966434)
+shape = SubResource("BoxShape3D_uw6to")
