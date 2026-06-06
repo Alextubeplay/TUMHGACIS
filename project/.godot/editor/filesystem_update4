@@ -20,3 +20,5 @@ res://scenes/Monitor.tscn
 res://scripts/Tasks_manager.gd
 res://scripts/Hover_exit_zone.gd
 res://scripts/Monitor_hud.gd
+res://scripts/Bleach.gd
+res://content/enemies/Hypno.tscn

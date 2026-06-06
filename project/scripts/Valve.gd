@@ -15,10 +15,19 @@ func _process(delta):
 			timer -= delta
 		else:
 			timer = 1.0
-			if randf() < chance and activations > 0 and shift_settings.is_valve_active:
+			var is_rage = shift_settings.is_rage_mode_active if shift_settings else false
+			var should_open = false
+			
+			if is_rage:
+				should_open = true
+			elif activations > 0 and randf() < chance:
+				should_open = true
+				
+			if shift_settings.is_valve_active and should_open:
 				is_opened = true
 				pushes = randi_range(2, 6)
-				activations -= 1
+				if not is_rage:
+					activations -= 1
 				timer = 30
 	
 	if is_opened:
@@ -26,7 +35,6 @@ func _process(delta):
 	else:
 		valve_indicator.hide()
 
-# Метод, который вызывает игрок при нажатии кнопки взаимодействия
 func interact():
 	if is_opened:
 		close_valve()

@@ -5,6 +5,9 @@
 
 [node name="Hypno" type="Node3D"]
 script = ExtResource("1_oecf1")
+MAX_HORIZONTAL_ANGLE = 60.0
+MAX_VERTICAL_ANGLE = 40.0
+TARGET_HEIGHT_OFFSET = 3.7
 
 [node name="Hypno2" parent="." instance=ExtResource("2_q34di")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

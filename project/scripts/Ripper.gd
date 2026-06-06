@@ -6,6 +6,7 @@ extends Node3D
 var chance = 0.3
 var ripper_position = "far"
 var timer = 20.0
+var is_cooldown = false
 
 @onready var shift_settings = get_node("/root/ShiftSettings")
 @onready var vent = get_node("../Ventilation")
@@ -22,13 +23,21 @@ func _process(delta: float) -> void:
 		return
 
 	if vent.is_opened and shift_settings.is_ripper_active:
+		var is_rage = shift_settings.is_rage_mode_active if shift_settings else false
+		if is_rage and not is_cooldown and ripper_position != "nearest" and timer > 1.0:
+			timer = 1.0
+
 		if timer > 0:
 			timer -= delta
-		else:
-			timer = 30.0
+		if timer <= 0:
+			is_cooldown = false
+			
 		_moving()
 	else:
-		ripper_position = "far"
+		if ripper_position != "far":
+			ripper_position = "far"
+			timer = 10.0
+			is_cooldown = true
 		hide()
 	
 	if ripper_position == "nearest":
@@ -37,17 +46,20 @@ func _process(delta: float) -> void:
 		ripper_indicator.hide()
 
 func _moving():
+	var is_rage = shift_settings.is_rage_mode_active if shift_settings else false
+	var step_timer = 1.0 if is_rage else 30.0
+
 	match ripper_position:
 		"far":
-			if randf() < chance and timer <= 0:
+			if timer <= 0 and (is_rage or (randf() < chance)):
 				ripper_position = "middle"
-				timer = 30.0
+				timer = step_timer
 		"middle":
-			if randf() < (chance * 2) and timer <= 0:
+			if timer <= 0 and (is_rage or (randf() < chance * 2)):
 				ripper_position = "near"
-				timer = 30.0
+				timer = step_timer
 		"near":
-			if randf() < (chance * 2.5) and timer <= 0:
+			if timer <= 0 and (is_rage or (randf() < chance * 2.5)):
 				ripper_position = "nearest"
 				timer = 30.0
 		"nearest":
