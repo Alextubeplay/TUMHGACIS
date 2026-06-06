@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cex8p2idvaxxh" path="res://scripts/PlayerController.gd" id="1_mkh8t"]
 
-[node name="Player" type="Node3D"]
+[node name="Player" type="Node3D" groups=["player"]]
 script = ExtResource("1_mkh8t")
 CAMERA_OFFSET = Vector3(0, 0, 0)
 

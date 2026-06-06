@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dnqknpfw0j6yw"]
+[gd_scene load_steps=22 format=3 uid="uid://dnqknpfw0j6yw"]
 
 [ext_resource type="PackedScene" uid="uid://brmr0q5ideb56" path="res://content/interactable/Ventilation.tscn" id="1_uxkiq"]
 [ext_resource type="PackedScene" uid="uid://cbfcaja7njh6p" path="res://content/player/Player.tscn" id="2_l5tlr"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" uid="uid://dkrrrwgisdh45" path="res://scripts/Сrematory.gd" id="13_wi0oi"]
 [ext_resource type="PackedScene" uid="uid://cunq26ceiekix" path="res://scenes/Monitor.tscn" id="16_h51b0"]
 [ext_resource type="PackedScene" uid="uid://8qr6xuuo18b3" path="res://scenes/Oxygen_manager.tscn" id="17_sqrha"]
-[ext_resource type="Script" uid="uid://drdgfa4sa1fmj" path="res://scripts/Monitor.gd" id="17_u66lf"]
 
 [sub_resource type="Gradient" id="Gradient_fkd63"]
 colors = PackedColorArray(0, 0, 0, 0.73333335, 1, 1, 1, 1)
@@ -229,4 +228,3 @@ script = ExtResource("13_wi0oi")
 
 [node name="Monitor" parent="." instance=ExtResource("16_h51b0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.826717, 5.350337, 36)
-script = ExtResource("17_u66lf")

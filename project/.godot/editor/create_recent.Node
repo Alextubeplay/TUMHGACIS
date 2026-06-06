@@ -1,11 +1,12 @@
+Control
 CollisionShape3D
 StaticBody3D
+Button
 ColorRect
 RayCast3D
 AnimationPlayer
 Node
 Marker3D
-Button
 Panel
 Label
 HBoxContainer

@@ -37,9 +37,18 @@ func _process(delta):
 func _input(event):
 	if not alive: return
 	
+	# Выход из монитора по твоей клавише "Escape" из Input Map
+	if event.is_action_pressed("Escape"):
+		if is_monitoring:
+			exit_monitor()
+			get_viewport().set_input_as_handled() # Поглощаем нажатие, чтобы не открывалось меню паузы
+			return
+		else:
+			# Логика для открытия меню паузы, когда игрок НЕ в мониторе
+			# _open_pause_menu()
+			pass
+
 	if is_monitoring:
-		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			_exit_monitor()
 		return
 
 	if event is InputEventMouseMotion:
@@ -65,6 +74,12 @@ func _check_interaction():
 func _enter_monitor():
 	is_monitoring = true
 	monitor.set_active(true)
+	
+	# Телепортируем мышь ровно в центр экрана, чтобы при открытии монитора 
+	# курсор случайно не оказался на границе HoverExitZone
+	var screen_size = get_viewport().get_visible_rect().size
+	get_viewport().warp_mouse(screen_size / 2)
+	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	var cam_transform = monitor.get_camera_transform()
@@ -73,7 +88,29 @@ func _enter_monitor():
 	var tween = create_tween().set_parallel(true)
 	tween.tween_property(camera_3d, "global_transform", cam_transform, 0.2).set_trans(Tween.TRANS_SINE)
 
-func _exit_monitor():
+# Метод вызывается как по нажатию Escape, так и из скрипта HoverExitZone
+func exit_monitor():
+	# ПЕРЕД закрытием зачищаем все активные UI менеджеры, чтобы они не зависали
+	if monitor and "monitor_hud" in monitor and monitor.monitor_hud:
+		var hud = monitor.monitor_hud
+		
+		# 1. Сбрасываем мини-игры в Tasks_manager
+		var tasks_manager = hud.find_child("Tasks_manager", true, false)
+		if tasks_manager and tasks_manager.has_method("clear_tasks"):
+			tasks_manager.clear_tasks()
+			tasks_manager.current_game_path = ""
+			tasks_manager.last_completed_count = ShiftSettings.completed_tasks
+		
+		# 2. Выключаем активный режим камер в Cameras_manager, возвращая карту
+		var cameras_manager = hud.find_child("Cameras_manager", true, false)
+		if cameras_manager:
+			var exit_cam_btn = cameras_manager.find_child("Exit_camera", true, false)
+			if exit_cam_btn and exit_cam_btn.visible:
+				if "map" in cameras_manager and cameras_manager.map: cameras_manager.map.show()
+				if "camera_display" in cameras_manager and cameras_manager.camera_display: cameras_manager.camera_display.hide()
+				exit_cam_btn.hide()
+
+	# Отключаем 3D объект монитора и прячем худ
 	monitor.set_active(false)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -87,7 +124,7 @@ func _exit_monitor():
 	tween.tween_property(camera_3d, "global_position", target_position, 0.2).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(camera_3d, "global_rotation", target_rotation, 0.2).set_trans(Tween.TRANS_SINE)
 	
-	# Только когда анимация возврата ПОЛНОСТЬЮ завершена, возвращаем управление игроку в _process
+	# Только когда анимация возврата ПОЛНОСТЬЮ завершена, возвращаем управление игроку
 	await tween.finished
 	is_monitoring = false
 

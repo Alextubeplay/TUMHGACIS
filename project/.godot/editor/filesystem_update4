@@ -15,3 +15,8 @@ res://content/interactable/Ventilation.tscn
 res://scripts/Ventilation.gd
 res://content/interactable/Crematory.tscn
 res://scripts/Сrematory.gd
+res://scenes/Monitor_hud.tscn
+res://scenes/Monitor.tscn
+res://scripts/Tasks_manager.gd
+res://scripts/Hover_exit_zone.gd
+res://scripts/Monitor_hud.gd
