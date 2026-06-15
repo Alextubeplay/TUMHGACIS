@@ -7,3 +7,7 @@ res://models/materials/outline_material.gdshader
 res://models/materials/outline_material.tres
 res://scenes/Main_scene.tscn
 res://scenes/Monitor_hud.tscn
+res://scripts/Shift_settings.gd
+res://scripts/Bleach.gd
+res://scripts/Сrematory.gd
+res://scripts/Ripper.gd

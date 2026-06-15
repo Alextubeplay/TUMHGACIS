@@ -7,6 +7,7 @@ var chance = 0.3
 var ripper_position = "far"
 var timer = 20.0
 var is_cooldown = false
+var retreat_timer = 0.0
 
 @onready var shift_settings = get_node("/root/ShiftSettings")
 @onready var vent = get_node("../Ventilation")
@@ -23,6 +24,7 @@ func _process(delta: float) -> void:
 		return
 
 	if vent.is_opened and shift_settings.is_ripper_active:
+		retreat_timer = 0.0
 		var is_rage = shift_settings.is_rage_mode_active if shift_settings else false
 		if is_rage and not is_cooldown and ripper_position != "nearest" and timer > 1.0:
 			timer = 1.0
@@ -35,9 +37,15 @@ func _process(delta: float) -> void:
 		_moving()
 	else:
 		if ripper_position != "far":
-			ripper_position = "far"
-			timer = 10.0
-			is_cooldown = true
+			if retreat_timer == 0.0:
+				retreat_timer = randf_range(5.0, 8.0)
+			
+			retreat_timer -= delta
+			if retreat_timer <= 0.0:
+				ripper_position = "far"
+				timer = 10.0
+				is_cooldown = true
+				retreat_timer = 0.0
 		hide()
 	
 	if ripper_position == "nearest":

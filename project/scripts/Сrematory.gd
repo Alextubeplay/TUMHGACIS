@@ -5,6 +5,7 @@ var is_opened: bool = true
 var is_kicked: bool = false
 var kick_speed: float = 30.0
 var kick_direction: Vector3 = Vector3.ZERO
+var interaction_locked: bool = false
 
 const OPEN_ANGLE = deg_to_rad(270)
 const CLOSED_ANGLE = deg_to_rad(180)
@@ -19,7 +20,7 @@ func _process(delta):
 # Этот метод автоматически вызывается из скрипта игрока при клике
 func interact():
 	# Если дверь выбита скриптом монстра, взаимодействовать с ней нельзя
-	if not is_kicked:
+	if not is_kicked and not interaction_locked:
 		toggle_crematory()
 
 func toggle_crematory():

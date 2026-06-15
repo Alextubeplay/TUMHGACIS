@@ -167,10 +167,25 @@ func _die(reason, killer = null):
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	shift_settings.last_death_reason = reason.to_upper()
 	
-	if is_monitoring:
-		is_monitoring = false
-
 	if reason == "ASPHYXATION":
+		if is_monitoring:
+			if monitor and "monitor_hud" in monitor and monitor.monitor_hud:
+				var hud = monitor.monitor_hud
+				var tasks_manager = hud.find_child("Tasks_manager", true, false)
+				if tasks_manager and tasks_manager.has_method("clear_tasks"):
+					tasks_manager.clear_tasks()
+					tasks_manager.current_game_path = ""
+					tasks_manager.last_completed_count = ShiftSettings.completed_tasks
+				var cameras_manager = hud.find_child("Cameras_manager", true, false)
+				if cameras_manager:
+					var exit_cam_btn = cameras_manager.find_child("Exit_camera", true, false)
+					if exit_cam_btn and exit_cam_btn.visible:
+						if "map" in cameras_manager and cameras_manager.map: cameras_manager.map.show()
+						if "camera_display" in cameras_manager and cameras_manager.camera_display: cameras_manager.camera_display.hide()
+						exit_cam_btn.hide()
+			monitor.set_active(false)
+			is_monitoring = false
+
 		var death_tween = create_tween().set_parallel(true)
 		death_tween.tween_property(self, "rotation:z", deg_to_rad(60), 2.0).set_trans(Tween.TRANS_SINE)
 		death_tween.tween_property(self, "position:y", position.y - 0.5, 2.0).set_trans(Tween.TRANS_QUAD)
@@ -178,12 +193,37 @@ func _die(reason, killer = null):
 			death_tween.tween_property(oxygen_manager.death_fog, "color:a", 1.0, 2.0)
 		await death_tween.finished
 		
-	elif (reason == "BLEACH" or reason == "BLOODY" or reason == "RIPPER") and killer != null:
-		var look_target = killer.global_position
-		look_target.y = global_position.y
+	elif killer != null:
+		if is_monitoring:
+			if monitor and "monitor_hud" in monitor and monitor.monitor_hud:
+				var hud = monitor.monitor_hud
+				var tasks_manager = hud.find_child("Tasks_manager", true, false)
+				if tasks_manager and tasks_manager.has_method("clear_tasks"):
+					tasks_manager.clear_tasks()
+					tasks_manager.current_game_path = ""
+					tasks_manager.last_completed_count = ShiftSettings.completed_tasks
+				var cameras_manager = hud.find_child("Cameras_manager", true, false)
+				if cameras_manager:
+					var exit_cam_btn = cameras_manager.find_child("Exit_camera", true, false)
+					if exit_cam_btn and exit_cam_btn.visible:
+						if "map" in cameras_manager and cameras_manager.map: cameras_manager.map.show()
+						if "camera_display" in cameras_manager and cameras_manager.camera_display: cameras_manager.camera_display.hide()
+						exit_cam_btn.hide()
+			monitor.set_active(false)
+			is_monitoring = false
 		
-		var rot_tween = create_tween()
-		rot_tween.tween_method(func(pos): look_at(pos), global_position + -basis.z, look_target, 0.4)
+		camera_3d.global_position = global_position + CAMERA_OFFSET
+		
+		var look_target = killer.global_position
+		var target_transform = camera_3d.global_transform.looking_at(look_target, Vector3.UP)
+		var target_rotation = target_transform.basis.get_euler()
+		
+		var body_target_transform = transform.looking_at(Vector3(look_target.x, global_position.y, look_target.z), Vector3.UP)
+		var target_rotation_y = body_target_transform.basis.get_euler().y
+		
+		var rot_tween = create_tween().set_parallel(true)
+		rot_tween.tween_property(camera_3d, "global_rotation", target_rotation, 0.4).set_trans(Tween.TRANS_SINE)
+		rot_tween.tween_property(self, "rotation:y", target_rotation_y, 0.4).set_trans(Tween.TRANS_SINE)
 		await rot_tween.finished
 		
 		if killer.has_method("start_kill_sequence_movement"):

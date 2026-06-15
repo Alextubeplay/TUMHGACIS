@@ -55,15 +55,13 @@ func _check_door_consequence():
 	if bleach_indicator: bleach_indicator.hide()
 
 func _mob_kicks_door():
-	await get_tree().create_timer(1.0).timeout 
 	if not crematory.is_opened:
-		crematory.kick_at_player(player.global_position)
-		await get_tree().create_timer(0.1).timeout
-		show()
-		global_position = START_POS
-		if anim_player.has_animation("Bleach_jump"):
-			anim_player.play("Bleach_jump")
-		player._die("BLEACH", self)
+		crematory.interaction_locked = true
+		await get_tree().create_timer(0.5).timeout
+		if not crematory.is_opened:
+			crematory.kick_at_player(player.global_position)
+			player._die("BLEACH", crematory)
+		crematory.interaction_locked = false
 
 func _logic():
 	var is_rage = shift_settings.is_rage_mode_active if shift_settings else false
