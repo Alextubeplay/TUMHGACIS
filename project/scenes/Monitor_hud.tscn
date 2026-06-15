@@ -43,7 +43,7 @@ grow_vertical = 2
 script = SubResource("GDScript_vlx1f")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(1092, 618)
+custom_minimum_size = Vector2(1122, 638)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -55,10 +55,10 @@ offset_right = 546.0
 offset_bottom = 309.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
 
 [node name="TabContainer" type="TabContainer" parent="MarginContainer"]
 layout_mode = 2

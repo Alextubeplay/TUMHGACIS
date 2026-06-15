@@ -1,21 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://cunq26ceiekix"]
+[gd_scene load_steps=8 format=4 uid="uid://cunq26ceiekix"]
 
 [ext_resource type="Texture2D" uid="uid://f4k83lx7jpct" path="res://models/map/textures/Monitor_txtr.png" id="1_ckkhn"]
 [ext_resource type="Script" uid="uid://drdgfa4sa1fmj" path="res://scripts/Monitor.gd" id="1_hpieq"]
-[ext_resource type="Shader" uid="uid://b3d4eocwfh4ah" path="res://shaders/light_outline.gdshader" id="2_v3j3j"]
 [ext_resource type="PackedScene" uid="uid://bgyx51chki2xk" path="res://scenes/Monitor_hud.tscn" id="3_v3j3j"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sxh8t"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("2_v3j3j")
-shader_parameter/outline_width = 0.02
-shader_parameter/outline_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6by7"]
 resource_local_to_scene = true
 resource_name = "Материал"
-next_pass = SubResource("ShaderMaterial_sxh8t")
 cull_mode = 2
 albedo_texture = ExtResource("1_ckkhn")
 roughness = 0.6409091
@@ -56,13 +47,12 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_pgwcf")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v3j3j"]
-size = Vector3(1.0571289, 0.5827637, 1.0425415)
+size = Vector3(1.4202881, 1.4114075, 1.0425415)
 
 [node name="Monitor" type="Node3D"]
 script = ExtResource("1_hpieq")
 
 [node name="Monitor" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.75, 0, 0, 0, 0.4, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_hpieq")
 skeleton = NodePath("")
 
@@ -82,5 +72,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9544754)
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00024414063, -0.0030517578, 0.011077881)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00579834, 0.0004119873, 0.011077881)
 shape = SubResource("BoxShape3D_v3j3j")

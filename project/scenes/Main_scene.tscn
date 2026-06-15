@@ -57,7 +57,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.581833, 7.1920834, 40.754
 
 [node name="Oxygen_manager" parent="Player" node_paths=PackedStringArray("o2_bar", "o2_percent", "death_fog") instance=ExtResource("17_sqrha")]
 o2_bar = NodePath("../../HUD/O2_bar")
-o2_percent = NodePath("../../HUD/O2_bar_percent")
+o2_percent = NodePath("../../HUD/O2_bar/O2_bar_percent")
 death_fog = NodePath("../../HUD/Death_fog")
 
 [node name="Ripper" parent="." instance=ExtResource("5_4a8l0")]
@@ -82,20 +82,32 @@ visible = false
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="O2_bar" type="TextureProgressBar" parent="HUD"]
-offset_left = 9.0
-offset_top = 622.0
-offset_right = 1161.0
-offset_bottom = 1270.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -28.0
+offset_right = 326.0
+offset_bottom = -8.0
+grow_vertical = 0
 step = 0.1
 value = 100.0
 texture_under = SubResource("GradientTexture2D_4a8l0")
 texture_progress = SubResource("NoiseTexture2D_a6g5n")
 
-[node name="O2_bar_percent" type="Label" parent="HUD"]
-offset_left = 137.0
-offset_top = 620.0
-offset_right = 179.0
-offset_bottom = 643.0
+[node name="O2_bar_percent" type="Label" parent="HUD/O2_bar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -11.5
+offset_right = 21.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.6, 0.07450981, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
@@ -227,4 +239,4 @@ transform = Transform3D(0.14447722, 0, -0.98950803, 0, 1, 0, 0.98950803, 0, 0.14
 script = ExtResource("13_wi0oi")
 
 [node name="Monitor" parent="." instance=ExtResource("16_h51b0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.826717, 5.350337, 36)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.826717, 5.7047744, 36)
