@@ -140,29 +140,37 @@ text = "EXIT"
 
 [node name="How_to_play_menu" type="VBoxContainer" parent="Main_menu"]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -177.0
-offset_top = -146.5
-offset_right = 177.0
-offset_bottom = 146.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Main_menu/How_to_play_menu"]
+[node name="PanelContainer" type="PanelContainer" parent="Main_menu/How_to_play_menu"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Main_menu/How_to_play_menu/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Main_menu/How_to_play_menu/ScrollContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Main_menu/How_to_play_menu/PanelContainer/ScrollContainer"]
+custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[p][font_size=48][center]HOW TO PLAY THE GAME[/center][/font_size][/p]"
+fit_content = true
+scroll_active = false
 
 [node name="Back" type="Button" parent="Main_menu/How_to_play_menu"]
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 60
 text = "BACK"
 
@@ -243,9 +251,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9986508, 1.0098523)
+size_flags_horizontal = 0
+size_flags_vertical = 4
 stretch = true
 stretch_shrink = 3
-metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="Camera/SubViewportContainer"]
 handle_input_locally = false

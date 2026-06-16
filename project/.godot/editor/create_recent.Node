@@ -1,3 +1,5 @@
+VBoxContainer
+PanelContainer
 RichTextLabel
 MarginContainer
 ScrollContainer
@@ -11,5 +13,3 @@ AnimationPlayer
 Node
 Marker3D
 Panel
-Label
-HBoxContainer
