@@ -75,5 +75,5 @@ mesh = SubResource("ArrayMesh_44wye")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_energy = 0.4
-omni_range = 12.59138
+light_energy = 0.35
+omni_range = 9.603655

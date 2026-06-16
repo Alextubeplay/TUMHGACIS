@@ -1,10 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://cbfcaja7njh6p"]
 
-[ext_resource type="Script" uid="uid://cex8p2idvaxxh" path="res://scripts/PlayerController.gd" id="1_mkh8t"]
+[ext_resource type="Script" uid="uid://d0ypu3ifyjcpw" path="res://scripts/Player_controller.gd" id="1_sjj85"]
 
 [node name="Player" type="Node3D" groups=["player"]]
-script = ExtResource("1_mkh8t")
-CAMERA_OFFSET = Vector3(0, 0, 0)
+script = ExtResource("1_sjj85")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1

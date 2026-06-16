@@ -97,9 +97,9 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6.98
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_d1rr7")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Main_menu" type="CanvasLayer" parent="."]
 
-[node name="Menu" type="VBoxContainer" parent="CanvasLayer"]
+[node name="Menu" type="VBoxContainer" parent="Main_menu"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -113,22 +113,60 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Play" type="Button" parent="CanvasLayer/Menu"]
+[node name="Play" type="Button" parent="Main_menu/Menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "PLAY"
 
-[node name="Difficulty" type="Button" parent="CanvasLayer/Menu"]
+[node name="How_to_play" type="Button" parent="Main_menu/Menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "HOW TO PLAY"
+
+[node name="Difficulty" type="Button" parent="Main_menu/Menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "DIFFICULTY"
 
-[node name="Exit" type="Button" parent="CanvasLayer/Menu"]
+[node name="Credits" type="Button" parent="Main_menu/Menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "CREDITS"
+
+[node name="Exit" type="Button" parent="Main_menu/Menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "EXIT"
 
-[node name="Difficulty_settings" type="VBoxContainer" parent="CanvasLayer"]
+[node name="How_to_play_menu" type="VBoxContainer" parent="Main_menu"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.0
+offset_top = -146.5
+offset_right = 177.0
+offset_bottom = 146.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Main_menu/How_to_play_menu"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main_menu/How_to_play_menu/ScrollContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Main_menu/How_to_play_menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "BACK"
+
+[node name="Difficulty_settings" type="VBoxContainer" parent="Main_menu"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -143,7 +181,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Difficulty" type="Button" parent="CanvasLayer/Difficulty_settings"]
+[node name="Difficulty" type="Button" parent="Main_menu/Difficulty_settings"]
 layout_mode = 2
 focus_mode = 0
 focus_behavior_recursive = 1
@@ -152,32 +190,47 @@ mouse_behavior_recursive = 1
 theme_override_font_sizes/font_size = 60
 text = "DIFFICULTY:"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Difficulty_settings"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Main_menu/Difficulty_settings"]
 layout_mode = 2
 alignment = 1
 
-[node name="1" type="Button" parent="CanvasLayer/Difficulty_settings/HBoxContainer"]
+[node name="1" type="Button" parent="Main_menu/Difficulty_settings/HBoxContainer"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "1"
 
-[node name="2" type="Button" parent="CanvasLayer/Difficulty_settings/HBoxContainer"]
+[node name="2" type="Button" parent="Main_menu/Difficulty_settings/HBoxContainer"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "2"
 
-[node name="3" type="Button" parent="CanvasLayer/Difficulty_settings/HBoxContainer"]
+[node name="3" type="Button" parent="Main_menu/Difficulty_settings/HBoxContainer"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "3"
 
-[node name="Back" type="Button" parent="CanvasLayer/Difficulty_settings"]
+[node name="Back" type="Button" parent="Main_menu/Difficulty_settings"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "BACK"
+
+[node name="Credits_menu" type="VBoxContainer" parent="Main_menu"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.5
+offset_top = -146.5
+offset_right = 168.5
+offset_bottom = 146.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
 
 [node name="Camera" type="Node3D" parent="."]
 transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, -8.742278e-08, 1, 0, 3.821371e-15, 0, -1, 5.513881, -20.119366, 25.18718)

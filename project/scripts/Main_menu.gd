@@ -1,7 +1,7 @@
 extends Node3D
 
-@onready var main_menu_container = $CanvasLayer/Menu
-@onready var difficulty_menu_container = $CanvasLayer/Difficulty_settings
+@onready var main_menu_container = $Main_menu/Menu
+@onready var difficulty_menu_container = $Main_menu/Difficulty_settings
 
 func _ready() -> void:
 	main_menu_container.show()
@@ -17,7 +17,6 @@ func _ready() -> void:
 	difficulty_menu_container.get_node("Back").pressed.connect(_on_back_pressed)
 
 func _on_play_pressed() -> void:
-	# Сбрасываем прогресс и время перед стартом, используя текущую сложность
 	if ShiftSettings:
 		ShiftSettings.set_difficulty(ShiftSettings.difficulty)
 	

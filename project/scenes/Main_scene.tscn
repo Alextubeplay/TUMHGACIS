@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dnqknpfw0j6yw"]
+[gd_scene load_steps=23 format=3 uid="uid://dnqknpfw0j6yw"]
 
 [ext_resource type="PackedScene" uid="uid://brmr0q5ideb56" path="res://content/interactable/Ventilation.tscn" id="1_uxkiq"]
 [ext_resource type="PackedScene" uid="uid://cbfcaja7njh6p" path="res://content/player/Player.tscn" id="2_l5tlr"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://dkrrrwgisdh45" path="res://scripts/Сrematory.gd" id="13_wi0oi"]
 [ext_resource type="PackedScene" uid="uid://cunq26ceiekix" path="res://scenes/Monitor.tscn" id="16_h51b0"]
 [ext_resource type="PackedScene" uid="uid://8qr6xuuo18b3" path="res://scenes/Oxygen_manager.tscn" id="17_sqrha"]
+[ext_resource type="Script" uid="uid://crotn30eibgeq" path="res://scripts/Pause_menu.gd" id="17_u66lf"]
 
 [sub_resource type="Gradient" id="Gradient_fkd63"]
 colors = PackedColorArray(0, 0, 0, 0.73333335, 1, 1, 1, 1)
@@ -54,6 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.866718, 11.432019, 38.192
 
 [node name="Player" parent="." instance=ExtResource("2_l5tlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.581833, 7.1920834, 40.754436)
+CAMERA_OFFSET = Vector3(0, -0.01, 0)
 
 [node name="Oxygen_manager" parent="Player" node_paths=PackedStringArray("o2_bar", "o2_percent", "death_fog") instance=ExtResource("17_sqrha")]
 o2_bar = NodePath("../../HUD/O2_bar")
@@ -239,4 +241,36 @@ transform = Transform3D(0.14447722, 0, -0.98950803, 0, 1, 0, 0.98950803, 0, 0.14
 script = ExtResource("13_wi0oi")
 
 [node name="Monitor" parent="." instance=ExtResource("16_h51b0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.826717, 5.7047744, 36)
+transform = Transform3D(1, 0, 0, 0, 0.765, 0, 0, 0, 1, -16.826717, 5.597477, 36)
+
+[node name="Pause" type="CanvasLayer" parent="."]
+script = ExtResource("17_u66lf")
+
+[node name="Menu" type="VBoxContainer" parent="Pause"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -20.0
+offset_right = 23.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Continue" type="Button" parent="Pause/Menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "CONTINUE"
+
+[node name="Settings" type="Button" parent="Pause/Menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "SETTINGS"
+
+[node name="Exit" type="Button" parent="Pause/Menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "EXIT"
