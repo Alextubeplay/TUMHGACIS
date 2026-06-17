@@ -32,8 +32,9 @@ folder_colors={
 "res://scenes/": "green",
 "res://scripts/": "teal",
 "res://shaders/": "blue",
+"res://sounds/": "purple",
 "res://textures/": "pink",
-"res://themes/": "purple"
+"res://themes/": "gray"
 }
 
 [gui]

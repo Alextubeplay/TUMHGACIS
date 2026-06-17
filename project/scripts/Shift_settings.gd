@@ -17,7 +17,7 @@ var is_ripper_active = true
 var is_valve_active = true
 var is_hypno_active = true
 var is_bleach_active = true
-var is_rage_mode_active = true 
+var is_rage_mode_active = false 
 
 func _process(delta):
 	if is_shift_timer_active and shift_timer > 0:

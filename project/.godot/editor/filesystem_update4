@@ -3,9 +3,4 @@ res://models/materials/outline_material.gdshader
 res://shaders/light_outline.gdshader
 res://themes/Monitor_hub.tres
 res://themes/Monitor_sidebar_buttons.tres
-res://scenes/Main_scene.tscn
-res://scripts/Main_menu.gd
-res://scenes/Lamp_latent.tscn
-res://scenes/Projector.tscn
-res://scripts/Pause_menu.gd
-res://content/player/Player.tscn
+res://scripts/Shift_settings.gd

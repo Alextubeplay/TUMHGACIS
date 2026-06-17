@@ -100,6 +100,7 @@ environment = SubResource("Environment_d1rr7")
 [node name="Main_menu" type="CanvasLayer" parent="."]
 
 [node name="Menu" type="VBoxContainer" parent="Main_menu"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -152,19 +153,57 @@ theme_override_constants/separation = 10
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Main_menu/How_to_play_menu/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Main_menu/How_to_play_menu/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Main_menu/How_to_play_menu/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Main_menu/How_to_play_menu/PanelContainer/ScrollContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Main_menu/How_to_play_menu/PanelContainer/MarginContainer/ScrollContainer"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "[p][font_size=48][center]HOW TO PLAY THE GAME[/center][/font_size][/p]"
+text = "[p][font_size=48][center]HOW TO PLAY THE GAME[/center][/font_size][/p]
+[p][font_size=36]CONTROLS[/font_size][/p]
+[p][font_size=24]You control camera movement with your mouse. In the center of the screen there is a small gray cube, it is your cursor, when you hover it over interactable objects, they highlight in red, you can interact with these objects by left clicking them.[/font_size][/p]
+
+[p][font_size=36]INTERACTABLE OBJECTS[/font_size][/p]
+[p][font_size=24]In game there are 4 interactable objects, most of them are used to deal with monsters. There are 1 valve, 2 ventilation doors and monitor. Monitor is used to see conditions to pass current level, to see information about monsters on this level and to complete tasks. To start new task you must click on arrow button.[/font_size][/p]
+
+[p][font_size=36]WIN CONDITIONS[/font_size][/p]
+[p][font_size=24]To win on the level, you need to complete all tasks, for the timer to expire and to not get atacked by the monsters.[/font_size][/p]
+
+[p][font_size=36]TASKS[/font_size][/p]
+[p][font_size=24]There are 4 tasks in game, all of them appear randomly.
+
+Clicker task — To complete you must click big button exactly as many times as indicated on the label on the top right corner, clicking more or less will lead to click reset.
+
+Maze task — To complete you must click on the white circle and drag it towards white rectangle withiut tiuching black walls. touching them will lead to restart of the task.
+
+Colorful wires — To complete you must click on the plugs on the left and drag wires toward the right sockets of corresponding colours and click on them.
+
+Colorlles wires — Just like colorful wires, but there are more sockets and no need to match wires by colour.
+[/font_size][/p]
+
+[p][font_size=36]MONSTERS[/font_size][/p]
+[p][font_size=24]There are 4 monsters in this game, most of them actively try to reach you.
+
+Bloody — Tall monster with sharp limbs, he is seeking for blood, to prevent him from attacking you you must close the vent above you every time it breaks, always it requires a few pushes to close.
+
+Bleach — The living burnt corpse, the closer he is to you, the slower he moves. Don't underestimate him, to prevent him from attacking you, you must close his door right before his attack, you will hear when he is close. Closing this door too early will lead to bleach breaking the door.
+
+Ripper — Very long mutated hand that acts as assasin killer, the closer it gets to you, the faster it moves. To prevent it from attacking you you must close it's door and soon it will retreat. You will hear when it's ready to attack you.
+[/font_size][/p]
+
+[p][font_size=36]BREATHING[/font_size][/p]
+[p][font_size=24]I addition to tasks and avoiding of monsters you need to breath, your amoun of air is displayed by the bar on the bottom left. Air in this complex is not the best for your lungs, but some ventilations provide fresh oxygen, so closing them shut may not be the best option.[/font_size][/p]"
 fit_content = true
 scroll_active = false
 
