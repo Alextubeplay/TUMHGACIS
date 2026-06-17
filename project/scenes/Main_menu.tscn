@@ -100,7 +100,6 @@ environment = SubResource("Environment_d1rr7")
 [node name="Main_menu" type="CanvasLayer" parent="."]
 
 [node name="Menu" type="VBoxContainer" parent="Main_menu"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -172,10 +171,10 @@ size_flags_vertical = 3
 bbcode_enabled = true
 text = "[p][font_size=48][center]HOW TO PLAY THE GAME[/center][/font_size][/p]
 [p][font_size=36]CONTROLS[/font_size][/p]
-[p][font_size=24]You control camera movement with your mouse. In the center of the screen there is a small gray cube, it is your cursor, when you hover it over interactable objects, they highlight in red, you can interact with these objects by left clicking them.[/font_size][/p]
+[p][font_size=24]You control camera movement with your mouse. In the center of the screen there is a small gray cube, it is your cursor, when you hover it over interactable objects, they highlight in red, you can interact with these objects by left clicking them. To pause game press escape button on your keyboard[/font_size][/p]
 
 [p][font_size=36]INTERACTABLE OBJECTS[/font_size][/p]
-[p][font_size=24]In game there are 4 interactable objects, most of them are used to deal with monsters. There are 1 valve, 2 ventilation doors and monitor. Monitor is used to see conditions to pass current level, to see information about monsters on this level and to complete tasks. To start new task you must click on arrow button.[/font_size][/p]
+[p][font_size=24]In game there are 4 interactable objects, most of them are used to deal with monsters. There are 1 valve, 2 ventilation doors and monitor. Monitor is used to see conditions to pass current level, to see information about monsters on this level and to complete tasks. To start new task you must click on arrow button. To leave monitor you must click on escape button on your keyboard or hover mouse cursor over the monitor's edge.[/font_size][/p]
 
 [p][font_size=36]WIN CONDITIONS[/font_size][/p]
 [p][font_size=24]To win on the level, you need to complete all tasks, for the timer to expire and to not get atacked by the monsters.[/font_size][/p]
@@ -200,10 +199,12 @@ Bloody — Tall monster with sharp limbs, he is seeking for blood, to prevent hi
 Bleach — The living burnt corpse, the closer he is to you, the slower he moves. Don't underestimate him, to prevent him from attacking you, you must close his door right before his attack, you will hear when he is close. Closing this door too early will lead to bleach breaking the door.
 
 Ripper — Very long mutated hand that acts as assasin killer, the closer it gets to you, the faster it moves. To prevent it from attacking you you must close it's door and soon it will retreat. You will hear when it's ready to attack you.
+
+Hypno — Meat abomination consisting of pair of legs and massive eyeball, it tries to hypnotize you with it's abyssmal gaze. To prevent hypnosis you must not look into it's eye.
 [/font_size][/p]
 
 [p][font_size=36]BREATHING[/font_size][/p]
-[p][font_size=24]I addition to tasks and avoiding of monsters you need to breath, your amoun of air is displayed by the bar on the bottom left. Air in this complex is not the best for your lungs, but some ventilations provide fresh oxygen, so closing them shut may not be the best option.[/font_size][/p]"
+[p][font_size=24]In addition to tasks and avoiding of monsters you need to breath, your amoun of air is displayed by the bar on the bottom left. Air in this complex is not the best for your lungs, but some ventilations provide fresh oxygen, so closing them shut may not be the best option.[/font_size][/p]"
 fit_content = true
 scroll_active = false
 

@@ -2,19 +2,24 @@ extends Node3D
 
 @onready var main_menu_container = $Main_menu/Menu
 @onready var difficulty_menu_container = $Main_menu/Difficulty_settings
+@onready var how_to_play_menu_container = $Main_menu/How_to_play_menu
 
 func _ready() -> void:
 	main_menu_container.show()
 	difficulty_menu_container.hide()
+	how_to_play_menu_container.hide()
 	
 	main_menu_container.get_node("Play").pressed.connect(_on_play_pressed)
 	main_menu_container.get_node("Difficulty").pressed.connect(_on_difficulty_pressed)
+	main_menu_container.get_node("How_to_play").pressed.connect(_on_how_to_play_pressed)
 	main_menu_container.get_node("Exit").pressed.connect(_on_exit_pressed)
 	
 	difficulty_menu_container.get_node("HBoxContainer/1").pressed.connect(_on_difficulty_selected.bind(1))
 	difficulty_menu_container.get_node("HBoxContainer/2").pressed.connect(_on_difficulty_selected.bind(2))
 	difficulty_menu_container.get_node("HBoxContainer/3").pressed.connect(_on_difficulty_selected.bind(3))
 	difficulty_menu_container.get_node("Back").pressed.connect(_on_back_pressed)
+	
+	how_to_play_menu_container.get_node("Back").pressed.connect(_on_how_to_play_back_pressed)
 
 func _on_play_pressed() -> void:
 	if ShiftSettings:
@@ -37,4 +42,12 @@ func _on_difficulty_selected(level: int) -> void:
 
 func _on_back_pressed() -> void:
 	difficulty_menu_container.hide()
+	main_menu_container.show()
+
+func _on_how_to_play_pressed() -> void:
+	main_menu_container.hide()
+	how_to_play_menu_container.show()
+
+func _on_how_to_play_back_pressed() -> void:
+	how_to_play_menu_container.hide()
 	main_menu_container.show()
