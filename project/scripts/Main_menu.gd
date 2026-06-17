@@ -20,6 +20,8 @@ func _ready() -> void:
 	difficulty_menu_container.get_node("Back").pressed.connect(_on_back_pressed)
 	
 	how_to_play_menu_container.get_node("Back").pressed.connect(_on_how_to_play_back_pressed)
+	
+	_update_difficulty_colors()
 
 func _on_play_pressed() -> void:
 	if ShiftSettings:
@@ -31,6 +33,7 @@ func _on_play_pressed() -> void:
 func _on_difficulty_pressed() -> void:
 	main_menu_container.hide()
 	difficulty_menu_container.show()
+	_update_difficulty_colors()
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
@@ -38,6 +41,7 @@ func _on_exit_pressed() -> void:
 func _on_difficulty_selected(level: int) -> void:
 	if ShiftSettings:
 		ShiftSettings.set_difficulty(level)
+	_update_difficulty_colors()
 	_on_back_pressed()
 
 func _on_back_pressed() -> void:
@@ -51,3 +55,16 @@ func _on_how_to_play_pressed() -> void:
 func _on_how_to_play_back_pressed() -> void:
 	how_to_play_menu_container.hide()
 	main_menu_container.show()
+
+func _update_difficulty_colors() -> void:
+	if not ShiftSettings:
+		return
+	var current_diff = ShiftSettings.difficulty
+	for i in range(1, 4):
+		var btn = difficulty_menu_container.get_node("HBoxContainer/" + str(i))
+		if btn:
+			var color = Color.WHITE if i == current_diff else Color(0.466, 0.466, 0.466, 1.0)
+			btn.add_theme_color_override("font_color", color)
+			btn.add_theme_color_override("font_hover_color", color)
+			btn.add_theme_color_override("font_pressed_color", color)
+			btn.add_theme_color_override("font_focus_color", color)
