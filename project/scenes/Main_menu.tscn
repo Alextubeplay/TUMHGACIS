@@ -216,6 +216,7 @@ theme_override_font_sizes/font_size = 60
 text = "BACK"
 
 [node name="Difficulty_settings" type="VBoxContainer" parent="Main_menu"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -267,19 +268,51 @@ theme_override_font_sizes/font_size = 60
 text = "BACK"
 
 [node name="Credits_menu" type="VBoxContainer" parent="Main_menu"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -168.5
-offset_top = -146.5
-offset_right = 168.5
-offset_bottom = 146.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="Main_menu/Credits_menu"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Main_menu/Credits_menu/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Main_menu/Credits_menu/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main_menu/Credits_menu/PanelContainer/MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[p][font_size=48][center]TUMHGACIS CREDITS[/center][/font_size][/p]
+[p][center][font_size=36]Game developer — Alextube[/font_size][/center][/p]
+[p][center][font_size=24]3D artist — Alextube [/font_size][/center][/p]
+[p][center][font_size=24]Programmer — Alextube [/font_size][/center][/p]
+[p][center][font_size=24]Sound designer — Alextube [/font_size][/center][/p]
+[p][center][font_size=24]Game designer — Alextube [/font_size][/center][/p]
+
+
+[p][center][font_size=36]FREE SOUNDS[/font_size][/center][/p]"
+fit_content = true
+scroll_active = false
+
+[node name="Back" type="Button" parent="Main_menu/Credits_menu"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 60
+text = "BACK"
 
 [node name="Camera" type="Node3D" parent="."]
 transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, -8.742278e-08, 1, 0, 3.821371e-15, 0, -1, 5.513881, -20.119366, 25.18718)
