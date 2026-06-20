@@ -1,0 +1,212 @@
+[gd_scene format=3 uid="uid://bwuqufy1ddrdp"]
+
+[node name="Game_settings" type="VBoxContainer" unique_id=856958942]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=279677154]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=2114894940]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1596148942]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/VBoxContainer" unique_id=1370943930]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+current_tab = 0
+
+[node name="Graphics" type="MarginContainer" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=496016522]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics" unique_id=1513071462]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer" unique_id=157643561]
+layout_mode = 2
+
+[node name="Screen_mode" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=1228447830]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/Screen_mode" unique_id=780401516]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Screen mode"
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/Screen_mode" unique_id=1423332149]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+
+[node name="Resolution" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=573532839]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/Resolution" unique_id=765324825]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/Resolution" unique_id=1608695564]
+layout_mode = 2
+item_count = 7
+popup/item_0/text = "640X480"
+popup/item_0/id = 0
+popup/item_1/text = "800X600"
+popup/item_1/id = 1
+popup/item_2/text = "1024X768"
+popup/item_2/id = 2
+popup/item_3/text = "1280X1024"
+popup/item_3/id = 3
+popup/item_4/text = "1680X1050"
+popup/item_4/id = 4
+popup/item_5/text = "1920X1080"
+popup/item_5/id = 5
+popup/item_6/text = "2560X2160"
+popup/item_6/id = 6
+
+[node name="V-sync" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=500316841]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/V-sync" unique_id=1882678443]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "V-sync"
+
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/V-sync" unique_id=1778191951]
+layout_mode = 2
+
+[node name="Sound" type="MarginContainer" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=1829715684]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/TabContainer/Sound" unique_id=644884839]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer" unique_id=1925977188]
+layout_mode = 2
+
+[node name="Master" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer" unique_id=616395732]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Master" unique_id=1550236616]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Master"
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Master" unique_id=131484866]
+custom_minimum_size = Vector2(100, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_vertical = 1
+value = 50.0
+tick_count = 6
+
+[node name="Music" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer" unique_id=821506403]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Music" unique_id=814364406]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Music"
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Music" unique_id=648098230]
+custom_minimum_size = Vector2(100, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_vertical = 1
+value = 50.0
+tick_count = 6
+
+[node name="Sounds" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer" unique_id=137111566]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Sounds" unique_id=42764504]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Sounds"
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Sounds" unique_id=1639622364]
+custom_minimum_size = Vector2(100, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_vertical = 1
+value = 50.0
+tick_count = 6
+
+[node name="Game" type="MarginContainer" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=1975432845]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+metadata/_tab_index = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/TabContainer/Game" unique_id=196283928]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer" unique_id=1237575365]
+layout_mode = 2
+
+[node name="Mouse_sensetivity" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer" unique_id=2120583454]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Mouse_sensetivity" unique_id=871708019]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Mouse sensetivity"
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Mouse_sensetivity" unique_id=1231946938]
+custom_minimum_size = Vector2(100, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_vertical = 1
+value = 50.0
+tick_count = 6
+
+[node name="Hear_loss_mode" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer" unique_id=88895762]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Hear_loss_mode" unique_id=993629473]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Hear loss mode"
+
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Hear_loss_mode" unique_id=529197058]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="." unique_id=455734866]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "BACK"

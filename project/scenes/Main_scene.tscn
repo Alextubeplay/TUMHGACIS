@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dnqknpfw0j6yw"]
+[gd_scene format=3 uid="uid://dnqknpfw0j6yw"]
 
 [ext_resource type="PackedScene" uid="uid://brmr0q5ideb56" path="res://content/interactable/Ventilation.tscn" id="1_uxkiq"]
 [ext_resource type="PackedScene" uid="uid://cbfcaja7njh6p" path="res://content/player/Player.tscn" id="2_l5tlr"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cunq26ceiekix" path="res://scenes/Monitor.tscn" id="16_h51b0"]
 [ext_resource type="PackedScene" uid="uid://8qr6xuuo18b3" path="res://scenes/Oxygen_manager.tscn" id="17_sqrha"]
 [ext_resource type="Script" uid="uid://crotn30eibgeq" path="res://scripts/Pause_menu.gd" id="17_u66lf"]
+[ext_resource type="PackedScene" uid="uid://bwuqufy1ddrdp" path="res://scenes/Game_settings.tscn" id="18_sqrha"]
 
 [sub_resource type="Gradient" id="Gradient_fkd63"]
 colors = PackedColorArray(0, 0, 0, 0.73333335, 1, 1, 1, 1)
@@ -42,48 +43,48 @@ ambient_light_energy = 0.01
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0237
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" unique_id=821013878]
 
-[node name="Map_joined" parent="." instance=ExtResource("6_a6g5n")]
+[node name="Map_joined" parent="." unique_id=1284685150 instance=ExtResource("6_a6g5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.068855286, -0.046237946, 0.0046606064)
 
-[node name="Ventilation" parent="." groups=["vents"] instance=ExtResource("1_uxkiq")]
+[node name="Ventilation" parent="." unique_id=438894691 groups=["vents"] instance=ExtResource("1_uxkiq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.339947, 7.021374, 38.92411)
 
-[node name="Valve" parent="." instance=ExtResource("3_a6g5n")]
+[node name="Valve" parent="." unique_id=1559185900 instance=ExtResource("3_a6g5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.866718, 11.432019, 38.192062)
 
-[node name="Player" parent="." instance=ExtResource("2_l5tlr")]
+[node name="Player" parent="." unique_id=1402479367 instance=ExtResource("2_l5tlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.581833, 7.1920834, 40.754436)
 CAMERA_OFFSET = Vector3(0, -0.01, 0)
 
-[node name="Oxygen_manager" parent="Player" node_paths=PackedStringArray("o2_bar", "o2_percent", "death_fog") instance=ExtResource("17_sqrha")]
+[node name="Oxygen_manager" parent="Player" unique_id=241280113 node_paths=PackedStringArray("o2_bar", "o2_percent", "death_fog") instance=ExtResource("17_sqrha")]
 o2_bar = NodePath("../../HUD/O2_bar")
 o2_percent = NodePath("../../HUD/O2_bar/O2_bar_percent")
 death_fog = NodePath("../../HUD/Death_fog")
 
-[node name="Ripper" parent="." instance=ExtResource("5_4a8l0")]
+[node name="Ripper" parent="." unique_id=864039038 instance=ExtResource("5_4a8l0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.228966, 7.232874, 40.088882)
 visible = false
 
-[node name="Bleach" parent="." instance=ExtResource("6_7qsmt")]
+[node name="Bleach" parent="." unique_id=2052978338 instance=ExtResource("6_7qsmt")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.69736, 4.069291, 51.345093)
 visible = false
 START_POS = Vector3(7.697, 4.069, 51.345)
 
-[node name="Hypno" parent="." instance=ExtResource("7_o0okc")]
+[node name="Hypno" parent="." unique_id=391872088 instance=ExtResource("7_o0okc")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18.37815, 0, -8.970968)
 visible = false
 START_POS = Vector3(-18.378, 0, -8.971)
 ATTACK_POS = Vector3(-16.997, 0, 26.952)
 
-[node name="Bloody" parent="." instance=ExtResource("6_uxkiq")]
+[node name="Bloody" parent="." unique_id=1535307125 instance=ExtResource("6_uxkiq")]
 transform = Transform3D(-0.9992166, 0, -0.0395737, 0, 1, 0, 0.0395737, 0, -0.9992166, 26.253944, 0, 38.661057)
 visible = false
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=59230972]
 
-[node name="O2_bar" type="TextureProgressBar" parent="HUD"]
+[node name="O2_bar" type="TextureProgressBar" parent="HUD" unique_id=1786186107]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -97,7 +98,7 @@ value = 100.0
 texture_under = SubResource("GradientTexture2D_4a8l0")
 texture_progress = SubResource("NoiseTexture2D_a6g5n")
 
-[node name="O2_bar_percent" type="Label" parent="HUD/O2_bar"]
+[node name="O2_bar_percent" type="Label" parent="HUD/O2_bar" unique_id=224587844]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -117,7 +118,7 @@ text = "100%"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RipperNear" type="ColorRect" parent="HUD"]
+[node name="RipperNear" type="ColorRect" parent="HUD" unique_id=2023240753]
 visible = false
 anchors_preset = 4
 anchor_top = 0.5
@@ -129,7 +130,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 0, 1)
 
-[node name="BleachNear" type="ColorRect" parent="HUD"]
+[node name="BleachNear" type="ColorRect" parent="HUD" unique_id=142713499]
 visible = false
 anchors_preset = 6
 anchor_left = 1.0
@@ -144,7 +145,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 0, 1)
 
-[node name="HypnoNear" type="ColorRect" parent="HUD"]
+[node name="HypnoNear" type="ColorRect" parent="HUD" unique_id=507026277]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
@@ -157,7 +158,7 @@ grow_horizontal = 2
 mouse_filter = 2
 color = Color(1, 1, 0, 1)
 
-[node name="ValveOpen" type="ColorRect" parent="HUD"]
+[node name="ValveOpen" type="ColorRect" parent="HUD" unique_id=858420808]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
@@ -170,7 +171,7 @@ grow_horizontal = 2
 mouse_filter = 2
 color = Color(1, 0, 0, 1)
 
-[node name="Death_fog" type="ColorRect" parent="HUD"]
+[node name="Death_fog" type="ColorRect" parent="HUD" unique_id=503218219]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -179,7 +180,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="Death_blood" type="ColorRect" parent="HUD"]
+[node name="Death_blood" type="ColorRect" parent="HUD" unique_id=1009010051]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -188,7 +189,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.60784316, 0, 0.12941177, 0)
 
-[node name="Death_hypno" type="ColorRect" parent="HUD"]
+[node name="Death_hypno" type="ColorRect" parent="HUD" unique_id=2004148643]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -197,56 +198,56 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.5137255, 0, 0.56078434, 0)
 
-[node name="Shift settings" type="Node" parent="."]
+[node name="Shift settings" type="Node" parent="." unique_id=680448992]
 script = ExtResource("7_a6g5n")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=273887519]
 environment = SubResource("Environment_a6g5n")
 
-[node name="Lamp" parent="." instance=ExtResource("8_08h5s")]
+[node name="Lamp" parent="." unique_id=1984593532 instance=ExtResource("8_08h5s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.970606, 9.450499, 41.759323)
 
-[node name="Projector" parent="." instance=ExtResource("9_gncci")]
+[node name="Projector" parent="." unique_id=2077962748 instance=ExtResource("9_gncci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4220123, 20.35712, 17.26447)
 
-[node name="Projector2" parent="." instance=ExtResource("9_gncci")]
+[node name="Projector2" parent="." unique_id=1309836894 instance=ExtResource("9_gncci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.641853, 20.35712, 21.757107)
 
-[node name="Projector3" parent="." instance=ExtResource("9_gncci")]
+[node name="Projector3" parent="." unique_id=711723143 instance=ExtResource("9_gncci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.821798, 20.357119, 21.772556)
 
-[node name="Projector4" parent="." instance=ExtResource("9_gncci")]
+[node name="Projector4" parent="." unique_id=968758261 instance=ExtResource("9_gncci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.113014, 20.15511, 4.175995)
 
-[node name="Projector5" parent="." instance=ExtResource("9_gncci")]
+[node name="Projector5" parent="." unique_id=925847464 instance=ExtResource("9_gncci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.95085, 20.15511, 4.175995)
 
-[node name="Projector6" parent="." instance=ExtResource("9_gncci")]
+[node name="Projector6" parent="." unique_id=1161925901 instance=ExtResource("9_gncci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.130796, 20.155106, 4.1914444)
 
-[node name="Lamp3" parent="." instance=ExtResource("8_08h5s")]
+[node name="Lamp3" parent="." unique_id=417827506 instance=ExtResource("8_08h5s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.95114, 12.658534, 20.30595)
 
-[node name="Lamp4" parent="." instance=ExtResource("8_08h5s")]
+[node name="Lamp4" parent="." unique_id=1368514762 instance=ExtResource("8_08h5s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.95114, 12.658534, -1.0061159)
 
-[node name="Projector7" parent="." instance=ExtResource("9_gncci")]
+[node name="Projector7" parent="." unique_id=1533881555 instance=ExtResource("9_gncci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.69381, 18.782423, -37.9071)
 
-[node name="Lamp2" parent="." instance=ExtResource("10_h41n4")]
+[node name="Lamp2" parent="." unique_id=374606763 instance=ExtResource("10_h41n4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5677147, 9.517076, 43.215916)
 
-[node name="Crematory" parent="." instance=ExtResource("12_fjiqv")]
+[node name="Crematory" parent="." unique_id=1238173417 instance=ExtResource("12_fjiqv")]
 transform = Transform3D(0.14447722, 0, -0.98950803, 0, 1, 0, 0.98950803, 0, 0.14447722, 4.3393536, 6.013233, 53.470688)
 script = ExtResource("13_wi0oi")
 
-[node name="Monitor" parent="." instance=ExtResource("16_h51b0")]
+[node name="Monitor" parent="." unique_id=283668415 instance=ExtResource("16_h51b0")]
 transform = Transform3D(1, 0, 0, 0, 0.765, 0, 0, 0, 1, -16.826717, 5.597477, 36)
 
-[node name="Pause" type="CanvasLayer" parent="."]
+[node name="Pause" type="CanvasLayer" parent="." unique_id=531629029]
 script = ExtResource("17_u66lf")
 
-[node name="Menu" type="VBoxContainer" parent="Pause"]
+[node name="Menu" type="VBoxContainer" parent="Pause" unique_id=767263714]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -260,17 +261,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Continue" type="Button" parent="Pause/Menu"]
+[node name="Continue" type="Button" parent="Pause/Menu" unique_id=819408600]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "CONTINUE"
 
-[node name="Settings" type="Button" parent="Pause/Menu"]
+[node name="Settings" type="Button" parent="Pause/Menu" unique_id=1589738472]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "SETTINGS"
 
-[node name="Exit" type="Button" parent="Pause/Menu"]
+[node name="Exit" type="Button" parent="Pause/Menu" unique_id=2113730130]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "EXIT"
+
+[node name="Game_settings" parent="Pause" unique_id=856958942 instance=ExtResource("18_sqrha")]
