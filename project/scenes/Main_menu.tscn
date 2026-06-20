@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://brkhh7n6fshhc"]
+[gd_scene format=4 uid="uid://brkhh7n6fshhc"]
 
 [ext_resource type="Script" uid="uid://c4w1m4lq41dh1" path="res://scripts/Main_menu.gd" id="1_ow2sg"]
 [ext_resource type="Texture2D" uid="uid://qocy0x5steki" path="res://models/map/textures/Rust_bake.001.png" id="1_u5440"]
@@ -83,23 +83,23 @@ ambient_light_energy = 0.01
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0237
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" unique_id=1574757691]
 script = ExtResource("1_ow2sg")
 
-[node name="Куб_019" type="MeshInstance3D" parent="."]
+[node name="Куб_019" type="MeshInstance3D" parent="." unique_id=1408526473]
 transform = Transform3D(36.50037, 0, 0, 0, 36.50037, 0, 0, 0, 36.50037, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rr2dl")
 skeleton = NodePath("")
 
-[node name="Projector" parent="." instance=ExtResource("2_d1rr7")]
+[node name="Projector" parent="." unique_id=1589431560 instance=ExtResource("2_d1rr7")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6.9821625, -22.544361, 8.207948)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=179070057]
 environment = SubResource("Environment_d1rr7")
 
-[node name="Main_menu" type="CanvasLayer" parent="."]
+[node name="Main_menu" type="CanvasLayer" parent="." unique_id=178888722]
 
-[node name="Menu" type="VBoxContainer" parent="Main_menu"]
+[node name="Menu" type="VBoxContainer" parent="Main_menu" unique_id=1655080574]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -114,32 +114,37 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Play" type="Button" parent="Main_menu/Menu"]
+[node name="Play" type="Button" parent="Main_menu/Menu" unique_id=370039162]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "PLAY"
 
-[node name="How_to_play" type="Button" parent="Main_menu/Menu"]
+[node name="How_to_play" type="Button" parent="Main_menu/Menu" unique_id=684393728]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "HOW TO PLAY"
 
-[node name="Difficulty" type="Button" parent="Main_menu/Menu"]
+[node name="Difficulty" type="Button" parent="Main_menu/Menu" unique_id=710989573]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "DIFFICULTY"
 
-[node name="Credits" type="Button" parent="Main_menu/Menu"]
+[node name="Settings" type="Button" parent="Main_menu/Menu" unique_id=1802828273]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "SETTINGS"
+
+[node name="Credits" type="Button" parent="Main_menu/Menu" unique_id=883513288]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "CREDITS"
 
-[node name="Exit" type="Button" parent="Main_menu/Menu"]
+[node name="Exit" type="Button" parent="Main_menu/Menu" unique_id=1241570102]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "EXIT"
 
-[node name="How_to_play_menu" type="VBoxContainer" parent="Main_menu"]
+[node name="How_to_play_menu" type="VBoxContainer" parent="Main_menu" unique_id=368456496]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -149,22 +154,22 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="Main_menu/How_to_play_menu"]
+[node name="PanelContainer" type="PanelContainer" parent="Main_menu/How_to_play_menu" unique_id=1779500758]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="Main_menu/How_to_play_menu/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Main_menu/How_to_play_menu/PanelContainer" unique_id=1924430927]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 4
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Main_menu/How_to_play_menu/PanelContainer/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Main_menu/How_to_play_menu/PanelContainer/MarginContainer" unique_id=1902839833]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Main_menu/How_to_play_menu/PanelContainer/MarginContainer/ScrollContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Main_menu/How_to_play_menu/PanelContainer/MarginContainer/ScrollContainer" unique_id=1019388937]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -209,13 +214,13 @@ Hypno — Meat abomination consisting of pair of legs and massive eyeball, it tr
 fit_content = true
 scroll_active = false
 
-[node name="Back" type="Button" parent="Main_menu/How_to_play_menu"]
+[node name="Back" type="Button" parent="Main_menu/How_to_play_menu" unique_id=1242692198]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 60
 text = "BACK"
 
-[node name="Difficulty_settings" type="VBoxContainer" parent="Main_menu"]
+[node name="Difficulty_settings" type="VBoxContainer" parent="Main_menu" unique_id=1420503113]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -230,7 +235,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Difficulty" type="Button" parent="Main_menu/Difficulty_settings"]
+[node name="Difficulty" type="Button" parent="Main_menu/Difficulty_settings" unique_id=1886002276]
 layout_mode = 2
 focus_mode = 0
 focus_behavior_recursive = 1
@@ -239,35 +244,246 @@ mouse_behavior_recursive = 1
 theme_override_font_sizes/font_size = 60
 text = "DIFFICULTY:"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Main_menu/Difficulty_settings"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Main_menu/Difficulty_settings" unique_id=932572492]
 layout_mode = 2
 alignment = 1
 
-[node name="1" type="Button" parent="Main_menu/Difficulty_settings/HBoxContainer"]
+[node name="1" type="Button" parent="Main_menu/Difficulty_settings/HBoxContainer" unique_id=693946727]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 60
 text = "1"
 
-[node name="2" type="Button" parent="Main_menu/Difficulty_settings/HBoxContainer"]
+[node name="2" type="Button" parent="Main_menu/Difficulty_settings/HBoxContainer" unique_id=1748341286]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "2"
 
-[node name="3" type="Button" parent="Main_menu/Difficulty_settings/HBoxContainer"]
+[node name="3" type="Button" parent="Main_menu/Difficulty_settings/HBoxContainer" unique_id=1214560438]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "3"
 
-[node name="Back" type="Button" parent="Main_menu/Difficulty_settings"]
+[node name="Back" type="Button" parent="Main_menu/Difficulty_settings" unique_id=1843096478]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "BACK"
 
-[node name="Credits_menu" type="VBoxContainer" parent="Main_menu"]
+[node name="Game_settings" type="VBoxContainer" parent="Main_menu" unique_id=1066702795]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="Main_menu/Game_settings" unique_id=1933523073]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main_menu/Game_settings/PanelContainer" unique_id=273055218]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer" unique_id=1541467771]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer" unique_id=779297567]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+current_tab = 1
+
+[node name="Graphics" type="MarginContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer" unique_id=369754257]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Graphics" unique_id=570291519]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer" unique_id=359700312]
+layout_mode = 2
+
+[node name="Screen_mode" type="HBoxContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=441383785]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/Screen_mode" unique_id=266194977]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Screen mode"
+
+[node name="OptionButton" type="OptionButton" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/Screen_mode" unique_id=1607391189]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+
+[node name="Resolution" type="HBoxContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=343974737]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/Resolution" unique_id=974795152]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/Resolution" unique_id=587419620]
+layout_mode = 2
+item_count = 7
+popup/item_0/text = "640X480"
+popup/item_0/id = 0
+popup/item_1/text = "800X600"
+popup/item_1/id = 1
+popup/item_2/text = "1024X768"
+popup/item_2/id = 2
+popup/item_3/text = "1280X1024"
+popup/item_3/id = 3
+popup/item_4/text = "1680X1050"
+popup/item_4/id = 4
+popup/item_5/text = "1920X1080"
+popup/item_5/id = 5
+popup/item_6/text = "2560X2160"
+popup/item_6/id = 6
+
+[node name="V-sync" type="HBoxContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=2134491213]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/V-sync" unique_id=1447833057]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "V-sync"
+
+[node name="CheckButton" type="CheckButton" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/V-sync" unique_id=1762406563]
+layout_mode = 2
+
+[node name="Sound" type="MarginContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer" unique_id=1139946298]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Sound" unique_id=1300569789]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer" unique_id=1038001514]
+layout_mode = 2
+
+[node name="Master" type="HBoxContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer" unique_id=1320993681]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Master" unique_id=586640648]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Master"
+
+[node name="HSlider" type="HSlider" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Master" unique_id=1663658818]
+custom_minimum_size = Vector2(100, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_vertical = 1
+value = 50.0
+tick_count = 6
+
+[node name="Music" type="HBoxContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer" unique_id=602601179]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Music" unique_id=1719589110]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Music"
+
+[node name="HSlider" type="HSlider" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Music" unique_id=1172451102]
+custom_minimum_size = Vector2(100, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_vertical = 1
+value = 50.0
+tick_count = 6
+
+[node name="Sounds" type="HBoxContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer" unique_id=61488611]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Sounds" unique_id=31501655]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Sounds"
+
+[node name="HSlider" type="HSlider" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Sounds" unique_id=765941937]
+custom_minimum_size = Vector2(100, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_vertical = 1
+value = 50.0
+tick_count = 6
+
+[node name="Game" type="MarginContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer" unique_id=1197524498]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+metadata/_tab_index = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Game" unique_id=2001601175]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer" unique_id=997243094]
+layout_mode = 2
+
+[node name="Mouse_sensetivity" type="HBoxContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer" unique_id=1501603431]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Mouse_sensetivity" unique_id=1672501551]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Mouse sensetivity"
+
+[node name="HSlider" type="HSlider" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Mouse_sensetivity" unique_id=1042605410]
+custom_minimum_size = Vector2(100, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+size_flags_vertical = 1
+value = 50.0
+tick_count = 6
+
+[node name="Hear_loss_mode" type="HBoxContainer" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer" unique_id=611633329]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Hear_loss_mode" unique_id=150848639]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Hear loss mode"
+
+[node name="CheckButton" type="CheckButton" parent="Main_menu/Game_settings/PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Hear_loss_mode" unique_id=1154362583]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Main_menu/Game_settings" unique_id=1884156970]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "BACK"
+
+[node name="Credits_menu" type="VBoxContainer" parent="Main_menu" unique_id=1907951978]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -275,22 +491,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="Main_menu/Credits_menu"]
+[node name="PanelContainer" type="PanelContainer" parent="Main_menu/Credits_menu" unique_id=1672217540]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="Main_menu/Credits_menu/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Main_menu/Credits_menu/PanelContainer" unique_id=1386124517]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 4
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Main_menu/Credits_menu/PanelContainer/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Main_menu/Credits_menu/PanelContainer/MarginContainer" unique_id=2039453621]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Main_menu/Credits_menu/PanelContainer/MarginContainer/ScrollContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Main_menu/Credits_menu/PanelContainer/MarginContainer/ScrollContainer" unique_id=2135026133]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -301,6 +517,7 @@ text = "[p][font_size=48][center]TUMHGACIS CREDITS[/center][/font_size][/p]
 [p][center][font_size=24]3D artist — Alextube [/font_size][/center][/p]
 [p][center][font_size=24]Programmer — Alextube [/font_size][/center][/p]
 [p][center][font_size=24]Sound designer — Alextube [/font_size][/center][/p]
+[p][center][font_size=24]Musician — Vyacheslav [/font_size][/center][/p]
 [p][center][font_size=24]Game designer — Alextube [/font_size][/center][/p]
 
 
@@ -308,16 +525,16 @@ text = "[p][font_size=48][center]TUMHGACIS CREDITS[/center][/font_size][/p]
 fit_content = true
 scroll_active = false
 
-[node name="Back" type="Button" parent="Main_menu/Credits_menu"]
+[node name="Back" type="Button" parent="Main_menu/Credits_menu" unique_id=1201989322]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 60
 text = "BACK"
 
-[node name="Camera" type="Node3D" parent="."]
+[node name="Camera" type="Node3D" parent="." unique_id=881600628]
 transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, -8.742278e-08, 1, 0, 3.821371e-15, 0, -1, 5.513881, -20.119366, 25.18718)
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Camera"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Camera" unique_id=1483159606]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -330,14 +547,14 @@ size_flags_vertical = 4
 stretch = true
 stretch_shrink = 3
 
-[node name="SubViewport" type="SubViewport" parent="Camera/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="Camera/SubViewportContainer" unique_id=720941074]
 handle_input_locally = false
 size = Vector2i(384, 216)
 render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="Camera/SubViewportContainer/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="Camera/SubViewportContainer/SubViewport" unique_id=417939509]
 transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, -8.742278e-08, 1, 0, 3.821371e-15, 0, -1, 5.513881, -20.119366, 25.18718)
 current = true
 
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera"]
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Camera" unique_id=1103894025]
 remote_path = NodePath("../SubViewportContainer/SubViewport/Camera3D")
