@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bwuqufy1ddrdp"]
 
+[ext_resource type="Script" uid="uid://b25riaona7eb4" path="res://scenes/game_settings.gd" id="1_5n83c"]
+
 [node name="Game_settings" type="VBoxContainer" unique_id=856958942]
 visible = false
 anchors_preset = 15
@@ -9,6 +11,7 @@ offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
+script = ExtResource("1_5n83c")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=279677154]
 layout_mode = 2

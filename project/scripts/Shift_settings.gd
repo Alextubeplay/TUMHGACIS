@@ -40,3 +40,80 @@ func set_difficulty(level: int) -> void:
 		3:
 			amount_of_tasks = 6
 			shift_timer = 240.0
+
+#Game settings
+var window_mode: int = 0:
+	set(value):
+		window_mode = value
+		DisplayServer.window_set_mode(value)
+		_save_config()
+
+var vsync_enabled: bool = true:
+	set(value):
+		vsync_enabled = value
+		if value:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+		else:
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		_save_config()
+
+var resolutions: Array[Vector2i] = [
+	Vector2i(1280, 720),
+	Vector2i(1600, 900),
+	Vector2i(1920, 1080),
+	Vector2i(2560, 1440)
+]
+
+var resolution_index: int = 0:
+	set(value):
+		resolution_index = value
+		if value >= 0 and value < resolutions.size():
+			DisplayServer.window_set_size(resolutions[value])
+		_save_config()
+
+var mouse_sensitivity: float = 1.0:
+	set(value):
+		mouse_sensitivity = value
+		_save_config()
+
+var hear_loss_mode: bool = false:
+	set(value):
+		hear_loss_mode = value
+		_save_config()
+
+var _is_loading_config: bool = false
+
+func _ready() -> void:
+	_is_loading_config = true
+	var config = ConfigFile.new()
+	if config.load("user://settings.cfg") == OK:
+		window_mode = config.get_value("video", "window_mode", DisplayServer.window_get_mode())
+		vsync_enabled = config.get_value("video", "vsync_enabled", true)
+		resolution_index = config.get_value("video", "resolution_index", 0)
+		mouse_sensitivity = config.get_value("game", "mouse_sensitivity", 1.0)
+		hear_loss_mode = config.get_value("game", "hear_loss_mode", false)
+	else:
+		window_mode = DisplayServer.window_get_mode()
+		var vsync_mode = DisplayServer.window_get_vsync_mode()
+		vsync_enabled = (vsync_mode != DisplayServer.VSYNC_DISABLED)
+		var current_size = DisplayServer.window_get_size()
+		resolution_index = 0
+		for i in range(resolutions.size()):
+			if resolutions[i] == current_size:
+				resolution_index = i
+				break
+		mouse_sensitivity = 1.0
+		hear_loss_mode = false
+	_is_loading_config = false
+
+func _save_config() -> void:
+	if _is_loading_config:
+		return
+	var config = ConfigFile.new()
+	config.load("user://settings.cfg")
+	config.set_value("video", "window_mode", window_mode)
+	config.set_value("video", "vsync_enabled", vsync_enabled)
+	config.set_value("video", "resolution_index", resolution_index)
+	config.set_value("game", "mouse_sensitivity", mouse_sensitivity)
+	config.set_value("game", "hear_loss_mode", hear_loss_mode)
+	config.save("user://settings.cfg")

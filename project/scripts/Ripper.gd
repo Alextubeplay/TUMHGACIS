@@ -48,8 +48,12 @@ func _process(delta: float) -> void:
 				retreat_timer = 0.0
 		hide()
 	
-	if ripper_position == "nearest":
-		ripper_indicator.show()
+	if shift_settings and "hear_loss_mode" in shift_settings and shift_settings.hear_loss_mode:
+		if ripper_position == "nearest":
+			ripper_indicator.show()
+			ripper_indicator.modulate.a = 1.0
+		else:
+			ripper_indicator.hide()
 	else:
 		ripper_indicator.hide()
 

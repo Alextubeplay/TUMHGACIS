@@ -43,6 +43,13 @@ func _process(delta: float) -> void:
 		
 	_logic()
 
+	if bleach_indicator:
+		if shift_settings and "hear_loss_mode" in shift_settings and shift_settings.hear_loss_mode and bleach_position == "nearest":
+			bleach_indicator.show()
+			bleach_indicator.modulate.a = 1.0
+		else:
+			bleach_indicator.hide()
+
 func _check_door_consequence():
 	if bleach_position == "near" or bleach_position == "nearest":
 		bleach_position = "far"

@@ -54,9 +54,13 @@ func _input(event):
 		return
 
 	if event is InputEventMouseMotion:
-		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
+		var sens = MOUSE_SENSITIVITY
+		if shift_settings and "mouse_sensitivity" in shift_settings:
+			sens = shift_settings.mouse_sensitivity * 0.00004
 		
-		camera_x_rotation -= event.relative.y * MOUSE_SENSITIVITY
+		rotate_y(-event.relative.x * sens)
+		
+		camera_x_rotation -= event.relative.y * sens
 		camera_x_rotation = clamp(camera_x_rotation, deg_to_rad(-70), deg_to_rad(70))
 
 func _check_interaction():

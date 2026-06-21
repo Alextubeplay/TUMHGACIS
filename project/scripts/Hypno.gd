@@ -95,7 +95,6 @@ func _attack_logic(delta: float):
 	var is_looking = false
 	
 	if cam:
-		# Смещаем целевую точку вверх от позиции ног Гипно
 		var target_point = global_position + Vector3(0, TARGET_HEIGHT_OFFSET, 0)
 		var dir_to_hypno = (target_point - cam.global_position).normalized()
 		var local_dir = cam.global_transform.basis.inverse() * dir_to_hypno
@@ -104,7 +103,6 @@ func _attack_logic(delta: float):
 			var angle_hor = abs(rad_to_deg(atan2(local_dir.x, -local_dir.z)))
 			var angle_ver = abs(rad_to_deg(asin(local_dir.y)))
 			
-			# Проверка по углам из инспектора
 			if angle_hor < MAX_HORIZONTAL_ANGLE and angle_ver < MAX_VERTICAL_ANGLE:
 				is_looking = true
 	else:
@@ -143,8 +141,9 @@ func _rotate_to_target(target_pos: Vector3):
 
 func _update_visuals(delta: float):
 	if hypno_indicator:
-		if hypno_position == "nearest":
+		if shift_settings and "hear_loss_mode" in shift_settings and shift_settings.hear_loss_mode and hypno_position == "nearest":
 			hypno_indicator.show()
+			hypno_indicator.modulate.a = 1.0
 		else:
 			hypno_indicator.hide()
 	

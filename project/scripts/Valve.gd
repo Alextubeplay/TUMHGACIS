@@ -30,10 +30,11 @@ func _process(delta):
 					activations -= 1
 				timer = 30
 	
-	if is_opened:
-		valve_indicator.show()
-	else:
-		valve_indicator.hide()
+	if valve_indicator:
+		if shift_settings and "hear_loss_mode" in shift_settings and shift_settings.hear_loss_mode and is_opened:
+			valve_indicator.show()
+		else:
+			valve_indicator.hide()
 
 func interact():
 	if is_opened:
