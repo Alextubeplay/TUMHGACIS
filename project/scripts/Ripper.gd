@@ -43,7 +43,8 @@ func _process(delta: float) -> void:
 			retreat_timer -= delta
 			if retreat_timer <= 0.0:
 				ripper_position = "far"
-				timer = 10.0
+				var is_rage = shift_settings.is_rage_mode_active if shift_settings else false
+				timer = 10.0 / 1.5 if is_rage else 10.0
 				is_cooldown = true
 				retreat_timer = 0.0
 		hide()

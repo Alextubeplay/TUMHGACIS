@@ -53,7 +53,8 @@ func _process(delta: float) -> void:
 func _check_door_consequence():
 	if bleach_position == "near" or bleach_position == "nearest":
 		bleach_position = "far"
-		timer = 10.0
+		var is_rage = shift_settings.is_rage_mode_active if shift_settings else false
+		timer = 10.0 / 1.5 if is_rage else 10.0
 		is_cooldown = true
 		hide()
 	elif bleach_position == "far" or bleach_position == "middle":

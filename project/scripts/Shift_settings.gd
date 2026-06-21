@@ -19,8 +19,18 @@ var is_hypno_active = true
 var is_bleach_active = true
 var is_rage_mode_active = false 
 
+var rage_triggered_by_valve = false
+var rage_timer = 0.0
+
 func _process(delta):
-	if is_shift_timer_active and shift_timer > 0:
+	if rage_triggered_by_valve and rage_timer > 0:
+		rage_timer -= delta
+		if rage_timer <= 0:
+			is_rage_mode_active = false
+			rage_triggered_by_valve = false
+
+	var block_timer = rage_triggered_by_valve and rage_timer > 20.0
+	if is_shift_timer_active and shift_timer > 0 and not block_timer:
 		shift_timer -= delta
 		if shift_timer <= 0:
 			shift_timer = 0

@@ -82,7 +82,7 @@ func _logic_cycle(delta: float):
 			
 			if timer <= 0:
 				hypno_position = "far"
-				timer = 30.0
+				timer = 30.0 / 1.5 if is_rage else 30.0
 				is_cooldown = true
 				is_at_target = false
 				kill_timer = 0.0 

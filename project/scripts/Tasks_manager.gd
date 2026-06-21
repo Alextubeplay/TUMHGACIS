@@ -59,6 +59,9 @@ func load_minigame(path: String):
 			current_game_instance.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 func _on_start_pressed():
+	if ShiftSettings.rage_triggered_by_valve and ShiftSettings.rage_timer > 20.0:
+		return
+
 	if ShiftSettings.completed_tasks >= ShiftSettings.amount_of_tasks:
 		return
 	

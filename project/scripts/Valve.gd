@@ -1,13 +1,23 @@
 extends Node3D
 
-@onready var shift_settings = $"../Shift settings"
+@onready var shift_settings = ShiftSettings
 @onready var valve_indicator = $"../HUD/ValveOpen"
 
 var is_opened = false
 var timer = 1.0
-var chance = 0.0047
+var chance = 1#0.0047
 var pushes = 1
 var activations = 2
+
+var initial_rage_active = false
+
+func _ready() -> void:
+	if shift_settings:
+		initial_rage_active = shift_settings.is_rage_mode_active
+		match shift_settings.difficulty:
+			1: activations = 2
+			2: activations = 4
+			3: activations = 100
 
 func _process(delta):
 	if !is_opened:
@@ -45,6 +55,19 @@ func close_valve():
 		if pushes < 1:
 			$AnimationPlayer.play("Rotate")
 			is_opened = false
+			
+			if shift_settings and not initial_rage_active and not shift_settings.rage_triggered_by_valve:
+				var diff = shift_settings.difficulty
+				var rage_chance = 0.0
+				if diff == 2:
+					rage_chance = 0.45
+				elif diff == 3:
+					rage_chance = 1#0.90
+				
+				if randf() < rage_chance:
+					shift_settings.is_rage_mode_active = true
+					shift_settings.rage_triggered_by_valve = true
+					shift_settings.rage_timer = 40.0
 		else:
 			$AnimationPlayer.play("Push")
 			pushes -= 1

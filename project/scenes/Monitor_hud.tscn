@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgyx51chki2xk"]
+[gd_scene format=3 uid="uid://bgyx51chki2xk"]
 
 [ext_resource type="Script" uid="uid://dd1wth7ju1mym" path="res://scripts/Monitor_hud.gd" id="1_htkf8"]
 [ext_resource type="Theme" uid="uid://dexvgj0yl2v6c" path="res://themes/Monitor_hub.tres" id="1_whxpw"]
@@ -30,10 +30,10 @@ func _ready():
 			mouse_entered.connect(nodes[0].on_hover_exit_zone_mouse_entered)
 "
 
-[node name="Monitor_hud" type="CanvasLayer"]
+[node name="Monitor_hud" type="CanvasLayer" unique_id=1544074206]
 script = ExtResource("1_htkf8")
 
-[node name="HoverExitZone" type="Control" parent="."]
+[node name="HoverExitZone" type="Control" parent="." unique_id=1979913878]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_vlx1f")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=46299626]
 custom_minimum_size = Vector2(1122, 638)
 anchors_preset = 8
 anchor_left = 0.5
@@ -60,37 +60,37 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+[node name="TabContainer" type="TabContainer" parent="MarginContainer" unique_id=215339067]
 layout_mode = 2
 theme = ExtResource("1_whxpw")
 current_tab = 1
 script = ExtResource("2_vlx1f")
 
-[node name="CAMERAS" type="CenterContainer" parent="MarginContainer/TabContainer"]
+[node name="CAMERAS" type="CenterContainer" parent="MarginContainer/TabContainer" unique_id=1198296116]
 visible = false
 layout_mode = 2
 mouse_filter = 0
 script = ExtResource("2_b2qj4")
 metadata/_tab_index = 0
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/TabContainer/CAMERAS"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/TabContainer/CAMERAS" unique_id=375524089]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="CameraViewport" type="SubViewport" parent="MarginContainer/TabContainer/CAMERAS/SubViewportContainer"]
+[node name="CameraViewport" type="SubViewport" parent="MarginContainer/TabContainer/CAMERAS/SubViewportContainer" unique_id=707325465]
 handle_input_locally = false
 render_target_update_mode = 0
 
-[node name="ViewerCamera" type="Camera3D" parent="MarginContainer/TabContainer/CAMERAS/SubViewportContainer/CameraViewport"]
+[node name="ViewerCamera" type="Camera3D" parent="MarginContainer/TabContainer/CAMERAS/SubViewportContainer/CameraViewport" unique_id=419355475]
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/TabContainer/CAMERAS"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/TabContainer/CAMERAS" unique_id=1525302647]
 custom_minimum_size = Vector2(800, 400)
 layout_mode = 2
 
-[node name="Control" type="Control" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer"]
+[node name="Control" type="Control" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer" unique_id=1330631632]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control" unique_id=1171675938]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,13 +99,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
 
-[node name="Map" type="TextureRect" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer"]
+[node name="Map" type="TextureRect" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer" unique_id=1312005385]
 layout_mode = 2
 mouse_filter = 0
 texture = ExtResource("2_73lp5")
 expand_mode = 3
 
-[node name="Cam" type="Panel" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map"]
+[node name="Cam" type="Panel" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map" unique_id=287117950]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 1
 offset_left = 179.0
@@ -114,7 +114,7 @@ offset_right = 209.0
 offset_bottom = 378.0
 theme = ExtResource("1_whxpw")
 
-[node name="Camera_1" type="Button" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map/Cam"]
+[node name="Camera_1" type="Button" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map/Cam" unique_id=210222124]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 1
 anchors_preset = 15
@@ -126,7 +126,7 @@ focus_mode = 0
 theme = ExtResource("3_o6tup")
 text = "1"
 
-[node name="Cam2" type="Panel" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map"]
+[node name="Cam2" type="Panel" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map" unique_id=1866289939]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
 offset_left = 207.0
@@ -135,7 +135,7 @@ offset_right = 237.0
 offset_bottom = 309.0
 theme = ExtResource("1_whxpw")
 
-[node name="Camera_2" type="Button" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map/Cam2"]
+[node name="Camera_2" type="Button" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map/Cam2" unique_id=926427561]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 1
 anchors_preset = 15
@@ -147,7 +147,7 @@ focus_mode = 0
 theme = ExtResource("3_o6tup")
 text = "2"
 
-[node name="Cam3" type="Panel" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map"]
+[node name="Cam3" type="Panel" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map" unique_id=2129184497]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
 offset_left = 327.0
@@ -156,7 +156,7 @@ offset_right = 357.0
 offset_bottom = 311.0
 theme = ExtResource("1_whxpw")
 
-[node name="Camera_3" type="Button" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map/Cam3"]
+[node name="Camera_3" type="Button" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map/Cam3" unique_id=1778441855]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 1
 anchors_preset = 15
@@ -168,7 +168,7 @@ focus_mode = 0
 theme = ExtResource("3_o6tup")
 text = "3"
 
-[node name="Cam4" type="Panel" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map"]
+[node name="Cam4" type="Panel" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map" unique_id=6673109]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 0
 offset_left = 288.0
@@ -177,7 +177,7 @@ offset_right = 318.0
 offset_bottom = 163.0
 theme = ExtResource("1_whxpw")
 
-[node name="Camera_4" type="Button" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map/Cam4"]
+[node name="Camera_4" type="Button" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Map/Cam4" unique_id=913406063]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 1
 anchors_preset = 15
@@ -189,108 +189,108 @@ focus_mode = 0
 theme = ExtResource("3_o6tup")
 text = "4"
 
-[node name="Camera_parameters" type="VBoxContainer" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer"]
+[node name="Camera_parameters" type="VBoxContainer" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer" unique_id=1375580191]
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="Label" type="Label" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Camera_parameters"]
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Camera_parameters" unique_id=281307221]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Camera:"
 
-[node name="Camera_number" type="Label" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Camera_parameters"]
+[node name="Camera_number" type="Label" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Camera_parameters" unique_id=456955095]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 horizontal_alignment = 1
 
-[node name="Exit_camera" type="Label" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Camera_parameters"]
+[node name="Exit_camera" type="Label" parent="MarginContainer/TabContainer/CAMERAS/PanelContainer/Control/HBoxContainer/Camera_parameters" unique_id=1154585182]
 layout_mode = 2
 mouse_filter = 0
 theme_override_font_sizes/font_size = 25
 text = "Exit"
 horizontal_alignment = 1
 
-[node name="TASKS" type="CenterContainer" parent="MarginContainer/TabContainer"]
+[node name="TASKS" type="CenterContainer" parent="MarginContainer/TabContainer" unique_id=1373751875]
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Window" type="PanelContainer" parent="MarginContainer/TabContainer/TASKS"]
+[node name="Window" type="PanelContainer" parent="MarginContainer/TabContainer/TASKS" unique_id=895883390]
 custom_minimum_size = Vector2(800, 400)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/TASKS/Window"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/TASKS/Window" unique_id=980637355]
 layout_mode = 2
 
-[node name="Tasks" type="Control" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer"]
-clip_contents = true
+[node name="Tasks" type="Control" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer" unique_id=970457025]
 custom_minimum_size = Vector2(750, 400)
+clip_contents = true
 layout_mode = 2
 
-[node name="Hud" type="VBoxContainer" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer"]
+[node name="Hud" type="VBoxContainer" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer" unique_id=170276038]
 layout_mode = 2
 theme_override_constants/separation = 8
 script = ExtResource("2_lrsg4")
 
-[node name="Start_button" type="Button" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud"]
+[node name="Start_button" type="Button" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud" unique_id=1156196528]
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("2_aa8f5")
 icon = ExtResource("3_5oqps")
 
-[node name="Tasks_counter" type="Label" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud"]
+[node name="Tasks_counter" type="Label" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud" unique_id=1593267611]
 layout_mode = 2
 text = "Tasks:
 0/4"
 
-[node name="Time_left" type="Label" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud"]
+[node name="Time_left" type="Label" parent="MarginContainer/TabContainer/TASKS/Window/HBoxContainer/Hud" unique_id=270549956]
 layout_mode = 2
 text = "Time Left:
 180"
 
-[node name="INFORMATION" type="CenterContainer" parent="MarginContainer/TabContainer"]
+[node name="INFORMATION" type="CenterContainer" parent="MarginContainer/TabContainer" unique_id=913891040]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/TabContainer/INFORMATION"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/TabContainer/INFORMATION" unique_id=351528648]
 custom_minimum_size = Vector2(800, 400)
 layout_mode = 2
 script = ExtResource("6_lrsg4")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer" unique_id=1688099090]
 layout_mode = 2
 
-[node name="Dangers" type="VBoxContainer" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer"]
+[node name="Dangers" type="VBoxContainer" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer" unique_id=90979024]
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="Label" type="Label" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer/Dangers"]
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer/Dangers" unique_id=1057667244]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Dangers:"
 
-[node name="List" type="Label" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer/Dangers"]
+[node name="List" type="Label" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer/Dangers" unique_id=727245581]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "11111"
 
-[node name="Requirements" type="VBoxContainer" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer"]
+[node name="Requirements" type="VBoxContainer" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer" unique_id=709804653]
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="Label" type="Label" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer/Requirements"]
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer/Requirements" unique_id=1577529656]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Requirements:"
 
-[node name="Tasks_list" type="Label" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer/Requirements"]
+[node name="Tasks_list" type="Label" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer/Requirements" unique_id=1199313138]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "11111"
 
-[node name="Time_list" type="Label" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer/Requirements"]
+[node name="Time_list" type="Label" parent="MarginContainer/TabContainer/INFORMATION/PanelContainer/HBoxContainer/Requirements" unique_id=1715961563]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30

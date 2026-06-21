@@ -19,6 +19,15 @@
 [ext_resource type="Script" uid="uid://crotn30eibgeq" path="res://scripts/Pause_menu.gd" id="17_u66lf"]
 [ext_resource type="PackedScene" uid="uid://bwuqufy1ddrdp" path="res://scenes/Game_settings.tscn" id="18_sqrha"]
 
+[sub_resource type="Gradient" id="Gradient_sqrha"]
+colors = PackedColorArray(0, 0, 0, 0, 0.78, 0.195, 0.20474984, 0.9019608)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7x0ad"]
+gradient = SubResource("Gradient_sqrha")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1.38, 0.017)
+
 [sub_resource type="Gradient" id="Gradient_fkd63"]
 colors = PackedColorArray(0, 0, 0, 0.73333335, 1, 1, 1, 1)
 
@@ -84,39 +93,16 @@ visible = false
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=59230972]
 
-[node name="O2_bar" type="TextureProgressBar" parent="HUD" unique_id=1786186107]
-anchors_preset = 2
-anchor_top = 1.0
+[node name="Rage_vignette" type="TextureRect" parent="HUD" unique_id=1018165342]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 26.0
-offset_top = -28.0
-offset_right = 326.0
-offset_bottom = -8.0
-grow_vertical = 0
-step = 0.1
-value = 100.0
-texture_under = SubResource("GradientTexture2D_4a8l0")
-texture_progress = SubResource("NoiseTexture2D_a6g5n")
-
-[node name="O2_bar_percent" type="Label" parent="HUD/O2_bar" unique_id=224587844]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -21.0
-offset_top = -11.5
-offset_right = 21.0
-offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.6, 0.07450981, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-text = "100%"
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_7x0ad")
 
 [node name="RipperNear" type="ColorRect" parent="HUD" unique_id=2023240753]
 visible = false
@@ -197,6 +183,40 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.5137255, 0, 0.56078434, 0)
+
+[node name="O2_bar" type="TextureProgressBar" parent="HUD" unique_id=1786186107]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -28.0
+offset_right = 326.0
+offset_bottom = -8.0
+grow_vertical = 0
+step = 0.1
+value = 100.0
+texture_under = SubResource("GradientTexture2D_4a8l0")
+texture_progress = SubResource("NoiseTexture2D_a6g5n")
+
+[node name="O2_bar_percent" type="Label" parent="HUD/O2_bar" unique_id=224587844]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -11.5
+offset_right = 21.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.6, 0.07450981, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Shift settings" type="Node" parent="." unique_id=680448992]
 script = ExtResource("7_a6g5n")

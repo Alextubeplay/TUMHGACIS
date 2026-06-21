@@ -13,6 +13,7 @@ const OUTLINE_MATERIAL = preload("res://models/materials/outline_material.tres")
 @onready var shift_settings = get_node("/root/ShiftSettings")
 @onready var oxygen_manager = $Oxygen_manager
 @onready var death_blood = $"../HUD/Death_blood" 
+@onready var rage_vignette = $"../HUD/Rage_vignette"
 
 @onready var camera_raycast: RayCast3D = $SubViewportContainer/SubViewport/Camera3D/RayCast3D
 @onready var camera_3d: Camera3D = $SubViewportContainer/SubViewport/Camera3D
@@ -26,6 +27,10 @@ func _ready():
 func _process(delta):
 	if not alive: return
 	
+	if rage_vignette:
+		var target_alpha = 1.0 if (shift_settings and shift_settings.is_rage_mode_active) else 0.0
+		rage_vignette.modulate.a = lerp(rage_vignette.modulate.a, target_alpha, delta * 5.0)
+	
 	if not is_monitoring:
 		camera_3d.global_position = global_position + CAMERA_OFFSET
 		camera_3d.global_rotation = Vector3(camera_x_rotation, rotation.y, 0)
@@ -37,7 +42,8 @@ func _process(delta):
 		_check_interaction()
 		
 	if (shift_settings.completed_tasks >= shift_settings.amount_of_tasks) and (shift_settings.shift_timer <= 0):
-		_win()
+		if not (shift_settings.rage_triggered_by_valve and shift_settings.is_rage_mode_active):
+			_win()
 
 func _input(event):
 	if not alive: return
@@ -242,7 +248,10 @@ func _die(reason, killer = null):
 				else:
 					await get_tree().create_timer(1.5).timeout
 		else:
-			await get_tree().create_timer(2.0).timeout
+			if death_blood:
+				var blood_tween = create_tween()
+				blood_tween.tween_property(death_blood, "color:a", 1.0, 0.2)
+				await blood_tween.finished
 	
 	get_tree().change_scene_to_file("res://scenes/Death_screen.tscn")
 
