@@ -1,5 +1,5 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1782305649
+::res://::1782317340
 default_bus_layout.tres::AudioBusLayout::5394391503275291074::1781963330::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile::-1::1781720290::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::5583402611219763411::1769685229::1769685229::1::::<><><>0<>0<>ee212b39c0daa45866087fd33b7755e4<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
@@ -18,10 +18,10 @@ Ventilation.tscn::PackedScene::3605481279398407791::1780699636::0::1::::<><><>0<
 Player.tscn::PackedScene::4853474007961886433::1781633565::0::1::::<><><>0<>0<><>::uid://d0ypu3ifyjcpw::::res://scripts/Player_controller.gd
 ::res://fonts/::1775762506
 VT323-Regular.ttf::FontFile::3202448585049089233::1775758802::1775762506::1::::<><><>0<>0<>07030dd1837e4881af4c2b0debd6d8ff<>res://.godot/imported/VT323-Regular.ttf-bff42fb840215fe474048a1b5fed41ab.fontdata::
-::res://localization/::1782317244
+::res://localization/::1782317282
 translations.csv::Translation::2124584058848593138::1782317244::1782317282::1::::<><><>0<>0<>f2555042e212f69b49719d3addb29e68<>res://localization/translations.en.translation<*>res://localization/translations.ru.translation::
-translations.en.translation::OptimizedTranslation::7921578380495568693::1782317282::0::1::::<><><>0<>0<><>::
-translations.ru.translation::OptimizedTranslation::8008839073248999364::1782317282::0::1::::<><><>0<>0<><>::
+translations.en.translation::OptimizedTranslation::1803115712096851307::1782317282::0::1::::<><><>0<>0<><>::
+translations.ru.translation::OptimizedTranslation::3145849058900798454::1782317282::0::1::::<><><>0<>0<><>::
 ::res://models/::1781458673
 Player_view.blend::PackedScene::6179379104528767492::1778452625::1778477730::1::::<><><>0<>0<>d6ee14f178f31fd68d2df78ee4f090ab<>res://.godot/imported/Player_view.blend-0d7ab46fcc09627046f6e86382668f55.scn::
 ::res://models/enemies/::1778543041

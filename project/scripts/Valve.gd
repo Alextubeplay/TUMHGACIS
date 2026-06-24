@@ -2,6 +2,8 @@ extends Node3D
 
 @onready var shift_settings = ShiftSettings
 @onready var valve_indicator = $"../HUD/ValveOpen"
+@onready var death_blood = $"../HUD/Death_blood"
+@onready var blood_particles: CPUParticles3D = get_node_or_null("Blood_particles")
 
 var is_opened = false
 var timer = 1.0
@@ -18,6 +20,8 @@ func _ready() -> void:
 			1: activations = 2
 			2: activations = 4
 			3: activations = 100
+	if blood_particles:
+		blood_particles.emitting = false
 
 func _process(delta):
 	if !is_opened:
@@ -39,6 +43,7 @@ func _process(delta):
 				if not is_rage:
 					activations -= 1
 				timer = 30
+				trigger_blood_spawning()
 	
 	if valve_indicator:
 		if shift_settings and "hear_loss_mode" in shift_settings and shift_settings.hear_loss_mode and is_opened:
@@ -50,11 +55,27 @@ func interact():
 	if is_opened:
 		close_valve()
 
+func trigger_blood_spawning() -> void:
+	await get_tree().create_timer(1.0).timeout
+	if is_opened:
+		if blood_particles:
+			blood_particles.emitting = true
+		if death_blood:
+			var tween = create_tween()
+			tween.tween_property(death_blood, "color:a", 0.15, 0.5)
+
 func close_valve():
 	if is_opened and $AnimationPlayer.current_animation == "":
 		if pushes < 1:
 			$AnimationPlayer.play("Rotate")
 			is_opened = false
+			
+			if blood_particles:
+				blood_particles.emitting = false
+				
+			if death_blood:
+				var tween = create_tween()
+				tween.tween_property(death_blood, "color:a", 0.0, 0.3)
 			
 			if shift_settings and not initial_rage_active and not shift_settings.rage_triggered_by_valve:
 				var diff = shift_settings.difficulty
