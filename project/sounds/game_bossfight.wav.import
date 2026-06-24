@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://btpdumfgfi38v"
-path="res://.godot/imported/game-bossfight.wav-d2577c15fbae83db10e325522d15e6e4.sample"
+path="res://.godot/imported/game_bossfight.wav-dc8ce89e0ac46fdc60b2c550fcb49f1e.sample"
 
 [deps]
 
-source_file="res://sounds/game-bossfight.wav"
-dest_files=["res://.godot/imported/game-bossfight.wav-d2577c15fbae83db10e325522d15e6e4.sample"]
+source_file="res://sounds/game_bossfight.wav"
+dest_files=["res://.godot/imported/game_bossfight.wav-dc8ce89e0ac46fdc60b2c550fcb49f1e.sample"]
 
 [params]
 
@@ -18,7 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop_mode=0
+edit/loop_mode=2
 edit/loop_begin=0
 edit/loop_end=-1
 compress/mode=2

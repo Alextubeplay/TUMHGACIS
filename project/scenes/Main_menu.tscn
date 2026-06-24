@@ -271,7 +271,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "CREDITS"
+text = "CREDITS
+[p][font_size=48][center]TUMHGACIS CREDITS[/center][/font_size][/p]
+[p][center][font_size=36]Game developer — Alextube[/font_size][/center][/p]
+[p][center][font_size=24]3D artist — Alextube [/font_size][/center][/p]
+[p][center][font_size=24]Programmer — Alextube [/font_size][/center][/p]
+[p][center][font_size=24]Sound designer — Alextube [/font_size][/center][/p]
+[p][center][font_size=24]Musician — Vyacheslav [/font_size][/center][/p]
+[p][center][font_size=24]Game designer — Alextube [/font_size][/center][/p]
+
+[p][center][font_size=36]FREE SOUNDS
+https://zvukogram.com/
+
+[/font_size][/center][/p]"
 fit_content = true
 scroll_active = false
 

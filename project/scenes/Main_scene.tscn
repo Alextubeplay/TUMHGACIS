@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://8qr6xuuo18b3" path="res://scenes/Oxygen_manager.tscn" id="17_sqrha"]
 [ext_resource type="Script" uid="uid://crotn30eibgeq" path="res://scripts/Pause_menu.gd" id="17_u66lf"]
 [ext_resource type="PackedScene" uid="uid://bwuqufy1ddrdp" path="res://scenes/Game_settings.tscn" id="18_sqrha"]
+[ext_resource type="AudioStream" uid="uid://bapa7kjc46ylu" path="res://sounds/ambient.wav" id="19_kt6st"]
 
 [sub_resource type="Gradient" id="Gradient_sqrha"]
 colors = PackedColorArray(0, 0, 0, 0, 0.78, 0.195, 0.20474984, 0.9019608)
@@ -298,3 +299,8 @@ text = "MENU_EXIT"
 
 [node name="Game_settings" parent="Pause" unique_id=856958942 instance=ExtResource("18_sqrha")]
 visible = false
+
+[node name="Menu_music" type="AudioStreamPlayer" parent="." unique_id=857261298]
+stream = ExtResource("19_kt6st")
+autoplay = true
+bus = &"Music"

@@ -1,8 +1,9 @@
+AudioStreamPlayer
+AudioStreamPlayer3D
 CPUParticles3D
 MeshInstance3D
 GPUParticles3D
 Button
-AudioStreamPlayer
 TextureRect
 CheckButton
 HSlider
@@ -11,5 +12,3 @@ OptionButton
 Label
 HBoxContainer
 VBoxContainer
-ScrollContainer
-VScrollBar

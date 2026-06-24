@@ -1,7 +1,10 @@
-res://content/interactable/Valve.tscn
+res://localization/translations.en.translation
+res://localization/translations.ru.translation
+res://scenes/Main_menu.tscn
 res://themes/Monitor_hub.tres
 res://themes/Monitor_sidebar_buttons.tres
 res://models/materials/outline_material.gdshader
 res://shaders/light_outline.gdshader
-res://scripts/Valve.gd
 res://scenes/Main_scene.tscn
+res://content/interactable/Valve.tscn
+res://scripts/Valve.gd

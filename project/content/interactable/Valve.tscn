@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bt7h84e7sxt8k" path="res://scripts/Valve.gd" id="1_6vqvj"]
 [ext_resource type="Texture2D" uid="uid://bm3u86wy7u1qh" path="res://models/map/textures/Без имени.png" id="2_sec1q"]
+[ext_resource type="AudioStream" uid="uid://bjwwhihug0qrl" path="res://sounds/gushing_blood.wav" id="3_b44r0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5s5v"]
 resource_name = "Black_metal"
@@ -231,3 +232,7 @@ gravity = Vector3(0, -15, 0)
 initial_velocity_min = 3.0
 initial_velocity_max = 5.0
 color_ramp = SubResource("Gradient_0tsox")
+
+[node name="Blood_sound" type="AudioStreamPlayer" parent="." unique_id=1124137295]
+stream = ExtResource("3_b44r0")
+bus = &"Sounds"

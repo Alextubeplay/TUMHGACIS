@@ -4,10 +4,11 @@ extends Node3D
 @onready var valve_indicator = $"../HUD/ValveOpen"
 @onready var death_blood = $"../HUD/Death_blood"
 @onready var blood_particles: CPUParticles3D = get_node_or_null("Blood_particles")
+@onready var blood_sound = get_node_or_null("Blood_sound")
 
 var is_opened = false
 var timer = 1.0
-var chance = 0.0047
+var chance = 1#0.0047
 var pushes = 1
 var activations = 2
 
@@ -15,6 +16,9 @@ var initial_rage_active = false
 
 func _ready() -> void:
 	if shift_settings:
+		shift_settings.is_rage_mode_active = false
+		shift_settings.rage_triggered_by_valve = false
+		shift_settings.rage_timer = 0.0
 		initial_rage_active = shift_settings.is_rage_mode_active
 		match shift_settings.difficulty:
 			1: activations = 2
@@ -22,6 +26,8 @@ func _ready() -> void:
 			3: activations = 100
 	if blood_particles:
 		blood_particles.emitting = false
+	if blood_sound:
+		blood_sound.stop()
 
 func _process(delta):
 	if !is_opened:
@@ -60,6 +66,8 @@ func trigger_blood_spawning() -> void:
 	if is_opened:
 		if blood_particles:
 			blood_particles.emitting = true
+		if blood_sound:
+			blood_sound.play()
 		if death_blood:
 			var tween = create_tween()
 			tween.tween_property(death_blood, "color:a", 0.15, 0.5)
@@ -72,6 +80,9 @@ func close_valve():
 			
 			if blood_particles:
 				blood_particles.emitting = false
+				
+			if blood_sound:
+				blood_sound.stop()
 				
 			if death_blood:
 				var tween = create_tween()
