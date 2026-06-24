@@ -5,7 +5,7 @@ extends Node3D
 
 var is_opened = false
 var timer = 1.0
-var chance = 1#0.0047
+var chance = 0.0047
 var pushes = 1
 var activations = 2
 
@@ -62,7 +62,7 @@ func close_valve():
 				if diff == 2:
 					rage_chance = 0.45
 				elif diff == 3:
-					rage_chance = 1#0.90
+					rage_chance = 0.90
 				
 				if randf() < rage_chance:
 					shift_settings.is_rage_mode_active = true

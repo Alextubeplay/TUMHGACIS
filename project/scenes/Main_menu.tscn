@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qocy0x5steki" path="res://models/map/textures/Rust_bake.001.png" id="1_u5440"]
 [ext_resource type="PackedScene" uid="uid://gcvgsdmlrg62" path="res://scenes/Projector.tscn" id="2_d1rr7"]
 [ext_resource type="PackedScene" uid="uid://bwuqufy1ddrdp" path="res://scenes/Game_settings.tscn" id="4_qtdab"]
+[ext_resource type="AudioStream" uid="uid://e1ct6t8m7lsr" path="res://sounds/alien.wav" id="5_610dt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vo6s"]
 resource_name = "Rust"
@@ -201,7 +202,7 @@ Colorlles wires — Just like colorful wires, but there are more sockets and no 
 [p][font_size=36]MONSTERS[/font_size][/p]
 [p][font_size=24]There are 4 monsters in this game, most of them actively try to reach you.
 
-Bloody — Tall monster with sharp limbs, he is seeking for blood, to prevent him from attacking you you must close the vent above you every time it breaks, always it requires a few pushes to close.
+Bloody — Tall monster with sharp limbs, he is seeking for blood, to prevent him from attacking you you must close the vent above you every time it breaks, always it requires a few pushes to close. After closing the vent this monster may trigger the rage mode.
 
 Bleach — The living burnt corpse, the closer he is to you, the slower he moves. Don't underestimate him, to prevent him from attacking you, you must close his door right before his attack, you will hear when he is close. Closing this door too early will lead to bleach breaking the door.
 
@@ -209,6 +210,8 @@ Ripper — Very long mutated hand that acts as assasin killer, the closer it get
 
 Hypno — Meat abomination consisting of pair of legs and massive eyeball, it tries to hypnotize you with it's abyssmal gaze. To prevent hypnosis you must not look into it's eye.
 [/font_size][/p]
+
+Rage mode — Temporary condition during which monster move very fast and have reduced cooldowns.
 
 [p][font_size=36]BREATHING[/font_size][/p]
 [p][font_size=24]In addition to tasks and avoiding of monsters you need to breath, your amoun of air is displayed by the bar on the bottom left. Air in this complex is not the best for your lungs, but some ventilations provide fresh oxygen, so closing them shut may not be the best option.[/font_size][/p]"
@@ -323,6 +326,11 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 60
 text = "BACK"
+
+[node name="Menu_music" type="AudioStreamPlayer" parent="Main_menu" unique_id=2037512127]
+stream = ExtResource("5_610dt")
+autoplay = true
+bus = &"Music"
 
 [node name="Camera" type="Node3D" parent="." unique_id=881600628]
 transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, -8.742278e-08, 1, 0, 3.821371e-15, 0, -1, 5.513881, -20.119366, 25.18718)

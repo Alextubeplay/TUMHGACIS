@@ -1,5 +1,15 @@
 extends Node
 
+const DEFAULT_WINDOW_MODE = DisplayServer.WINDOW_MODE_WINDOWED
+const DEFAULT_RESOLUTION_INDEX = 0
+const DEFAULT_VSYNC_ENABLED = true
+const DEFAULT_MASTER_VOLUME = 50.0
+const DEFAULT_MUSIC_VOLUME = 30.0
+const DEFAULT_SOUNDS_VOLUME = 30.0
+const DEFAULT_MOUSE_SENSITIVITY = 50.0
+const DEFAULT_HEAR_LOSS_MODE = false
+const DEFAULT_ENDLESS_MODE = false
+
 var difficulty = 1
 var shift_timer = 120.0
 var amount_of_tasks = 3
@@ -51,7 +61,6 @@ func set_difficulty(level: int) -> void:
 			amount_of_tasks = 6
 			shift_timer = 240.0
 
-#Game settings
 var window_mode: int = 0:
 	set(value):
 		window_mode = value
@@ -81,7 +90,7 @@ var resolution_index: int = 0:
 			DisplayServer.window_set_size(resolutions[value])
 		_save_config()
 
-var mouse_sensitivity: float = 1.0:
+var mouse_sensitivity: float = 50.0:
 	set(value):
 		mouse_sensitivity = value
 		_save_config()
@@ -89,6 +98,29 @@ var mouse_sensitivity: float = 1.0:
 var hear_loss_mode: bool = false:
 	set(value):
 		hear_loss_mode = value
+		_save_config()
+
+var endless_mode: bool = false:
+	set(value):
+		endless_mode = value
+		_save_config()
+
+var master_volume: float = 50.0:
+	set(value):
+		master_volume = value
+		_apply_volume("Master", value)
+		_save_config()
+
+var music_volume: float = 50.0:
+	set(value):
+		music_volume = value
+		_apply_volume("Music", value)
+		_save_config()
+
+var sounds_volume: float = 50.0:
+	set(value):
+		sounds_volume = value
+		_apply_volume("Sounds", value)
 		_save_config()
 
 var _is_loading_config: bool = false
@@ -100,8 +132,12 @@ func _ready() -> void:
 		window_mode = config.get_value("video", "window_mode", DisplayServer.window_get_mode())
 		vsync_enabled = config.get_value("video", "vsync_enabled", true)
 		resolution_index = config.get_value("video", "resolution_index", 0)
-		mouse_sensitivity = config.get_value("game", "mouse_sensitivity", 1.0)
+		mouse_sensitivity = config.get_value("game", "mouse_sensitivity", 50.0)
 		hear_loss_mode = config.get_value("game", "hear_loss_mode", false)
+		endless_mode = config.get_value("game", "endless_mode", false)
+		master_volume = config.get_value("audio", "master_volume", 50.0)
+		music_volume = config.get_value("audio", "music_volume", 50.0)
+		sounds_volume = config.get_value("audio", "sounds_volume", 50.0)
 	else:
 		window_mode = DisplayServer.window_get_mode()
 		var vsync_mode = DisplayServer.window_get_vsync_mode()
@@ -112,9 +148,34 @@ func _ready() -> void:
 			if resolutions[i] == current_size:
 				resolution_index = i
 				break
-		mouse_sensitivity = 1.0
+		mouse_sensitivity = 50.0
 		hear_loss_mode = false
+		endless_mode = false
+		master_volume = 50.0
+		music_volume = 50.0
+		sounds_volume = 50.0
 	_is_loading_config = false
+
+func _apply_volume(bus_name: String, value: float) -> void:
+	var bus_index = AudioServer.get_bus_index(bus_name)
+	if bus_index != -1:
+		AudioServer.set_bus_volume_db(bus_index, linear_to_db(value / 50.0))
+		AudioServer.set_bus_mute(bus_index, value <= 0.0)
+
+func reset_graphics() -> void:
+	window_mode = DEFAULT_WINDOW_MODE
+	resolution_index = DEFAULT_RESOLUTION_INDEX
+	vsync_enabled = DEFAULT_VSYNC_ENABLED
+
+func reset_audio() -> void:
+	master_volume = DEFAULT_MASTER_VOLUME
+	music_volume = DEFAULT_MUSIC_VOLUME
+	sounds_volume = DEFAULT_SOUNDS_VOLUME
+
+func reset_gameplay() -> void:
+	mouse_sensitivity = DEFAULT_MOUSE_SENSITIVITY
+	hear_loss_mode = DEFAULT_HEAR_LOSS_MODE
+	endless_mode = DEFAULT_ENDLESS_MODE
 
 func _save_config() -> void:
 	if _is_loading_config:
@@ -126,4 +187,8 @@ func _save_config() -> void:
 	config.set_value("video", "resolution_index", resolution_index)
 	config.set_value("game", "mouse_sensitivity", mouse_sensitivity)
 	config.set_value("game", "hear_loss_mode", hear_loss_mode)
+	config.set_value("game", "endless_mode", endless_mode)
+	config.set_value("audio", "master_volume", master_volume)
+	config.set_value("audio", "music_volume", music_volume)
+	config.set_value("audio", "sounds_volume", sounds_volume)
 	config.save("user://settings.cfg")

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bwuqufy1ddrdp"]
 
-[ext_resource type="Script" uid="uid://b25riaona7eb4" path="res://scenes/game_settings.gd" id="1_5n83c"]
+[ext_resource type="Script" uid="uid://butkyal48hj3" path="res://scripts/game_settings.gd" id="1_5n83c"]
+[ext_resource type="Texture2D" uid="uid://dfli4ryxbl8wf" path="res://textures/menus/monitor/Reload.png" id="2_t4c2w"]
 
 [node name="Game_settings" type="VBoxContainer" unique_id=856958942]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,9 +30,10 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 24
-current_tab = 0
+current_tab = 2
 
 [node name="Graphics" type="MarginContainer" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=496016522]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
@@ -101,6 +102,21 @@ text = "V-sync"
 [node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/V-sync" unique_id=1778191951]
 layout_mode = 2
 
+[node name="Rest" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer" unique_id=1473103044]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/Rest" unique_id=1617681912]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Reset"
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/Rest" unique_id=1941993285]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("2_t4c2w")
+icon_alignment = 1
+expand_icon = true
+
 [node name="Sound" type="MarginContainer" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=1829715684]
 visible = false
 layout_mode = 2
@@ -147,7 +163,7 @@ custom_minimum_size = Vector2(100, 0)
 custom_maximum_size = Vector2(200, -1)
 layout_mode = 2
 size_flags_vertical = 1
-value = 50.0
+value = 30.0
 tick_count = 6
 
 [node name="Sounds" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer" unique_id=137111566]
@@ -164,11 +180,25 @@ custom_minimum_size = Vector2(100, 0)
 custom_maximum_size = Vector2(200, -1)
 layout_mode = 2
 size_flags_vertical = 1
-value = 50.0
+value = 30.0
 tick_count = 6
 
+[node name="Rest" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer" unique_id=1076726670]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Rest" unique_id=206030849]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Reset"
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Rest" unique_id=361302732]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("2_t4c2w")
+icon_alignment = 1
+expand_icon = true
+
 [node name="Game" type="MarginContainer" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=1975432845]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
@@ -208,6 +238,32 @@ text = "Hear loss mode"
 
 [node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Hear_loss_mode" unique_id=529197058]
 layout_mode = 2
+
+[node name="Endless_mode" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer" unique_id=260640822]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Endless_mode" unique_id=1448079727]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Endless mode"
+
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Endless_mode" unique_id=1999501601]
+layout_mode = 2
+
+[node name="Rest" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer" unique_id=1582858237]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Rest" unique_id=1984477598]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Reset"
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Rest" unique_id=1626106502]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("2_t4c2w")
+icon_alignment = 1
+expand_icon = true
 
 [node name="Back" type="Button" parent="." unique_id=455734866]
 layout_mode = 2

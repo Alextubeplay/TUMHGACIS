@@ -1,3 +1,5 @@
+Button
+AudioStreamPlayer
 TextureRect
 CheckButton
 HSlider
@@ -11,5 +13,3 @@ VScrollBar
 MarginContainer
 PanelContainer
 Panel
-TabContainer
-RichTextLabel
