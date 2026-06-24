@@ -23,18 +23,18 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1596148942]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "SETTINGS"
+text = "SETTINGS_TITLE"
 horizontal_alignment = 1
 
 [node name="TabContainer" type="TabContainer" parent="PanelContainer/VBoxContainer" unique_id=1370943930]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 24
-current_tab = 2
+current_tab = 0
 
 [node name="Graphics" type="MarginContainer" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=496016522]
-visible = false
 layout_mode = 2
+tooltip_text = "asasdasd"
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 metadata/_tab_index = 0
@@ -54,7 +54,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
-text = "Screen mode"
+text = "SCREEN_MODE"
 
 [node name="OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/Screen_mode" unique_id=1423332149]
 layout_mode = 2
@@ -71,7 +71,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
-text = "Resolution"
+text = "RESOLUTION"
 
 [node name="OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/Resolution" unique_id=1608695564]
 layout_mode = 2
@@ -97,7 +97,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/V-sync" unique_id=1882678443]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "V-sync"
+text = "VSYNC"
 
 [node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/V-sync" unique_id=1778191951]
 layout_mode = 2
@@ -108,7 +108,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/Rest" unique_id=1617681912]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Reset"
+text = "BUTTON_RESET"
 
 [node name="Button" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Graphics/ScrollContainer/VBoxContainer/Rest" unique_id=1941993285]
 layout_mode = 2
@@ -139,7 +139,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
-text = "Master"
+text = "VOLUME_MASTER"
 
 [node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Master" unique_id=131484866]
 custom_minimum_size = Vector2(100, 0)
@@ -156,7 +156,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
-text = "Music"
+text = "VOLUME_MUSIC"
 
 [node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Music" unique_id=648098230]
 custom_minimum_size = Vector2(100, 0)
@@ -173,7 +173,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
-text = "Sounds"
+text = "VOLUME_SOUNDS"
 
 [node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Sounds" unique_id=1639622364]
 custom_minimum_size = Vector2(100, 0)
@@ -189,7 +189,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Rest" unique_id=206030849]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Reset"
+text = "BUTTON_RESET"
 
 [node name="Button" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Sound/ScrollContainer/VBoxContainer/Rest" unique_id=361302732]
 layout_mode = 2
@@ -199,6 +199,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Game" type="MarginContainer" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=1975432845]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
@@ -218,7 +219,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Mouse_sensetivity" unique_id=871708019]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Mouse sensetivity"
+text = "MOUSE_SENSITIVITY"
 
 [node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Mouse_sensetivity" unique_id=1231946938]
 custom_minimum_size = Vector2(100, 0)
@@ -234,7 +235,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Hear_loss_mode" unique_id=993629473]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Hear loss mode"
+text = "HEAR_LOSS_MODE"
 
 [node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Hear_loss_mode" unique_id=529197058]
 layout_mode = 2
@@ -245,7 +246,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Endless_mode" unique_id=1448079727]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Endless mode"
+text = "ENDLESS_MODE"
 
 [node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Endless_mode" unique_id=1999501601]
 layout_mode = 2
@@ -256,7 +257,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Language" unique_id=1028166407]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Language"
+text = "LANGUAGE"
 
 [node name="OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Language" unique_id=630135308]
 layout_mode = 2
@@ -273,7 +274,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Rest" unique_id=1984477598]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Reset"
+text = "BUTTON_RESET"
 
 [node name="Button" type="Button" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Rest" unique_id=1626106502]
 layout_mode = 2
@@ -285,4 +286,4 @@ expand_icon = true
 [node name="Back" type="Button" parent="." unique_id=455734866]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "BACK"
+text = "MENU_BACK"

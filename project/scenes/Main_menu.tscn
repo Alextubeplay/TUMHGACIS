@@ -119,35 +119,34 @@ theme_override_constants/separation = 10
 [node name="Play" type="Button" parent="Main_menu/Menu" unique_id=370039162]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "PLAY"
+text = "MENU_PLAY"
 
 [node name="How_to_play" type="Button" parent="Main_menu/Menu" unique_id=684393728]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "HOW TO PLAY"
+text = "MENU_HOW_TO_PLAY"
 
 [node name="Difficulty" type="Button" parent="Main_menu/Menu" unique_id=710989573]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "DIFFICULTY"
+text = "MENU_DIFFICULTY"
 
 [node name="Settings" type="Button" parent="Main_menu/Menu" unique_id=1802828273]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "SETTINGS"
+text = "MENU_SETTINGS"
 
 [node name="Credits" type="Button" parent="Main_menu/Menu" unique_id=883513288]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "CREDITS"
+text = "MENU_CREDITS"
 
 [node name="Exit" type="Button" parent="Main_menu/Menu" unique_id=1241570102]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "EXIT"
+text = "MENU_EXIT"
 
 [node name="How_to_play_menu" type="VBoxContainer" parent="Main_menu" unique_id=368456496]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -209,9 +208,9 @@ Bleach — The living burnt corpse, the closer he is to you, the slower he moves
 Ripper — Very long mutated hand that acts as assasin killer, the closer it gets to you, the faster it moves. To prevent it from attacking you you must close it's door and soon it will retreat. You will hear when it's ready to attack you.
 
 Hypno — Meat abomination consisting of pair of legs and massive eyeball, it tries to hypnotize you with it's abyssmal gaze. To prevent hypnosis you must not look into it's eye.
-[/font_size][/p]
 
 Rage mode — Temporary condition during which monster move very fast and have reduced cooldowns.
+[/font_size][/p]
 
 [p][font_size=36]BREATHING[/font_size][/p]
 [p][font_size=24]In addition to tasks and avoiding of monsters you need to breath, your amoun of air is displayed by the bar on the bottom left. Air in this complex is not the best for your lungs, but some ventilations provide fresh oxygen, so closing them shut may not be the best option.[/font_size][/p]"
@@ -222,7 +221,7 @@ scroll_active = false
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 60
-text = "BACK"
+text = "MENU_BACK"
 
 [node name="Difficulty_settings" type="VBoxContainer" parent="Main_menu" unique_id=1420503113]
 visible = false
@@ -246,7 +245,7 @@ focus_behavior_recursive = 1
 mouse_filter = 2
 mouse_behavior_recursive = 1
 theme_override_font_sizes/font_size = 60
-text = "DIFFICULTY:"
+text = "DIFFICULTY_LABEL"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Main_menu/Difficulty_settings" unique_id=932572492]
 layout_mode = 2
@@ -274,9 +273,10 @@ text = "3"
 [node name="Back" type="Button" parent="Main_menu/Difficulty_settings" unique_id=1843096478]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "BACK"
+text = "MENU_BACK"
 
 [node name="Game_settings" parent="Main_menu" unique_id=856958942 instance=ExtResource("4_qtdab")]
+visible = false
 
 [node name="Credits_menu" type="VBoxContainer" parent="Main_menu" unique_id=1907951978]
 visible = false
@@ -317,7 +317,7 @@ text = "[p][font_size=48][center]TUMHGACIS CREDITS[/center][/font_size][/p]
 [p][center][font_size=24]Game designer — Alextube [/font_size][/center][/p]
 
 
-[p][center][font_size=36]FREE SOUNDS[/font_size][/center][/p]"
+[p][center][font_size=36]FREE SOUNDS[/font_size][/center][/p]s"
 fit_content = true
 scroll_active = false
 
@@ -325,7 +325,7 @@ scroll_active = false
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 60
-text = "BACK"
+text = "MENU_BACK"
 
 [node name="Menu_music" type="AudioStreamPlayer" parent="Main_menu" unique_id=2037512127]
 stream = ExtResource("5_610dt")

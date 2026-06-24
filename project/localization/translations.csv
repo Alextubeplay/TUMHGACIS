@@ -1,0 +1,27 @@
+keys,en,ru
+MENU_PLAY,Play,Начать игру
+MENU_DIFFICULTY,Difficulty,Сложность
+MENU_SETTINGS,Settings,Настройки
+MENU_HOW_TO_PLAY,How to Play,Как играть
+MENU_CREDITS,Credits,Авторы
+MENU_EXIT,Exit,Выход
+MENU_BACK,Back,Назад
+SETTINGS_TITLE,SETTINGS,НАСТРОЙКИ
+TAB_GRAPHICS,Graphics,Графика
+TAB_SOUND,Sound,Звук
+TAB_GAME,Game,Игра
+SCREEN_MODE,Screen Mode,Режим экрана
+RESOLUTION,Resolution,Разрешение
+VSYNC,V-Sync,Вертикальная синхронизация
+VOLUME_MASTER,Master Volume,Общая
+VOLUME_MUSIC,Music,Музыка
+VOLUME_SOUNDS,Sounds,Звуки
+MOUSE_SENSITIVITY,Mouse Sensitivity,Чувствительность мыши
+HEAR_LOSS_MODE,Hear Loss Mode,Режим потери слуха
+ENDLESS_MODE,Endless Mode,Бесконечный режим
+LANGUAGE,Language,Язык
+BUTTON_RESET,Reset,Сброс
+SCREEN_WINDOWED,Windowed,Оконный
+SCREEN_FULLSCREEN,Fullscreen,Полный экран
+DIFFICULTY_LABEL,Difficulty:,Сложность:
+MENU_CONTINUE,Continue,Продолжить

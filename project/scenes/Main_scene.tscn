@@ -284,16 +284,17 @@ theme_override_constants/separation = 10
 [node name="Continue" type="Button" parent="Pause/Menu" unique_id=819408600]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "CONTINUE"
+text = "MENU_CONTINUE"
 
 [node name="Settings" type="Button" parent="Pause/Menu" unique_id=1589738472]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "SETTINGS"
+text = "MENU_SETTINGS"
 
 [node name="Exit" type="Button" parent="Pause/Menu" unique_id=2113730130]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "EXIT"
+text = "MENU_EXIT"
 
 [node name="Game_settings" parent="Pause" unique_id=856958942 instance=ExtResource("18_sqrha")]
+visible = false

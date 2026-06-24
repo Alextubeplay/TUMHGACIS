@@ -11,71 +11,69 @@ extends VBoxContainer
 @onready var mouse_sens_slider = get_node_or_null("PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Mouse_sensetivity/HSlider")
 @onready var hear_loss_button = get_node_or_null("PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Hear_loss_mode/CheckButton")
 @onready var endless_button = get_node_or_null("PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Endless_mode/CheckButton")
+@onready var language_button = get_node_or_null("PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Language/OptionButton")
 @onready var game_reset_button = get_node_or_null("PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Rest/Button")
 @onready var back_button = get_node_or_null("Back")
 
 func _ready() -> void:
-	setup_ui()
+	setup_signals()
 	update_ui()
 
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_VISIBILITY_CHANGED:
-		if is_node_ready() and is_visible_in_tree():
-			update_ui()
-
-func setup_ui() -> void:
+func setup_signals() -> void:
 	if screen_mode_button:
-		if not screen_mode_button.item_selected.is_connected(_on_screen_mode_selected):
-			screen_mode_button.item_selected.connect(_on_screen_mode_selected)
+		screen_mode_button.item_selected.connect(_on_screen_mode_selected)
 	if resolution_button:
-		resolution_button.clear()
-		if "resolutions" in ShiftSettings:
-			for res in ShiftSettings.resolutions:
-				resolution_button.add_item(str(res.x) + "x" + str(res.y))
-		if not resolution_button.item_selected.is_connected(_on_resolution_selected):
-			resolution_button.item_selected.connect(_on_resolution_selected)
+		resolution_button.item_selected.connect(_on_resolution_selected)
 	if vsync_button:
-		if not vsync_button.toggled.is_connected(_on_vsync_toggled):
-			vsync_button.toggled.connect(_on_vsync_toggled)
+		vsync_button.toggled.connect(_on_vsync_toggled)
 	if graphics_reset_button:
-		if not graphics_reset_button.pressed.is_connected(_on_graphics_reset_pressed):
-			graphics_reset_button.pressed.connect(_on_graphics_reset_pressed)
+		graphics_reset_button.pressed.connect(_on_graphics_reset_pressed)
 	if master_slider:
-		if not master_slider.value_changed.is_connected(_on_master_slider_changed):
-			master_slider.value_changed.connect(_on_master_slider_changed)
+		master_slider.value_changed.connect(_on_master_slider_changed)
 	if music_slider:
-		if not music_slider.value_changed.is_connected(_on_music_slider_changed):
-			music_slider.value_changed.connect(_on_music_slider_changed)
+		music_slider.value_changed.connect(_on_music_slider_changed)
 	if sounds_slider:
-		if not sounds_slider.value_changed.is_connected(_on_sounds_slider_changed):
-			sounds_slider.value_changed.connect(_on_sounds_slider_changed)
+		sounds_slider.value_changed.connect(_on_sounds_slider_changed)
 	if sound_reset_button:
-		if not sound_reset_button.pressed.is_connected(_on_sound_reset_pressed):
-			sound_reset_button.pressed.connect(_on_sound_reset_pressed)
+		sound_reset_button.pressed.connect(_on_sound_reset_pressed)
 	if mouse_sens_slider:
-		if not mouse_sens_slider.value_changed.is_connected(_on_mouse_sens_changed):
-			mouse_sens_slider.value_changed.connect(_on_mouse_sens_changed)
+		mouse_sens_slider.value_changed.connect(_on_mouse_sens_changed)
 	if hear_loss_button:
-		if not hear_loss_button.toggled.is_connected(_on_hear_loss_toggled):
-			hear_loss_button.toggled.connect(_on_hear_loss_toggled)
+		hear_loss_button.toggled.connect(_on_hear_loss_toggled)
 	if endless_button:
-		if not endless_button.toggled.is_connected(_on_endless_toggled):
-			endless_button.toggled.connect(_on_endless_toggled)
+		endless_button.toggled.connect(_on_endless_toggled)
+	if language_button:
+		language_button.item_selected.connect(_on_language_selected)
 	if game_reset_button:
-		if not game_reset_button.pressed.is_connected(_on_game_reset_pressed):
-			game_reset_button.pressed.connect(_on_game_reset_pressed)
+		game_reset_button.pressed.connect(_on_game_reset_pressed)
 	if back_button:
-		if not back_button.pressed.is_connected(_on_back_pressed):
-			back_button.pressed.connect(_on_back_pressed)
+		back_button.pressed.connect(_on_back_pressed)
 
 func update_ui() -> void:
+	if not ShiftSettings:
+		return
+		
+	var tab_container = get_node_or_null("PanelContainer/VBoxContainer/TabContainer")
+	if tab_container:
+		tab_container.set_tab_title(0, tr("TAB_GRAPHICS"))
+		tab_container.set_tab_title(1, tr("TAB_SOUND"))
+		tab_container.set_tab_title(2, tr("TAB_GAME"))
+		
 	if screen_mode_button and "window_mode" in ShiftSettings:
 		screen_mode_button.set_block_signals(true)
-		if ShiftSettings.window_mode == DisplayServer.WINDOW_MODE_WINDOWED:
-			screen_mode_button.selected = 0
+		var current_index = screen_mode_button.selected
+		screen_mode_button.clear()
+		screen_mode_button.add_item(tr("SCREEN_WINDOWED"))
+		screen_mode_button.add_item(tr("SCREEN_FULLSCREEN"))
+		if current_index != -1:
+			screen_mode_button.selected = current_index
 		else:
-			screen_mode_button.selected = 1
+			if ShiftSettings.window_mode == DisplayServer.WINDOW_MODE_WINDOWED:
+				screen_mode_button.selected = 0
+			else:
+				screen_mode_button.selected = 1
 		screen_mode_button.set_block_signals(false)
+		
 	if resolution_button and "resolution_index" in ShiftSettings:
 		resolution_button.set_block_signals(true)
 		resolution_button.selected = ShiftSettings.resolution_index
@@ -108,6 +106,10 @@ func update_ui() -> void:
 		endless_button.set_block_signals(true)
 		endless_button.button_pressed = ShiftSettings.endless_mode
 		endless_button.set_block_signals(false)
+	if language_button and "language_index" in ShiftSettings:
+		language_button.set_block_signals(true)
+		language_button.selected = ShiftSettings.language_index
+		language_button.set_block_signals(false)
 
 func _on_screen_mode_selected(index: int) -> void:
 	if "window_mode" in ShiftSettings:
@@ -160,5 +162,16 @@ func _on_endless_toggled(toggled_on: bool) -> void:
 	if "endless_mode" in ShiftSettings:
 		ShiftSettings.endless_mode = toggled_on
 
+func _on_language_selected(index: int) -> void:
+	if "language_index" in ShiftSettings:
+		ShiftSettings.language_index = index
+		if index == 0:
+			TranslationServer.set_locale("en")
+		elif index == 1:
+			TranslationServer.set_locale("ru")
+		update_ui()
+
 func _on_back_pressed() -> void:
-	hide()
+	var main_menu = get_tree().current_scene
+	if main_menu and main_menu.has_method("_on_settings_back_pressed"):
+		main_menu._on_settings_back_pressed()
