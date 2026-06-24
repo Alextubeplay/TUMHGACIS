@@ -8,3 +8,6 @@ res://shaders/light_outline.gdshader
 res://scenes/Main_scene.tscn
 res://content/interactable/Valve.tscn
 res://scripts/Valve.gd
+res://scenes/Win_screen.tscn
+res://scenes/Death_screen.tscn
+res://scripts/Death_screen.gd

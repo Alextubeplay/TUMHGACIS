@@ -7,7 +7,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	if label:
-		label.text = "YOU DIED OF: " + str(ShiftSettings.last_death_reason)
+		label.text = tr("DEATH_PREFIX") + " " + tr(str(ShiftSettings.last_death_reason))
 	
 	if death_env and death_env.environment:
 		death_env.environment.ambient_light_source = Environment.AMBIENT_SOURCE_DISABLED

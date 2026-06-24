@@ -109,3 +109,7 @@ CREDITS,,"[p][font_size=48][center]TUMHGACIS АВТОРЫ[/center][/font_size][/
 [p][center][font_size=24]Игровой дизайнер — Русинов А.М. [/font_size][/center][/p]
 
 [p][center][font_size=36]БЕСПЛАТНЫЕ ЗВУКИ[/font_size][/center][/p]"
+TO_MENU,TO MAIN MENU,ВЕРНУТЬСЯ В ГЛАВНОЕ МЕНЮ
+WIN,YOU WIN,ВЫ ПОБЕДИЛИ
+DEATH_PREFIX,YOU DIED OF:,ВЫ БЫЛИ УБИТЫ:
+ASPHYXATION,ASPHYXATION,УДУШЬЕ
