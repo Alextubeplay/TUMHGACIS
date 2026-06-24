@@ -25,3 +25,95 @@ SCREEN_WINDOWED,Windowed,Оконный
 SCREEN_FULLSCREEN,Fullscreen,Полный экран
 DIFFICULTY_LABEL,Difficulty:,Сложность:
 MENU_CONTINUE,Continue,Продолжить
+HTP_TEXT,"[p][font_size=48][center]HOW TO PLAY THE GAME[/center][/font_size][/p]
+[p][font_size=36]CONTROLS[/font_size][/p]
+[p][font_size=24]You control camera movement with your mouse. In the center of the screen there is a small gray cube, it is your cursor, when you hover it over interactable objects, they highlight in red, you can interact with these objects by left clicking them. To pause game press escape button on your keyboard[/font_size][/p]
+
+[p][font_size=36]INTERACTABLE OBJECTS[/font_size][/p]
+[p][font_size=24]In game there are 4 interactable objects, most of them are used to deal with monsters. There are 1 valve, 2 ventilation doors and monitor. Monitor is used to see conditions to pass current level, to see information about monsters on this level and to complete tasks. To start new task you must click on arrow button. To leave monitor you must click on escape button on your keyboard or hover mouse cursor over the monitor's edge.[/font_size][/p]
+
+[p][font_size=36]WIN CONDITIONS[/font_size][/p]
+[p][font_size=24]To win on the level, you need to complete all tasks, for the timer to expire and to not get atacked by the monsters.[/font_size][/p]
+
+[p][font_size=36]TASKS[/font_size][/p]
+[p][font_size=24]There are 4 task types in game, all of them appear randomly.
+
+Clicker task — To complete you must click big button exactly as many times as indicated on the label on the top right corner, clicking more or less will lead to click reset.
+
+Maze task — To complete you must click on the white circle and drag it towards white rectangle withiut tiuching black walls. touching them will lead to restart of the task.
+
+Colorful wires — To complete you must click on the plugs on the left and drag wires toward the right sockets of corresponding colours and click on them.
+
+Colorlles wires — Just like colorful wires, but there are more sockets and no need to match wires by colour.
+[/font_size][/p]
+
+[p][font_size=36]MONSTERS[/font_size][/p]
+[p][font_size=24]There are 4 monsters in this game, most of them actively try to reach you.
+
+Bloody — Tall monster with sharp limbs, he is seeking for blood, to prevent him from attacking you you must close the vent above you every time it breaks, always it requires a few pushes to close. After closing the vent this monster may trigger the rage mode.
+
+Bleach — The living burnt corpse, the closer he is to you, the slower he moves. Don't underestimate him, to prevent him from attacking you, you must close his door right before his attack, you will hear when he is close. Closing this door too early will lead to bleach breaking the door.
+
+Ripper — Very long mutated hand that acts as assasin killer, the closer it gets to you, the faster it moves. To prevent it from attacking you you must close it's door and soon it will retreat. You will hear when it's ready to attack you.
+
+Hypno — Meat abomination consisting of pair of legs and massive eyeball, it tries to hypnotize you with it's abyssmal gaze. To prevent hypnosis you must not look into it's eye.
+
+Rage mode — Temporary condition during which monster move very fast and have reduced cooldowns.
+[/font_size][/p]
+
+[p][font_size=36]BREATHING[/font_size][/p]
+[p][font_size=24]In addition to tasks and avoiding of monsters you need to breath, your amoun of air is displayed by the bar on the bottom left. Air in this complex is not the best for your lungs, but some ventilations provide fresh oxygen, so closing them shut may not be the best option.[/font_size][/p]","[p][font_size=48][center]КАК ИГРАТЬ[/center][/font_size][/p]
+[p][font_size=36]УПРАВЛЕНИЕ[/font_size][/p]
+[p][font_size=24]Вы управляете камерой с помощью мышки. По центру экрана находится маленький серый квадрат, это ваш курсор, когда вы наводитесь им на интерактивные объекты, они выделяются красным цветом, вы можете взаимодействовать с этими объектами нажатием левой кнопки мыши. Чтобы поставить игру на паузу, нужно нажать на клавишщу escape на клавиатуре.[/font_size][/p]
+
+[p][font_size=36]ИНТЕРАКТИВНЫЕ ОБЪЕКТЫ[/font_size][/p]
+[p][font_size=24]Всего в игре 4 интерактивных объекта, большинство из них используются для того чтобы справлятсья с монстрами. В игре есть 1 вентиль, 1 монитор и два вентиляционных люка. Монитор используется для того чтобы узнать условия прохождения уровня, информацию о монстрах на уровне и текущий статус выполнения задач. Чтобы начать выполнение нового задания, нужно нажать на кнопку в виде стрелки. Чтобы выйти из интерфейса монитора, нужно нажать на клавишу escape, либо переместить мышку к краю интерфейса монитора.[/font_size][/p]
+
+[p][font_size=36]УСЛОВИЯ ПОБЕДЫ[/font_size][/p]
+[p][font_size=24]Чтобы пройти уровень, нужно выполнить все задачи, прожить определённое время и не быть атакованным монстрами.[/font_size][/p]
+
+[p][font_size=36]ЗАДАНИЯ[/font_size][/p]
+[p][font_size=24]Всего в игре 4 вида заданий, которые выбираются случайно.
+
+Кликер — Чтобы выполнить эту задачу, нужно кликнуть на большую кнопку ровно столько раз, сколько показано на индикатоер справа сверху, большее или меньшее количество кликов приведёт к перезапуску задания и генерации нового требования.
+
+Лабиринт — Чтобы выполнить это задание, необходимо кликнуть на белый круг и провести его до белого квадрата, не касаясь чёрных стен. Касание стен приведёт к тому что задание начнётся заново.
+
+Цветные провода — Чтобы выполнить это задание, необходим кликнуть на вилку слева и провести провод к розетке соответствующего цвета справа, и так нужно провести все провода.
+
+Бесцветные провода — Задание схожее с заданием цветные провода, но имеет больше проводов, которые не имеют требований по цвету.
+[/font_size][/p]
+
+[p][font_size=36]МОНСТРЫ[/font_size][/p]
+[p][font_size=24]Всего в игре 4 монстра, большинство из них попытаюстя как можно быстрее добраться до вас.
+
+Bloody — Выскоий монстр, которого привлекает запах крови, чтобы предотвратить его нападение, нужно вовремя закрывать сорванный вентиль. После закрытия вентиля этот монстр может вызвать режим ярости.
+
+Bleach — Живой обгорелый труп. Не стоит его недооценивать, чтобы предотвратить его атаку, нужно вовремя закрыть вентиляцию в которой он находится, вы услышите когда он будет рядом. Закрытие вентиляции не в нужный момент, может плохо для вас кончиться.
+
+Ripper — Длинная мутировавшая рука, скрытно выискивающая своих жертв. Чтобы избежать её атаки, нужно закрыть вентиляцию в которой она находится, вскоре после чего она отстанет от вас. Вы услышите, когда она будет рядом.
+
+Hypno — Мясное чудовище, которое попытается загипнотизировать вас своим бездонным взглядом. Чтобы избежать гипноз, нужно избегать зрительного контакта с монстром.
+
+Режим ярости —  Временное состояние, во время которого все монстры движутся с огромной скоростью, а время их возвращения сокращается.
+[/font_size][/p]
+
+[p][font_size=36]ДЫХАНИЕ[/font_size][/p]
+[p][font_size=24]Вдобавок к выполнению заданий и избеганию монстров, вам также необходимо следить за своим уровнем кислорода, который отображается в виде полосы в левой нижней части экрана. Воздух в этом комплексе не самый лучший дял ваших лёгких, но некоторые вентиляции предоставляют потом свежего воздуха, закрывать их на постоянной основе — не лучшая идея.[/font_size][/p]"
+CREDITS,"[p][font_size=48][center]TUMHGACIS CREDITS[/center][/font_size][/p]
+[p][center][font_size=36]Game developer — Alextube[/font_size][/center][/p]
+[p][center][font_size=24]3D artist — Alextube [/font_size][/center][/p]
+[p][center][font_size=24]Programmer — Alextube [/font_size][/center][/p]
+[p][center][font_size=24]Sound designer — Alextube [/font_size][/center][/p]
+[p][center][font_size=24]Musician — Vyacheslav [/font_size][/center][/p]
+[p][center][font_size=24]Game designer — Alextube [/font_size][/center][/p]
+
+[p][center][font_size=36]FREE SOUNDS[/font_size][/center][/p]s","[p][font_size=48][center]TUMHGACIS АВТОРЫ[/center][/font_size][/p]
+[p][center][font_size=36]Разработчик — Русинов А.М.[/font_size][/center][/p]
+[p][center][font_size=24]3D художник — Русинов А.М. [/font_size][/center][/p]
+[p][center][font_size=24]Программист — Русинов А.М. [/font_size][/center][/p]
+[p][center][font_size=24]Звуковой дизайн — Русинов А.М. [/font_size][/center][/p]
+[p][center][font_size=24]Музыкант — Репин В.А. [/font_size][/center][/p]
+[p][center][font_size=24]Игровой дизайнер — Русинов А.М. [/font_size][/center][/p]
+
+[p][center][font_size=36]БЕСПЛАТНЫЕ ЗВУКИ[/font_size][/center][/p]"

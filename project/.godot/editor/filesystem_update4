@@ -9,3 +9,4 @@ res://scripts/Shift_settings.gd
 res://scripts/game_settings.gd
 res://scenes/Main_scene.tscn
 res://scenes/Game_settings.tscn
+res://localization/translations.csv
