@@ -250,6 +250,23 @@ text = "Endless mode"
 [node name="CheckButton" type="CheckButton" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Endless_mode" unique_id=1999501601]
 layout_mode = 2
 
+[node name="Language" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer" unique_id=1888554411]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Language" unique_id=1028166407]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Language"
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Language" unique_id=630135308]
+layout_mode = 2
+flat = true
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Русский"
+popup/item_1/id = 1
+
 [node name="Rest" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer" unique_id=1582858237]
 layout_mode = 2
 

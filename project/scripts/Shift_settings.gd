@@ -60,6 +60,7 @@ func set_difficulty(level: int) -> void:
 		3:
 			amount_of_tasks = 6
 			shift_timer = 240.0
+	_save_config()
 
 var window_mode: int = 0:
 	set(value):
@@ -77,10 +78,13 @@ var vsync_enabled: bool = true:
 		_save_config()
 
 var resolutions: Array[Vector2i] = [
-	Vector2i(1280, 720),
-	Vector2i(1600, 900),
+	Vector2i(640, 480),
+	Vector2i(800, 600),
+	Vector2i(1024, 768),
+	Vector2i(1280, 1024),
+	Vector2i(1680, 1050),
 	Vector2i(1920, 1080),
-	Vector2i(2560, 1440)
+	Vector2i(2560, 2160)
 ]
 
 var resolution_index: int = 0:
@@ -138,6 +142,8 @@ func _ready() -> void:
 		master_volume = config.get_value("audio", "master_volume", 50.0)
 		music_volume = config.get_value("audio", "music_volume", 50.0)
 		sounds_volume = config.get_value("audio", "sounds_volume", 50.0)
+		var saved_diff = config.get_value("game", "difficulty", 1)
+		set_difficulty(saved_diff)
 	else:
 		window_mode = DisplayServer.window_get_mode()
 		var vsync_mode = DisplayServer.window_get_vsync_mode()
@@ -154,6 +160,7 @@ func _ready() -> void:
 		master_volume = 50.0
 		music_volume = 50.0
 		sounds_volume = 50.0
+		set_difficulty(1)
 	_is_loading_config = false
 
 func _apply_volume(bus_name: String, value: float) -> void:
@@ -188,6 +195,7 @@ func _save_config() -> void:
 	config.set_value("game", "mouse_sensitivity", mouse_sensitivity)
 	config.set_value("game", "hear_loss_mode", hear_loss_mode)
 	config.set_value("game", "endless_mode", endless_mode)
+	config.set_value("game", "difficulty", difficulty)
 	config.set_value("audio", "master_volume", master_volume)
 	config.set_value("audio", "music_volume", music_volume)
 	config.set_value("audio", "sounds_volume", sounds_volume)
