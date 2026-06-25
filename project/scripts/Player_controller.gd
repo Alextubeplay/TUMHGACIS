@@ -23,6 +23,10 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if oxygen_manager:
 		oxygen_manager.oxygen_depleted.connect(func(): _die("ASPHYXATION"))
+	
+	var audio_mgr = get_node_or_null("/root/AudioManager") if has_node("/root/AudioManager") else get_node_or_null("/root/Audio_manager")
+	if audio_mgr:
+		audio_mgr.play_ambient()
 
 func _process(delta):
 	if not alive: return
@@ -235,6 +239,10 @@ func _die(reason, killer = null):
 		rot_tween.tween_property(camera_3d, "global_rotation", target_rotation, 0.4).set_trans(Tween.TRANS_SINE)
 		rot_tween.tween_property(self, "rotation:y", target_rotation_y, 0.4).set_trans(Tween.TRANS_SINE)
 		await rot_tween.finished
+		
+		var audio_mgr = get_node_or_null("/root/AudioManager") if has_node("/root/AudioManager") else get_node_or_null("/root/Audio_manager")
+		if audio_mgr:
+			audio_mgr.play_screamer()
 		
 		if killer.has_method("start_kill_sequence_movement"):
 			await killer.start_kill_sequence_movement()

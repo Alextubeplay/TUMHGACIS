@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://botg0gdnfyrpp"]
+
+[ext_resource type="Script" uid="uid://byn3dgtbuitbl" path="res://scripts/Audio_manager.gd" id="1_0dg08"]
+[ext_resource type="AudioStream" uid="uid://bapa7kjc46ylu" path="res://sounds/ambient.wav" id="1_0kn68"]
+[ext_resource type="AudioStream" uid="uid://c74prd2m1mvua" path="res://sounds/ambient2.wav" id="2_0dg08"]
+[ext_resource type="AudioStream" uid="uid://dtxlnjny7wht4" path="res://sounds/attack_sound.wav" id="2_18t85"]
+[ext_resource type="AudioStream" uid="uid://dt5bgn8g3jqay" path="res://sounds/heavy_hit.wav" id="3_7rnmi"]
+[ext_resource type="AudioStream" uid="uid://cpxq38ibsrd6b" path="res://sounds/ambient3.wav" id="3_jam4k"]
+[ext_resource type="AudioStream" uid="uid://btpdumfgfi38v" path="res://sounds/game_bossfight.wav" id="3_upg2s"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7x0ad"]
+streams_count = 3
+stream_0/stream = ExtResource("1_0kn68")
+stream_1/stream = ExtResource("2_0dg08")
+stream_2/stream = ExtResource("3_jam4k")
+
+[node name="Audio_manager" type="Node" unique_id=803839640]
+script = ExtResource("1_0dg08")
+screamer_sound = ExtResource("2_18t85")
+rage_mode_music = ExtResource("3_upg2s")
+bleach_door_break = ExtResource("3_7rnmi")
+
+[node name="Ambient" type="AudioStreamPlayer" parent="." unique_id=370346859]
+stream = SubResource("AudioStreamRandomizer_7x0ad")
+bus = &"Music"
+
+[node name="Attacks" type="AudioStreamPlayer" parent="." unique_id=836994588]
+max_polyphony = 10
+bus = &"Sounds"

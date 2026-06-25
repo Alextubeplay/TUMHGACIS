@@ -7,6 +7,10 @@ extends Node3D
 @onready var settings_menu_container = $Main_menu/Game_settings
 
 func _ready() -> void:
+	var audio_mgr = get_node_or_null("/root/AudioManager") if has_node("/root/AudioManager") else get_node_or_null("/root/Audio_manager")
+	if audio_mgr:
+		audio_mgr.stop_ambient()
+
 	main_menu_container.show()
 	difficulty_menu_container.hide()
 	how_to_play_menu_container.hide()

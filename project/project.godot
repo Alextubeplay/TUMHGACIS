@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ShiftSettings="*res://scripts/Shift_settings.gd"
+AudioManager="*uid://botg0gdnfyrpp"
 
 [dotnet]
 
