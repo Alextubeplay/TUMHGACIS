@@ -45,7 +45,14 @@ func _process(delta):
 				
 			if shift_settings.is_valve_active and should_open:
 				is_opened = true
-				pushes = randi_range(2, 6)
+				var audio_mgr = get_node_or_null("/root/AudioManager") if has_node("/root/AudioManager") else get_node_or_null("/root/Audio_manager")
+				if audio_mgr and audio_mgr.has_method("play_bloody_valve_rip"):
+					audio_mgr.play_bloody_valve_rip()
+				
+				match shift_settings.difficulty:
+					1: pushes = randi_range(1, 2)
+					2: pushes = randi_range(2, 4)
+					3: pushes = randi_range(2, 6)
 				if not is_rage:
 					activations -= 1
 				timer = 30
@@ -58,29 +65,18 @@ func _process(delta):
 			valve_indicator.hide()
 
 func interact():
-	if is_opened:
-		close_valve()
-
-func trigger_blood_spawning() -> void:
-	await get_tree().create_timer(1.0).timeout
-	if is_opened:
-		if blood_particles:
-			blood_particles.emitting = true
-		if blood_sound:
-			blood_sound.play()
-		if death_blood:
-			var tween = create_tween()
-			tween.tween_property(death_blood, "color:a", 0.15, 0.5)
-
-func close_valve():
 	if is_opened and $AnimationPlayer.current_animation == "":
+		var audio_mgr = get_node_or_null("/root/AudioManager") if has_node("/root/AudioManager") else get_node_or_null("/root/Audio_manager")
+		
 		if pushes < 1:
 			$AnimationPlayer.play("Rotate")
 			is_opened = false
 			
+			if audio_mgr and audio_mgr.has_method("play_bloody_valve_tighten"):
+				audio_mgr.play_bloody_valve_tighten()
+			
 			if blood_particles:
 				blood_particles.emitting = false
-				
 			if blood_sound:
 				blood_sound.stop()
 				
@@ -88,6 +84,7 @@ func close_valve():
 				var tween = create_tween()
 				tween.tween_property(death_blood, "color:a", 0.0, 0.3)
 			
+			# Логика task полностью убрана
 			if shift_settings and not initial_rage_active and not shift_settings.rage_triggered_by_valve:
 				var diff = shift_settings.difficulty
 				var rage_chance = 0.0
@@ -101,5 +98,18 @@ func close_valve():
 					shift_settings.rage_triggered_by_valve = true
 					shift_settings.rage_timer = 40.0
 		else:
-			$AnimationPlayer.play("Push")
 			pushes -= 1
+			$AnimationPlayer.play("Push")
+			if audio_mgr and audio_mgr.has_method("play_bloody_valve_hit"):
+				audio_mgr.play_bloody_valve_hit()
+
+func trigger_blood_spawning() -> void:
+	await get_tree().create_timer(1.0).timeout
+	if is_opened:
+		if blood_particles:
+			blood_particles.emitting = true
+		if blood_sound:
+			blood_sound.play()
+		if death_blood:
+			var tween = create_tween()
+			tween.tween_property(death_blood, "color:a", 0.15, 0.5)

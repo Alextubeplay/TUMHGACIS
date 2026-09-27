@@ -10,6 +10,7 @@ SETTINGS_TITLE,SETTINGS,НАСТРОЙКИ
 TAB_GRAPHICS,Graphics,Графика
 TAB_SOUND,Sound,Звук
 TAB_GAME,Game,Игра
+TAB_STATISTICS,Statistics,Статистика
 SCREEN_MODE,Screen Mode,Режим экрана
 RESOLUTION,Resolution,Разрешение
 VSYNC,V-Sync,Вертикальная синхронизация
@@ -111,6 +112,8 @@ CREDITS,"[p][font_size=48][center]TUMHGACIS CREDITS[/center][/font_size][/p]
 [p][center][font_size=36]FREE SOUNDS
 https://zvukogram.com/
 https://sonniss.com/gameaudiogdc/
+https://opengameart.org
+
 [/font_size][/center][/p]","[p][font_size=48][center]TUMHGACIS АВТОРЫ[/center][/font_size][/p]
 [p][center][font_size=36]Разработчик — Русинов А.М.[/font_size][/center][/p]
 [p][center][font_size=24]3D художник — Русинов А.М. [/font_size][/center][/p]
@@ -122,8 +125,36 @@ https://sonniss.com/gameaudiogdc/
 [p][center][font_size=36]БЕСПЛАТНЫЕ ЗВУКИ
 https://zvukogram.com/
 https://sonniss.com/gameaudiogdc/
+https://opengameart.org
+
 [/font_size][/center][/p]"
 TO_MENU,TO MAIN MENU,ВЕРНУТЬСЯ В ГЛАВНОЕ МЕНЮ
 WIN,YOU WIN,ВЫ ПОБЕДИЛИ
 DEATH_PREFIX,YOU DIED OF:,ВЫ БЫЛИ УБИТЫ:
 ASPHYXATION,ASPHYXATION,УДУШЬЕ
+STATISTICS_PLAYS_TAB,PLAYS STATISTICS,СТАТИСТИКА ИГР
+STATISTICS_GAMES_PLAYED,Games played: ,Игр сыграно:
+STATISTICS_WINS,Wins:,Побед:
+STATISTICS_LOSES,Loses:,Поражений:
+STATISTICS_TOTAL_TIME_IN_GAME,Time in game:,Время в игре:
+STATISTICS_TASKS_TAB,TASKS STATISTICS,СТАТИСТИКА ЗАДАНИЙ
+STATISTICS_CLICKER_COMPLETED,Clicker completed:,Кликер выполнен:
+STATISTICS_CLICKER_ERRORS,Clicker mistakes:,Ошибок в кликере:
+STATISTICS_MAZE_COMPLETED,Maze completed:,Лабиринт выполнен:
+STATISTICS_MAZE_ERRORS,Maze mistakes:,Ошибок в лабиринте:
+STATISTICS_COLORFUL_WIRES_COMPLETED,Colorful wires completed:,Цветные провода выполнены:
+STATISTICS_COLORLESS_WIRES_COMPLETED,Colorless wires completed:,Бесцветные провода выполнены:
+STATISTICS_TOTAL_TASKS_COMPLETED,Total completed tasks:,Всего выполнено:
+STATISTICS_FAVOURITE_TASK,Favourite task:,Любимое задание:
+STATISTICS_LOSES_AND_MONSTERS_TAB,LOSES AND MONSTERS STATISTICS,СТАТИСТИКА ПОРАЖЕНИЙ И МОНСТРОВ
+STATISTICS_ASPHYXATION_LOSES,Asphyxation loses:,Поражений из-за удушья:
+STATISTICS_RIPPER_LOSES,Loses to ripper:,Поражений из-за ripper:
+STATISTICS_RIPPER_FIGHT_OFF,Ripper fighted off:,Ripper отогнан:
+STATISTICS_HYPNO_LOSES,Loses to hypno:,Поражений из-за hypno:
+STATISTICS_HYPNO_FIGH_OFF,Hypno fighted off:,Hypno отогнан:
+STATISTICS_BLOODY_LOSES,Loses to bloody:,Поражений из-за bloody:
+STATISTICS_BLOODY_FIGHT_OFF,Bloody fighted off:,Bloody отогнан
+STATISTICS_BLEACH_LOSES,Loses to bleach:,Поражений из-за bleach:
+STATISTICS_BLEACH_FIGHT_OFF,Bleach fighted off:,Bleach отогнан:
+STATISTICS_BLEACH_DOOR_LOSES,Loses to crematory door:,Поражений из-за удара дверью:
+STATISTICS_MOST_HATED_MONSTER,Most hated monster:,Самый ненавистный монстр:

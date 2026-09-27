@@ -23,10 +23,15 @@ config/icon="res://icon.svg"
 
 ShiftSettings="*res://scripts/Shift_settings.gd"
 AudioManager="*uid://botg0gdnfyrpp"
+Database="*uid://dvsf66di64iwm"
 
 [dotnet]
 
 project/assembly_name="TUMHGACIS"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 
 [file_customization]
 

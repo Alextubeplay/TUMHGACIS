@@ -1,12 +1,8 @@
-res://scenes/Main_scene.tscn
+res://scenes/Main_menu.tscn
 res://themes/Monitor_hub.tres
 res://themes/Monitor_sidebar_buttons.tres
 res://models/materials/outline_material.gdshader
 res://shaders/light_outline.gdshader
 res://localization/translations.en.translation
 res://localization/translations.ru.translation
-res://scenes/Main_menu.tscn
-res://scenes/Audio_manager.tscn
-res://scripts/Audio_manager.gd
-res://scripts/Player_controller.gd
-res://scripts/Main_menu.gd
+res://scenes/Game_settings.tscn

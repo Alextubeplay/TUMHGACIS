@@ -129,6 +129,10 @@ func _enter_monitor():
 	is_monitoring = true
 	monitor.set_active(true)
 	
+	var audio_mgr = get_node_or_null("/root/AudioManager") if has_node("/root/AudioManager") else get_node_or_null("/root/Audio_manager")
+	if audio_mgr and audio_mgr.has_method("play_monitor_on"):
+		audio_mgr.play_monitor_on()
+	
 	var screen_size = get_viewport().get_visible_rect().size
 	get_viewport().warp_mouse(screen_size / 2)
 	
@@ -140,6 +144,10 @@ func _enter_monitor():
 	tween.tween_property(camera_3d, "global_transform", cam_transform, 0.2).set_trans(Tween.TRANS_SINE)
 
 func exit_monitor():
+	var audio_mgr = get_node_or_null("/root/AudioManager") if has_node("/root/AudioManager") else get_node_or_null("/root/Audio_manager")
+	if audio_mgr and audio_mgr.has_method("play_monitor_off"):
+		audio_mgr.play_monitor_off()
+
 	if monitor and "monitor_hud" in monitor and monitor.monitor_hud:
 		var hud = monitor.monitor_hud
 		
@@ -176,7 +184,7 @@ func _die(reason, killer = null):
 	if not alive: return
 	alive = false
 	
-	_clear_current_highlight() # Мгновенно отключаем обводку при любой смерти игрока
+	_clear_current_highlight()
 	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	shift_settings.last_death_reason = reason.to_upper()

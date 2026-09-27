@@ -30,14 +30,20 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 24
-current_tab = 0
+current_tab = 3
+tab_0/title = "TAB_GRAPHICS"
+tab_1/title = "TAB_SOUND"
+tab_2/title = "TAB_GAME"
+tab_3/title = "TAB_STATISTICS"
 
 [node name="Graphics" type="MarginContainer" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=496016522]
+visible = false
 layout_mode = 2
 tooltip_text = "asasdasd"
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 metadata/_tab_index = 0
+metadata/_tab_name = "TAB_GRAPHICS"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/TabContainer/Graphics" unique_id=1513071462]
 layout_mode = 2
@@ -123,6 +129,7 @@ layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 metadata/_tab_index = 1
+metadata/_tab_name = "TAB_SOUND"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/TabContainer/Sound" unique_id=644884839]
 layout_mode = 2
@@ -204,6 +211,7 @@ layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 metadata/_tab_index = 2
+metadata/_tab_name = "TAB_GAME"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/TabContainer/Game" unique_id=196283928]
 layout_mode = 2
@@ -241,6 +249,7 @@ text = "HEAR_LOSS_MODE"
 layout_mode = 2
 
 [node name="Endless_mode" type="HBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer" unique_id=260640822]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Game/ScrollContainer/VBoxContainer/Endless_mode" unique_id=1448079727]
@@ -282,6 +291,168 @@ size_flags_horizontal = 3
 icon = ExtResource("2_t4c2w")
 icon_alignment = 1
 expand_icon = true
+
+[node name="Statistics" type="MarginContainer" parent="PanelContainer/VBoxContainer/TabContainer" unique_id=2030410105]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+metadata/_tab_index = 3
+metadata/_tab_name = "TAB_STATISTICS"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/TabContainer/Statistics" unique_id=507031942]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer" unique_id=108605386]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PLAYS" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=690013747]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_PLAYS_TAB"
+horizontal_alignment = 1
+
+[node name="games_played" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=935169728]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_GAMES_PLAYED"
+
+[node name="wins" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=832830094]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_WINS"
+
+[node name="loses" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=115958665]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_LOSES"
+
+[node name="total_time" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=548880733]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_TOTAL_TIME_IN_GAME"
+
+[node name="TASKS" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=298590471]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_TASKS_TAB"
+
+[node name="clicker_completed" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=211841654]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_CLICKER_COMPLETED"
+
+[node name="clicker_mistakes" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=88564501]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_CLICKER_ERRORS"
+
+[node name="maze_completed" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=1317064920]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_MAZE_COMPLETED"
+
+[node name="maze_mistakes" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=1524070655]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_MAZE_ERRORS"
+
+[node name="colorful_wires_completed" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=1885319642]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_COLORFUL_WIRES_COMPLETED"
+
+[node name="colorless_wires_completed" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=1521308134]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_COLORLESS_WIRES_COMPLETED"
+
+[node name="total_completed" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=1139287757]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_TOTAL_TASKS_COMPLETED"
+
+[node name="favourite_task" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=39908679]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_FAVOURITE_TASK"
+
+[node name="LOSES_AND_MONSTERS" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=869220495]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_LOSES_AND_MONSTERS_TAB"
+
+[node name="asphyxation_loses" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=440595657]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_ASPHYXATION_LOSES"
+
+[node name="ripper_loses" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=1543506359]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_RIPPER_LOSES"
+
+[node name="ripper_fight_off" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=403558553]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_RIPPER_FIGHT_OFF"
+
+[node name="hypno_loses" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=1352276418]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_HYPNO_LOSES"
+
+[node name="hypno_fight_off" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=2082642886]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_HYPNO_FIGH_OFF"
+
+[node name="bloody_loses" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=497030333]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_BLOODY_LOSES"
+
+[node name="bloody_fight_off" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=1058089602]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_BLOODY_FIGHT_OFF"
+
+[node name="bleach_loses" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=1127732442]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_BLEACH_LOSES"
+
+[node name="bleach_fight_off" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=1027401831]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_BLEACH_FIGHT_OFF"
+
+[node name="door_loses" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=212486725]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_BLEACH_DOOR_LOSES"
+
+[node name="most_hated_monster" type="Label" parent="PanelContainer/VBoxContainer/TabContainer/Statistics/ScrollContainer/VBoxContainer" unique_id=728269406]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "STATISTICS_MOST_HATED_MONSTER"
 
 [node name="Back" type="Button" parent="." unique_id=455734866]
 layout_mode = 2

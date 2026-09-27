@@ -68,6 +68,7 @@ func _mob_kicks_door():
 		await get_tree().create_timer(0.5).timeout
 		if not crematory.is_opened:
 			crematory.kick_at_player(player.global_position)
+			await get_tree().create_timer(0.45).timeout
 			player._die("BLEACH", crematory)
 		crematory.interaction_locked = false
 
@@ -83,6 +84,11 @@ func _logic():
 		"middle":
 			if timer <= 0 and (is_rage or (randf() < chance * 0.5)):
 				bleach_position = "near"
+				var audio_mgr = get_node_or_null("/root/AudioManager")
+				if not audio_mgr:
+					audio_mgr = get_node_or_null("/root/Audio_manager")
+				if audio_mgr:
+					audio_mgr.play_bleach_nearby()
 				timer = step_timer
 		"near":
 			if timer <= 0 and (is_rage or (randf() < chance * 0.25)):

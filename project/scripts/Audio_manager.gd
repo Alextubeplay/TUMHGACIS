@@ -25,6 +25,10 @@ extends Node
 @export var bloody_valve_hit: AudioStream
 @export var bloody_valve_tighten: AudioStream
 
+@export_group("Monitor")
+@export var monitor_on_sound: AudioStream
+@export var monitor_off_sound: AudioStream
+
 @onready var audio_player: AudioStreamPlayer = $Attacks
 @onready var ambient_player: AudioStreamPlayer = $Ambient
 
@@ -32,15 +36,6 @@ func play_screamer() -> void:
 	if audio_player and screamer_sound:
 		audio_player.stream = screamer_sound
 		audio_player.play()
-
-func play_rage_mode_music() -> void:
-	if audio_player and rage_mode_music:
-		audio_player.stream = rage_mode_music
-		audio_player.play()
-
-func stop_rage_mode_music() -> void:
-	if audio_player:
-		audio_player.stop()
 
 func play_bloody_attack() -> void:
 	if audio_player and bloody_attack_sound:
@@ -89,13 +84,23 @@ func play_ripper_left() -> void:
 
 func play_hypno_footsteps() -> void:
 	if audio_player and hypno_footsteps:
-		audio_player.stream = hypno_footsteps
-		audio_player.play()
+		if audio_player.stream != hypno_footsteps or not audio_player.playing:
+			audio_player.stream = hypno_footsteps
+			audio_player.play()
+
+func stop_hypno_footsteps() -> void:
+	if audio_player and audio_player.stream == hypno_footsteps and audio_player.playing:
+		audio_player.stop()
 
 func play_hypno_hypnosis() -> void:
 	if audio_player and hypno_hypnosis:
-		audio_player.stream = hypno_hypnosis
-		audio_player.play()
+		if audio_player.stream != hypno_hypnosis or not audio_player.playing:
+			audio_player.stream = hypno_hypnosis
+			audio_player.play()
+
+func stop_hypno_hypnosis() -> void:
+	if audio_player and audio_player.stream == hypno_hypnosis and audio_player.playing:
+		audio_player.stop()
 
 func play_bloody_valve_rip() -> void:
 	if audio_player and bloody_valve_rip:
@@ -119,3 +124,13 @@ func play_ambient() -> void:
 func stop_ambient() -> void:
 	if ambient_player and ambient_player.playing:
 		ambient_player.stop()
+
+func play_monitor_on() -> void:
+	if audio_player and monitor_on_sound:
+		audio_player.stream = monitor_on_sound
+		audio_player.play()
+
+func play_monitor_off() -> void:
+	if audio_player and monitor_off_sound:
+		audio_player.stream = monitor_off_sound
+		audio_player.play()

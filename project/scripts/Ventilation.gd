@@ -14,6 +14,7 @@ func interact():
 	close_vent()
 
 func close_vent():
+	AudioManager.play_bleach_door_open()
 	is_opened = !is_opened
 	
 	var target_rotation = OPEN_ANGLE if is_opened else CLOSED_ANGLE

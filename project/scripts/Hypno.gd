@@ -21,6 +21,8 @@ var timer = 25.0
 var kill_timer = 0.0
 var is_at_target = false
 var is_cooldown = false
+var _should_play_steps = false
+var _should_play_hypnosis = false
 
 @onready var shift_settings = get_node("/root/ShiftSettings")
 @onready var player = get_node("../Player")
@@ -33,7 +35,15 @@ func _ready() -> void:
 	hide()
 
 func _process(delta: float) -> void:
-	if not player.alive: return
+	if not player.alive:
+		var audio_mgr = get_node_or_null("/root/AudioManager") if has_node("/root/AudioManager") else get_node_or_null("/root/Audio_manager")
+		if audio_mgr:
+			if audio_mgr.has_method("stop_hypno_footsteps"): audio_mgr.stop_hypno_footsteps()
+			if audio_mgr.has_method("stop_hypno_hypnosis"): audio_mgr.stop_hypno_hypnosis()
+		return
+
+	_should_play_steps = false
+	_should_play_hypnosis = false
 
 	if shift_settings.is_hypno_active:
 		var is_rage = shift_settings.is_rage_mode_active if shift_settings else false
@@ -51,6 +61,22 @@ func _process(delta: float) -> void:
 		_reset_hypno()
 	
 	_update_visuals(delta)
+
+	var audio_mgr = get_node_or_null("/root/AudioManager") if has_node("/root/AudioManager") else get_node_or_null("/root/Audio_manager")
+	if audio_mgr:
+		if _should_play_steps:
+			if audio_mgr.has_method("play_hypno_footsteps"):
+				audio_mgr.play_hypno_footsteps()
+		else:
+			if audio_mgr.has_method("stop_hypno_footsteps"):
+				audio_mgr.stop_hypno_footsteps()
+				
+		if _should_play_hypnosis:
+			if audio_mgr.has_method("play_hypno_hypnosis"):
+				audio_mgr.play_hypno_hypnosis()
+		else:
+			if audio_mgr.has_method("stop_hypno_hypnosis"):
+				audio_mgr.stop_hypno_hypnosis()
 
 func _logic_cycle(delta: float):
 	var is_rage = shift_settings.is_rage_mode_active if shift_settings else false
@@ -111,6 +137,9 @@ func _attack_logic(delta: float):
 		var forward = -player.global_transform.basis.z
 		is_looking = forward.dot(dir_to_hypno) > 0.5
 		
+	if is_looking:
+		_should_play_hypnosis = true
+		
 	var is_monitoring = player.is_monitoring if "is_monitoring" in player else false
 	
 	if is_looking or is_monitoring:
@@ -128,6 +157,8 @@ func _process_movement(target: Vector3, delta: float, anim_name: String):
 		_rotate_to_target(target)
 		var direction = (target - global_position).normalized()
 		global_position += direction * MOVE_SPEED * delta
+		if anim_name == "Hypno_moving":
+			_should_play_steps = true
 	elif hypno_position == "far":
 		hide()
 

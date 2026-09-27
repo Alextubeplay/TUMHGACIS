@@ -102,7 +102,6 @@ environment = SubResource("Environment_d1rr7")
 [node name="Main_menu" type="CanvasLayer" parent="." unique_id=178888722]
 
 [node name="Menu" type="VBoxContainer" parent="Main_menu" unique_id=1655080574]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -243,6 +242,7 @@ text = "MENU_BACK"
 visible = false
 
 [node name="Credits_menu" type="VBoxContainer" parent="Main_menu" unique_id=1907951978]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

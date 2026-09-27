@@ -1,3 +1,4 @@
+Label
 AudioStreamPlayer
 AudioStreamPlayer3D
 CPUParticles3D
@@ -9,6 +10,5 @@ CheckButton
 HSlider
 CheckBox
 OptionButton
-Label
 HBoxContainer
 VBoxContainer
