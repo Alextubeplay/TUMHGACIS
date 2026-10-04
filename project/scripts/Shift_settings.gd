@@ -28,10 +28,12 @@ var is_ripper_active = true
 var is_valve_active = true
 var is_hypno_active = true
 var is_bleach_active = true
-var is_rage_mode_active = false 
+var is_rage_mode_active = false
 
 var rage_triggered_by_valve = false
 var rage_timer = 0.0
+
+var selected_mobs: Array = []
 
 func _process(delta):
 	if rage_triggered_by_valve and rage_timer > 0:
@@ -51,7 +53,17 @@ var last_death_reason: String = ""
 func set_difficulty(level: int) -> void:
 	difficulty = level
 	completed_tasks = 0
-	match level:
+	prepare_shift()
+	_save_config()
+
+func prepare_shift() -> void:
+	is_bleach_active = false
+	is_hypno_active = false
+	is_ripper_active = false
+	is_valve_active = false
+	selected_mobs.clear()
+
+	match difficulty:
 		1:
 			amount_of_tasks = 3
 			shift_timer = 120.0
@@ -61,7 +73,31 @@ func set_difficulty(level: int) -> void:
 		3:
 			amount_of_tasks = 7
 			shift_timer = 240.0
-	_save_config()
+
+	if Database.db == null:
+		push_error("База ещё не открыта, мобы не выбраны")
+		return
+
+	var diff = Database.get_difficulty(difficulty)
+	if not diff.is_empty():
+		amount_of_tasks = int(diff["task_count"])
+		shift_timer = float(diff["shift_timer_sec"])
+
+	var picked: Array = Database.pick_mobs_for_shift(difficulty)
+	for row in picked:
+		var n := str(row["name"])
+		selected_mobs.append(n)
+		match n:
+			"Bleach":
+				is_bleach_active = true
+			"Hypno":
+				is_hypno_active = true
+			"Ripper":
+				is_ripper_active = true
+			"Bloody":
+				is_valve_active = true
+
+	print("Сложность ", difficulty, " | мобы: ", selected_mobs)
 
 var window_mode: int:
 	set(value):
@@ -129,6 +165,7 @@ var _is_loading_config = false
 
 func _ready():
 	_load_config()
+	call_deferred("prepare_shift")
 
 func _load_config():
 	_is_loading_config = true

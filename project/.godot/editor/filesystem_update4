@@ -1,8 +1,7 @@
-res://scenes/Main_menu.tscn
+res://scenes/Game_settings.tscn
 res://themes/Monitor_hub.tres
 res://themes/Monitor_sidebar_buttons.tres
 res://models/materials/outline_material.gdshader
 res://shaders/light_outline.gdshader
-res://localization/translations.en.translation
-res://localization/translations.ru.translation
-res://scenes/Game_settings.tscn
+res://scripts/Database.gd
+res://scripts/Shift_settings.gd

@@ -1,7 +1,9 @@
 extends Node
+## Autoload: Database
+## Файл: res://scripts/Database.gd
 
 const USER_PATH := "user://game.db"
-const SCHEMA_VERSION := 2
+const SCHEMA_VERSION := 4
 
 var db: SQLite
 
@@ -14,8 +16,8 @@ func _ready() -> void:
 		push_error("Не открылась БД: " + str(db.error_message))
 		return
 	_ensure_schema()
-	print("База готова. Случайные мобы для сложности 1:")
-	print(pick_mobs_for_shift(1))
+	print("База готова. Задания:")
+	print(get_tasks())
 
 
 func _ensure_schema() -> void:
@@ -107,8 +109,8 @@ func pick_mobs_for_shift(difficulty_id: int) -> Array:
 	return result
 
 
-func get_minigames() -> Array:
-	return query("SELECT id, name, scene_path FROM minigames;")
+func get_tasks() -> Array:
+	return query("SELECT id, name, scene_path FROM tasks;")
 
 
 func get_death_reason(code: String) -> Dictionary:
@@ -120,6 +122,29 @@ func get_death_reason(code: String) -> Dictionary:
 func get_settings() -> Dictionary:
 	var rows := query("SELECT * FROM settings WHERE id = 1;")
 	return {} if rows.is_empty() else rows[0]
+
+
+func get_statistics() -> Dictionary:
+	var rows := query("SELECT * FROM statistics WHERE id = 1;")
+	return {} if rows.is_empty() else rows[0]
+
+
+func get_statistics_tasks() -> Array:
+	return query("""
+		SELECT st.task_id, t.name, st.completed, st.errors
+		FROM statistics_tasks st
+		JOIN tasks t ON t.id = st.task_id
+		ORDER BY st.task_id;
+	""")
+
+
+func get_statistics_mobs() -> Array:
+	return query("""
+		SELECT sm.mob_id, m.name, sm.losses, sm.fight_off, sm.door_losses
+		FROM statistics_mobs sm
+		JOIN mobs m ON m.id = sm.mob_id
+		ORDER BY sm.mob_id;
+	""")
 
 
 const _SCHEMA := """
@@ -182,7 +207,7 @@ CREATE TABLE mob_model (
     FOREIGN KEY (model_id) REFERENCES models(id)
 );
 
-CREATE TABLE minigames (
+CREATE TABLE tasks (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL UNIQUE,
     scene_path TEXT NOT NULL UNIQUE
@@ -218,7 +243,7 @@ CREATE TABLE death_reasons (
     FOREIGN KEY (mob_id) REFERENCES mobs(id)
 );
 
-INSERT INTO meta (id, version) VALUES (1, 2);
+INSERT INTO meta (id, version) VALUES (1, 4);
 
 INSERT INTO difficulties (id, name, task_count, shift_timer_sec, mob_count) VALUES
     (1, 'Easy', 3, 120.0, 2),
@@ -274,7 +299,7 @@ INSERT INTO mob_model (mob_id, model_id, animation_type) VALUES
     (4, 4, 'moving'),
     (4, 4, 'kill');
 
-INSERT INTO minigames (id, name, scene_path) VALUES
+INSERT INTO tasks (id, name, scene_path) VALUES
     (1, 'Clicker', 'res://scenes/Clicker.tscn'),
     (2, 'Colorful_wires', 'res://scenes/Colorful_wires.tscn'),
     (3, 'Colorless_wires', 'res://scenes/Colorless_wires.tscn'),
@@ -312,4 +337,51 @@ INSERT INTO death_reasons (code, mob_id) VALUES
     ('RIPPER', 3),
     ('BLOODY', 4),
     ('ASPHYXATION', NULL);
+
+CREATE TABLE statistics (
+    id INTEGER PRIMARY KEY,
+    games_played INTEGER NOT NULL DEFAULT 0,
+    wins INTEGER NOT NULL DEFAULT 0,
+    losses INTEGER NOT NULL DEFAULT 0,
+    total_time_in_game REAL NOT NULL DEFAULT 0,
+    total_tasks_completed INTEGER NOT NULL DEFAULT 0,
+    asphyxiation_losses INTEGER NOT NULL DEFAULT 0,
+    favourite_task_id INTEGER,
+    most_hated_mob_id INTEGER,
+    FOREIGN KEY (favourite_task_id) REFERENCES tasks(id),
+    FOREIGN KEY (most_hated_mob_id) REFERENCES mobs(id)
+);
+
+CREATE TABLE statistics_tasks (
+    task_id INTEGER PRIMARY KEY,
+    completed INTEGER NOT NULL DEFAULT 0,
+    errors INTEGER,
+    FOREIGN KEY (task_id) REFERENCES tasks(id)
+);
+
+CREATE TABLE statistics_mobs (
+    mob_id INTEGER PRIMARY KEY,
+    losses INTEGER NOT NULL DEFAULT 0,
+    fight_off INTEGER NOT NULL DEFAULT 0,
+    door_losses INTEGER,
+    FOREIGN KEY (mob_id) REFERENCES mobs(id)
+);
+
+INSERT INTO statistics (
+    id, games_played, wins, losses, total_time_in_game,
+    total_tasks_completed, asphyxiation_losses,
+    favourite_task_id, most_hated_mob_id
+) VALUES (1, 0, 0, 0, 0, 0, 0, NULL, NULL);
+
+INSERT INTO statistics_tasks (task_id, completed, errors) VALUES
+    (1, 0, 0),
+    (2, 0, NULL),
+    (3, 0, NULL),
+    (4, 0, 0);
+
+INSERT INTO statistics_mobs (mob_id, losses, fight_off, door_losses) VALUES
+    (1, 0, 0, 0),
+    (2, 0, 0, NULL),
+    (3, 0, 0, NULL),
+    (4, 0, 0, NULL);
 """
