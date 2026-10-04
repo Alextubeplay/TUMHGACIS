@@ -34,6 +34,7 @@ var rage_triggered_by_valve = false
 var rage_timer = 0.0
 
 var selected_mobs: Array = []
+var valve_activations = 2
 
 func _process(delta):
 	if rage_triggered_by_valve and rage_timer > 0:
@@ -53,8 +54,23 @@ var last_death_reason: String = ""
 func set_difficulty(level: int) -> void:
 	difficulty = level
 	completed_tasks = 0
-	prepare_shift()
+	if Database.db != null:
+		Database.set_selected_difficulty(level)
+		_apply_difficulty_stats()
 	_save_config()
+
+func _apply_difficulty_stats() -> void:
+	if Database.db == null:
+		return
+	var diff = Database.get_difficulty(difficulty)
+	if diff.is_empty():
+		push_error("Нет сложности с id=%d" % difficulty)
+		return
+	amount_of_tasks = int(diff["task_count"])
+	shift_timer = float(diff["shift_timer_sec"])
+	var acts = Database.get_mob_activations(4, difficulty)
+	if acts != null:
+		valve_activations = int(acts)
 
 func prepare_shift() -> void:
 	is_bleach_active = false
@@ -63,25 +79,11 @@ func prepare_shift() -> void:
 	is_valve_active = false
 	selected_mobs.clear()
 
-	match difficulty:
-		1:
-			amount_of_tasks = 3
-			shift_timer = 120.0
-		2:
-			amount_of_tasks = 5
-			shift_timer = 180.0
-		3:
-			amount_of_tasks = 7
-			shift_timer = 240.0
-
 	if Database.db == null:
-		push_error("База ещё не открыта, мобы не выбраны")
+		push_error("База ещё не открыта")
 		return
 
-	var diff = Database.get_difficulty(difficulty)
-	if not diff.is_empty():
-		amount_of_tasks = int(diff["task_count"])
-		shift_timer = float(diff["shift_timer_sec"])
+	_apply_difficulty_stats()
 
 	var picked: Array = Database.pick_mobs_for_shift(difficulty)
 	for row in picked:
@@ -97,7 +99,42 @@ func prepare_shift() -> void:
 			"Bloody":
 				is_valve_active = true
 
-	print("Сложность ", difficulty, " | мобы: ", selected_mobs)
+func _load_difficulty_from_db() -> void:
+	if Database.db != null:
+		difficulty = Database.get_selected_difficulty()
+		_apply_difficulty_stats()
+
+	if Database.db == null:
+		push_error("База ещё не открыта")
+		return
+
+	var diff = Database.get_difficulty(difficulty)
+	if diff.is_empty():
+		push_error("Нет сложности с id=%d" % difficulty)
+		return
+
+	amount_of_tasks = int(diff["task_count"])
+	shift_timer = float(diff["shift_timer_sec"])
+
+	var acts = Database.get_mob_activations(4, difficulty)
+	if acts != null:
+		valve_activations = int(acts)
+
+	var picked: Array = Database.pick_mobs_for_shift(difficulty)
+	for row in picked:
+		var n := str(row["name"])
+		selected_mobs.append(n)
+		match n:
+			"Bleach":
+				is_bleach_active = true
+			"Hypno":
+				is_hypno_active = true
+			"Ripper":
+				is_ripper_active = true
+			"Bloody":
+				is_valve_active = true
+
+	print("Сложность ", difficulty, " | задания ", amount_of_tasks, " | время ", shift_timer, " | мобы: ", selected_mobs)
 
 var window_mode: int:
 	set(value):
@@ -165,7 +202,7 @@ var _is_loading_config = false
 
 func _ready():
 	_load_config()
-	call_deferred("prepare_shift")
+	call_deferred("_load_difficulty_from_db")
 
 func _load_config():
 	_is_loading_config = true
@@ -181,8 +218,6 @@ func _load_config():
 		master_volume = config.get_value("audio", "master_volume", 50.0)
 		music_volume = config.get_value("audio", "music_volume", 50.0)
 		sounds_volume = config.get_value("audio", "sounds_volume", 50.0)
-		var saved_diff = config.get_value("game", "difficulty", 1)
-		set_difficulty(saved_diff)
 	else:
 		window_mode = DisplayServer.window_get_mode()
 		var vsync_mode = DisplayServer.window_get_vsync_mode()
@@ -200,7 +235,6 @@ func _load_config():
 		master_volume = 50.0
 		music_volume = 50.0
 		sounds_volume = 50.0
-		set_difficulty(1)
 	_is_loading_config = false
 
 func _apply_volume(bus_name: String, value: float) -> void:

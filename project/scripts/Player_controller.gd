@@ -21,6 +21,7 @@ const OUTLINE_MATERIAL = preload("res://models/materials/outline_material.tres")
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	shift_settings.prepare_shift()
 	if oxygen_manager:
 		oxygen_manager.oxygen_depleted.connect(func(): _die("ASPHYXATION"))
 	
@@ -188,6 +189,7 @@ func _die(reason, killer = null):
 	
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	shift_settings.last_death_reason = reason.to_upper()
+	Database.record_death(shift_settings.last_death_reason)
 	
 	if reason == "ASPHYXATION":
 		if is_monitoring:

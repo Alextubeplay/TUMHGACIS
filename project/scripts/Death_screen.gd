@@ -5,13 +5,18 @@ extends Node3D
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+
 	if label:
-		label.text = tr("DEATH_PREFIX") + " " + tr(str(ShiftSettings.last_death_reason))
-	
+		var code := str(ShiftSettings.last_death_reason).to_upper()
+		var reason: Dictionary = Database.get_death_reason(code)
+		if reason.is_empty():
+			label.text = tr("DEATH_PREFIX") + " " + tr(code)
+		else:
+			label.text = tr("DEATH_PREFIX") + " " + tr(str(reason["code"]))
+
 	if death_env and death_env.environment:
 		death_env.environment.ambient_light_source = Environment.AMBIENT_SOURCE_DISABLED
-		
+
 		var camera = get_viewport().get_camera_3d()
 		if camera:
 			camera.environment = death_env.environment

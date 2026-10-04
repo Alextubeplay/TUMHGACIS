@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://prxmynv63aym"]
 
-[ext_resource type="Script" uid="uid://cvtltj2g12xy1" path="res://scripts/crematory.gd" id="1_uw6to"]
+[ext_resource type="Script" uid="uid://cvtltj2g12xy1" path="res://scripts/Crematory.gd" id="1_uw6to"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kcyhv"]
 resource_name = "Black_metall"

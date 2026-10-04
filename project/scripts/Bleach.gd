@@ -69,7 +69,7 @@ func _mob_kicks_door():
 		if not crematory.is_opened:
 			crematory.kick_at_player(player.global_position)
 			await get_tree().create_timer(0.45).timeout
-			player._die("BLEACH", crematory)
+			player._die("DOOR", crematory)
 		crematory.interaction_locked = false
 
 func _logic():

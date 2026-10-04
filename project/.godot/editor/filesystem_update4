@@ -5,3 +5,8 @@ res://models/materials/outline_material.gdshader
 res://shaders/light_outline.gdshader
 res://scripts/Database.gd
 res://scripts/Shift_settings.gd
+res://scripts/Player_controller.gd
+res://scripts/Death_screen.gd
+res://content/enemies/Bleach.tscn
+res://scripts/Bleach.gd
+res://content/interactable/Crematory.tscn

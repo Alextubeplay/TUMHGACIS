@@ -3,7 +3,7 @@ extends Node
 ## Файл: res://scripts/Database.gd
 
 const USER_PATH := "user://game.db"
-const SCHEMA_VERSION := 4
+const SCHEMA_VERSION := 5
 
 var db: SQLite
 
@@ -16,8 +16,7 @@ func _ready() -> void:
 		push_error("Не открылась БД: " + str(db.error_message))
 		return
 	_ensure_schema()
-	print("База готова. Задания:")
-	print(get_tasks())
+	
 
 
 func _ensure_schema() -> void:
@@ -115,14 +114,44 @@ func get_tasks() -> Array:
 
 func get_death_reason(code: String) -> Dictionary:
 	var safe := code.replace("'", "''")
-	var rows := query("SELECT * FROM death_reasons WHERE code = '%s';" % safe)
+	var rows := query("""
+		SELECT dr.id, dr.code, dr.mob_id, m.name AS mob_name
+		FROM death_reasons dr
+		LEFT JOIN mobs m ON m.id = dr.mob_id
+		WHERE dr.code = '%s';
+	""" % safe)
 	return {} if rows.is_empty() else rows[0]
 
+
+func record_death(code: String) -> Dictionary:
+	var reason := get_death_reason(code.to_upper())
+	if reason.is_empty():
+		push_error("Нет такой причины смерти в базе: " + code)
+		return {}
+	query("UPDATE statistics SET losses = losses + 1 WHERE id = 1;")
+	var reason_code := str(reason.get("code", "")).to_upper()
+	var mob_id = reason.get("mob_id")
+	if reason_code == "DOOR" and mob_id != null:
+		query("UPDATE statistics_mobs SET door_losses = door_losses + 1 WHERE mob_id = %d;" % int(mob_id))
+	elif mob_id == null:
+		query("UPDATE statistics SET asphyxiation_losses = asphyxiation_losses + 1 WHERE id = 1;")
+	else:
+		query("UPDATE statistics_mobs SET losses = losses + 1 WHERE mob_id = %d;" % int(mob_id))
+	return reason
 
 func get_settings() -> Dictionary:
 	var rows := query("SELECT * FROM settings WHERE id = 1;")
 	return {} if rows.is_empty() else rows[0]
 
+func set_selected_difficulty(difficulty_id: int) -> void:
+	query("UPDATE settings SET difficulty_id = %d WHERE id = 1;" % difficulty_id)
+
+
+func get_selected_difficulty() -> int:
+	var s := get_settings()
+	if s.is_empty():
+		return 1
+	return int(s.get("difficulty_id", 1))
 
 func get_statistics() -> Dictionary:
 	var rows := query("SELECT * FROM statistics WHERE id = 1;")
@@ -243,7 +272,7 @@ CREATE TABLE death_reasons (
     FOREIGN KEY (mob_id) REFERENCES mobs(id)
 );
 
-INSERT INTO meta (id, version) VALUES (1, 4);
+INSERT INTO meta (id, version) VALUES (1, 5);
 
 INSERT INTO difficulties (id, name, task_count, shift_timer_sec, mob_count) VALUES
     (1, 'Easy', 3, 120.0, 2),
@@ -336,6 +365,7 @@ INSERT INTO death_reasons (code, mob_id) VALUES
     ('HYPNO', 2),
     ('RIPPER', 3),
     ('BLOODY', 4),
+    ('DOOR', 1),
     ('ASPHYXATION', NULL);
 
 CREATE TABLE statistics (
