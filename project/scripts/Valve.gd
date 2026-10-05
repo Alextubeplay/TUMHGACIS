@@ -9,6 +9,7 @@ extends Node3D
 var is_opened = false
 var timer = 1.0
 var chance = 0.0047
+var step_timer_base = 30.0
 var pushes = 1
 var activations = 2
 
@@ -24,6 +25,10 @@ func _ready() -> void:
 			1: activations = 2
 			2: activations = 4
 			3: activations = 100
+	var row: Dictionary = Database.get_mob_by_name("Bloody")
+	if not row.is_empty():
+		chance = float(row["chance"])
+		step_timer_base = float(row["step_timer"])
 	if blood_particles:
 		blood_particles.emitting = false
 	if blood_sound:
@@ -37,27 +42,27 @@ func _process(delta):
 			timer = 1.0
 			var is_rage = shift_settings.is_rage_mode_active if shift_settings else false
 			var should_open = false
-			
+
 			if is_rage:
 				should_open = true
 			elif activations > 0 and randf() < chance:
 				should_open = true
-				
+
 			if shift_settings.is_valve_active and should_open:
 				is_opened = true
 				var audio_mgr = get_node_or_null("/root/AudioManager") if has_node("/root/AudioManager") else get_node_or_null("/root/Audio_manager")
 				if audio_mgr and audio_mgr.has_method("play_bloody_valve_rip"):
 					audio_mgr.play_bloody_valve_rip()
-				
+
 				match shift_settings.difficulty:
 					1: pushes = randi_range(1, 2)
 					2: pushes = randi_range(2, 4)
 					3: pushes = randi_range(2, 6)
 				if not is_rage:
 					activations -= 1
-				timer = 30
+				timer = step_timer_base
 				trigger_blood_spawning()
-	
+
 	if valve_indicator:
 		if shift_settings and "hear_loss_mode" in shift_settings and shift_settings.hear_loss_mode and is_opened:
 			valve_indicator.show()
@@ -67,24 +72,23 @@ func _process(delta):
 func interact():
 	if is_opened and $AnimationPlayer.current_animation == "":
 		var audio_mgr = get_node_or_null("/root/AudioManager") if has_node("/root/AudioManager") else get_node_or_null("/root/Audio_manager")
-		
+
 		if pushes < 1:
 			$AnimationPlayer.play("Rotate")
 			is_opened = false
-			
+
 			if audio_mgr and audio_mgr.has_method("play_bloody_valve_tighten"):
 				audio_mgr.play_bloody_valve_tighten()
-			
+
 			if blood_particles:
 				blood_particles.emitting = false
 			if blood_sound:
 				blood_sound.stop()
-				
+
 			if death_blood:
 				var tween = create_tween()
 				tween.tween_property(death_blood, "color:a", 0.0, 0.3)
-			
-			# Логика task полностью убрана
+
 			if shift_settings and not initial_rage_active and not shift_settings.rage_triggered_by_valve:
 				var diff = shift_settings.difficulty
 				var rage_chance = 0.0
@@ -92,7 +96,7 @@ func interact():
 					rage_chance = 0.45
 				elif diff == 3:
 					rage_chance = 0.90
-				
+
 				if randf() < rage_chance:
 					shift_settings.is_rage_mode_active = true
 					shift_settings.rage_triggered_by_valve = true

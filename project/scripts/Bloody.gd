@@ -5,6 +5,7 @@ extends Node3D
 @export var FLOOR_Y: float = 0.0
 
 var timer = 10.0
+var kill_timer_base = 10.0
 
 @onready var valve = $"../Valve"
 @onready var player = $"../Player"
@@ -12,6 +13,10 @@ var timer = 10.0
 
 func _ready() -> void:
 	hide()
+	var row: Dictionary = Database.get_mob_by_name("Bloody")
+	if not row.is_empty():
+		kill_timer_base = float(row["kill_timer"])
+		timer = kill_timer_base
 
 func _process(delta: float) -> void:
 	if not player.alive: return
@@ -21,14 +26,13 @@ func _process(delta: float) -> void:
 			timer -= delta
 		_go_to_player()
 	else:
-		timer = 10.0
+		timer = kill_timer_base
 		hide()
 
 func _go_to_player():
 	if timer <= 0 and player.alive:
-		# Передаем "BLOODY", теперь PlayerController это понимает
 		player._die("BLOODY", self)
-		timer = 10.0
+		timer = kill_timer_base
 
 func start_kill_sequence_movement():
 	show()
@@ -36,23 +40,22 @@ func start_kill_sequence_movement():
 		var anim = anim_player.get_animation("Bloody_moving")
 		anim.loop_mode = Animation.LOOP_LINEAR
 		anim_player.play("Bloody_moving")
-		
+
 		while true:
 			var target_pos = player.global_position
 			target_pos.y = FLOOR_Y
-			
+
 			var dist = global_position.distance_to(target_pos)
-			
+
 			if dist <= KILL_DISTANCE:
 				break
-				
+
 			var direction = (target_pos - global_position).normalized()
 			global_position += direction * MOVE_SPEED * get_process_delta_time()
-			
+
 			look_at(target_pos, Vector3.UP)
-			# Если модель развернута боком, оставляем ротацию:
 			rotate_object_local(Vector3.UP, deg_to_rad(90))
-			
+
 			await get_tree().process_frame
 
 func play_kill_animation():

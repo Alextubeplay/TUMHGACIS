@@ -1,11 +1,13 @@
 extends Node3D
 
-@export var KILL_DISTANCE: float = 2.7 
+@export var KILL_DISTANCE: float = 2.7
 @export var MOVE_SPEED: float = 12.5
 
 var chance = 0.3
 var ripper_position = "far"
 var timer = 20.0
+var step_timer_base = 30.0
+var kill_timer_base = 20.0
 var is_cooldown = false
 var retreat_timer = 0.0
 
@@ -18,6 +20,12 @@ var retreat_timer = 0.0
 func _ready() -> void:
 	randomize()
 	hide()
+	var row: Dictionary = Database.get_mob_by_name("Ripper")
+	if not row.is_empty():
+		chance = float(row["chance"])
+		step_timer_base = float(row["step_timer"])
+		kill_timer_base = float(row["kill_timer"])
+		timer = step_timer_base
 
 func _process(delta: float) -> void:
 	if not player.alive:
@@ -33,13 +41,13 @@ func _process(delta: float) -> void:
 			timer -= delta
 		if timer <= 0:
 			is_cooldown = false
-			
+
 		_moving()
 	else:
 		if ripper_position != "far":
 			if retreat_timer == 0.0:
 				retreat_timer = randf_range(5.0, 8.0)
-			
+
 			retreat_timer -= delta
 			if retreat_timer <= 0.0:
 				ripper_position = "far"
@@ -48,7 +56,7 @@ func _process(delta: float) -> void:
 				is_cooldown = true
 				retreat_timer = 0.0
 		hide()
-	
+
 	if shift_settings and "hear_loss_mode" in shift_settings and shift_settings.hear_loss_mode:
 		if ripper_position == "nearest":
 			ripper_indicator.show()
@@ -60,7 +68,7 @@ func _process(delta: float) -> void:
 
 func _moving():
 	var is_rage = shift_settings.is_rage_mode_active if shift_settings else false
-	var step_timer = 1.0 if is_rage else 30.0
+	var step_timer = 1.0 if is_rage else step_timer_base
 
 	match ripper_position:
 		"far":
@@ -74,11 +82,11 @@ func _moving():
 		"near":
 			if timer <= 0 and (is_rage or (randf() < chance * 2.5)):
 				ripper_position = "nearest"
-				timer = 30.0
+				timer = step_timer_base
 		"nearest":
-			if timer <= 20 and player.alive:
+			if timer <= kill_timer_base and player.alive:
 				player._die("RIPPER", self)
-				timer = 20.0
+				timer = kill_timer_base
 
 func start_kill_sequence_movement():
 	show()
@@ -86,7 +94,7 @@ func start_kill_sequence_movement():
 		var anim = anim_player.get_animation("Ripper_moving")
 		anim.loop_mode = Animation.LOOP_LINEAR
 		anim_player.play("Ripper_moving")
-		
+
 		while true:
 			var target_pos = player.global_position
 			target_pos.y = global_position.y

@@ -79,6 +79,11 @@ func get_difficulty(difficulty_id: int) -> Dictionary:
 func get_all_mobs() -> Array:
 	return query("SELECT * FROM mobs ORDER BY id;")
 
+func get_mob_by_name(mob_name: String) -> Dictionary:
+	var safe := mob_name.replace("'", "''")
+	var rows := query("SELECT * FROM mobs WHERE name = '%s';" % safe)
+	return {} if rows.is_empty() else rows[0]
+
 
 func get_mob_activations(mob_id: int, difficulty_id: int):
 	var rows := query("""

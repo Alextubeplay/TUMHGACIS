@@ -104,38 +104,6 @@ func _load_difficulty_from_db() -> void:
 		difficulty = Database.get_selected_difficulty()
 		_apply_difficulty_stats()
 
-	if Database.db == null:
-		push_error("База ещё не открыта")
-		return
-
-	var diff = Database.get_difficulty(difficulty)
-	if diff.is_empty():
-		push_error("Нет сложности с id=%d" % difficulty)
-		return
-
-	amount_of_tasks = int(diff["task_count"])
-	shift_timer = float(diff["shift_timer_sec"])
-
-	var acts = Database.get_mob_activations(4, difficulty)
-	if acts != null:
-		valve_activations = int(acts)
-
-	var picked: Array = Database.pick_mobs_for_shift(difficulty)
-	for row in picked:
-		var n := str(row["name"])
-		selected_mobs.append(n)
-		match n:
-			"Bleach":
-				is_bleach_active = true
-			"Hypno":
-				is_hypno_active = true
-			"Ripper":
-				is_ripper_active = true
-			"Bloody":
-				is_valve_active = true
-
-	print("Сложность ", difficulty, " | задания ", amount_of_tasks, " | время ", shift_timer, " | мобы: ", selected_mobs)
-
 var window_mode: int:
 	set(value):
 		window_mode = value

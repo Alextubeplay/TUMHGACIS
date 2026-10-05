@@ -2,7 +2,7 @@ extends Node3D
 
 @export var START_POS: Vector3
 @export var MOVE_SPEED: float = 12.5
-@export var KILL_DISTANCE: float = 3.0 
+@export var KILL_DISTANCE: float = 3.0
 @export var FLOOR_Y: float = 0.0
 
 var chance = 0.8
@@ -10,6 +10,8 @@ var bleach_position = "far"
 var timer = 30.0
 var is_processing_closure = false
 var is_cooldown = false
+var step_timer_base = 30.0
+var kill_timer_base = 20.0
 
 @onready var shift_settings = get_node("/root/ShiftSettings")
 @onready var crematory = $"../Crematory"
@@ -20,6 +22,12 @@ var is_cooldown = false
 func _ready() -> void:
 	global_position = START_POS
 	hide()
+	var row: Dictionary = Database.get_mob_by_name("Bleach")
+	if not row.is_empty():
+		chance = float(row["chance"])
+		step_timer_base = float(row["step_timer"])
+		kill_timer_base = float(row["kill_timer"])
+		timer = step_timer_base
 
 func _process(delta: float) -> void:
 	if not player.alive: return
@@ -28,10 +36,10 @@ func _process(delta: float) -> void:
 		if not is_processing_closure:
 			is_processing_closure = true
 			_check_door_consequence()
-		return 
+		return
 	else:
 		is_processing_closure = false
-	
+
 	var is_rage = shift_settings.is_rage_mode_active if shift_settings else false
 	if is_rage and not is_cooldown and bleach_position != "nearest" and timer > 1.0:
 		timer = 1.0
@@ -40,7 +48,7 @@ func _process(delta: float) -> void:
 		timer -= delta
 	if timer <= 0:
 		is_cooldown = false
-		
+
 	_logic()
 
 	if bleach_indicator:
@@ -74,7 +82,7 @@ func _mob_kicks_door():
 
 func _logic():
 	var is_rage = shift_settings.is_rage_mode_active if shift_settings else false
-	var step_timer = 1.0 if is_rage else 30.0
+	var step_timer = 1.0 if is_rage else step_timer_base
 
 	match bleach_position:
 		"far":
@@ -93,26 +101,26 @@ func _logic():
 		"near":
 			if timer <= 0 and (is_rage or (randf() < chance * 0.25)):
 				bleach_position = "nearest"
-				timer = 20.0
+				timer = kill_timer_base
 		"nearest":
 			if bleach_indicator: bleach_indicator.show()
-			if timer <= 10.0 and player.alive:
+			if timer <= kill_timer_base * 0.5 and player.alive:
 				player._die("BLEACH", self)
-				timer = 30.0
+				timer = step_timer_base
 
 func start_kill_sequence_movement():
 	show()
 	if anim_player.has_animation("Bleach_jump"):
 		anim_player.play("Bleach_jump")
 		await anim_player.animation_finished
-	
+
 	global_position.y = FLOOR_Y
 
 	if anim_player.has_animation("Bleach_moving"):
 		var anim = anim_player.get_animation("Bleach_moving")
 		anim.loop_mode = Animation.LOOP_LINEAR
 		anim_player.play("Bleach_moving")
-		
+
 		while true:
 			var target_pos = player.global_position
 			target_pos.y = FLOOR_Y
