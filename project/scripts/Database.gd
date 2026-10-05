@@ -158,6 +158,35 @@ func get_selected_difficulty() -> int:
 		return 1
 	return int(s.get("difficulty_id", 1))
 
+func save_settings(data: Dictionary) -> void:
+	query("""
+		UPDATE settings SET
+			difficulty_id = %d,
+			window_mode = %d,
+			resolution_index = %d,
+			vsync = %d,
+			master_volume = %s,
+			music_volume = %s,
+			sounds_volume = %s,
+			mouse_sensitivity = %s,
+			hear_loss_mode = %d,
+			endless_mode = %d,
+			language_index = %d
+		WHERE id = 1;
+	""" % [
+		int(data.get("difficulty_id", 1)),
+		int(data.get("window_mode", 0)),
+		int(data.get("resolution_index", 0)),
+		int(data.get("vsync", 1)),
+		str(float(data.get("master_volume", 50.0))),
+		str(float(data.get("music_volume", 30.0))),
+		str(float(data.get("sounds_volume", 30.0))),
+		str(float(data.get("mouse_sensitivity", 50.0))),
+		int(data.get("hear_loss_mode", 0)),
+		int(data.get("endless_mode", 0)),
+		int(data.get("language_index", 0)),
+	]);
+
 func get_statistics() -> Dictionary:
 	var rows := query("SELECT * FROM statistics WHERE id = 1;")
 	return {} if rows.is_empty() else rows[0]

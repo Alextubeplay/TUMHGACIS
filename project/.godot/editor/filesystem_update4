@@ -11,3 +11,4 @@ res://scripts/Ripper.gd
 res://scripts/Hypno.gd
 res://content/interactable/Crematory.tscn
 res://scripts/Crematory.gd
+res://scripts/Database.gd

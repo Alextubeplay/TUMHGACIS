@@ -100,9 +100,7 @@ func prepare_shift() -> void:
 				is_valve_active = true
 
 func _load_difficulty_from_db() -> void:
-	if Database.db != null:
-		difficulty = Database.get_selected_difficulty()
-		_apply_difficulty_stats()
+	_load_config()
 
 var window_mode: int:
 	set(value):
@@ -169,40 +167,43 @@ var sounds_volume: float:
 var _is_loading_config = false
 
 func _ready():
-	_load_config()
 	call_deferred("_load_difficulty_from_db")
 
 func _load_config():
 	_is_loading_config = true
-	var config = ConfigFile.new()
-	if config.load("user://settings.cfg") == OK:
-		window_mode = config.get_value("video", "window_mode", DisplayServer.WINDOW_MODE_WINDOWED)
-		vsync_enabled = config.get_value("video", "vsync_enabled", true)
-		resolution_index = config.get_value("video", "resolution_index", 0)
-		mouse_sensitivity = config.get_value("game", "mouse_sensitivity", 50.0)
-		hear_loss_mode = config.get_value("game", "hear_loss_mode", false)
-		endless_mode = config.get_value("game", "endless_mode", false)
-		language_index = config.get_value("game", "language_index", 0)
-		master_volume = config.get_value("audio", "master_volume", 50.0)
-		music_volume = config.get_value("audio", "music_volume", 50.0)
-		sounds_volume = config.get_value("audio", "sounds_volume", 50.0)
+
+	var s: Dictionary = {}
+	if Database.db != null:
+		s = Database.get_settings()
+
+	if s.is_empty():
+		window_mode = DEFAULT_WINDOW_MODE
+		vsync_enabled = DEFAULT_VSYNC_ENABLED
+		resolution_index = DEFAULT_RESOLUTION_INDEX
+		mouse_sensitivity = DEFAULT_MOUSE_SENSITIVITY
+		hear_loss_mode = DEFAULT_HEAR_LOSS_MODE
+		endless_mode = DEFAULT_ENDLESS_MODE
+		language_index = DEFAULT_LANGUAGE_INDEX
+		master_volume = DEFAULT_MASTER_VOLUME
+		music_volume = DEFAULT_MUSIC_VOLUME
+		sounds_volume = DEFAULT_SOUNDS_VOLUME
+		difficulty = 1
 	else:
-		window_mode = DisplayServer.window_get_mode()
-		var vsync_mode = DisplayServer.window_get_vsync_mode()
-		vsync_enabled = (vsync_mode != DisplayServer.VSYNC_DISABLED)
-		var current_size = DisplayServer.window_get_size()
-		resolution_index = 0
-		for i in range(resolutions.size()):
-			if resolutions[i] == current_size:
-				resolution_index = i
-				break
-		mouse_sensitivity = 50.0
-		hear_loss_mode = false
-		endless_mode = false
-		language_index = 0
-		master_volume = 50.0
-		music_volume = 50.0
-		sounds_volume = 50.0
+		window_mode = int(s.get("window_mode", DEFAULT_WINDOW_MODE))
+		vsync_enabled = bool(int(s.get("vsync", 1)))
+		resolution_index = int(s.get("resolution_index", DEFAULT_RESOLUTION_INDEX))
+		mouse_sensitivity = float(s.get("mouse_sensitivity", DEFAULT_MOUSE_SENSITIVITY))
+		hear_loss_mode = bool(int(s.get("hear_loss_mode", 0)))
+		endless_mode = bool(int(s.get("endless_mode", 0)))
+		language_index = int(s.get("language_index", DEFAULT_LANGUAGE_INDEX))
+		master_volume = float(s.get("master_volume", DEFAULT_MASTER_VOLUME))
+		music_volume = float(s.get("music_volume", DEFAULT_MUSIC_VOLUME))
+		sounds_volume = float(s.get("sounds_volume", DEFAULT_SOUNDS_VOLUME))
+		difficulty = int(s.get("difficulty_id", 1))
+
+	if Database.db != null:
+		_apply_difficulty_stats()
+
 	_is_loading_config = false
 
 func _apply_volume(bus_name: String, value: float) -> void:
@@ -230,17 +231,18 @@ func reset_gameplay() -> void:
 func _save_config() -> void:
 	if _is_loading_config:
 		return
-	var config = ConfigFile.new()
-	config.load("user://settings.cfg")
-	config.set_value("video", "window_mode", window_mode)
-	config.set_value("video", "vsync_enabled", vsync_enabled)
-	config.set_value("video", "resolution_index", resolution_index)
-	config.set_value("game", "mouse_sensitivity", mouse_sensitivity)
-	config.set_value("game", "hear_loss_mode", hear_loss_mode)
-	config.set_value("game", "endless_mode", endless_mode)
-	config.set_value("game", "language_index", language_index)
-	config.set_value("game", "difficulty", difficulty)
-	config.set_value("audio", "master_volume", master_volume)
-	config.set_value("audio", "music_volume", music_volume)
-	config.set_value("audio", "sounds_volume", sounds_volume)
-	config.save("user://settings.cfg")
+	if Database.db == null:
+		return
+	Database.save_settings({
+		"difficulty_id": difficulty,
+		"window_mode": window_mode,
+		"resolution_index": resolution_index,
+		"vsync": 1 if vsync_enabled else 0,
+		"master_volume": master_volume,
+		"music_volume": music_volume,
+		"sounds_volume": sounds_volume,
+		"mouse_sensitivity": mouse_sensitivity,
+		"hear_loss_mode": 1 if hear_loss_mode else 0,
+		"endless_mode": 1 if endless_mode else 0,
+		"language_index": language_index,
+	})
